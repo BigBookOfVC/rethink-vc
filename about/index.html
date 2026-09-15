@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About · Rethinking Venture Capital</title>
 <meta name="description" content="What is this report about, who is it for, and how should readers go about making the best use of this strategic, insightful report.">
@@ -108,7 +110,10 @@
     --fold:72px;
     clip-path:polygon(0 0, calc(100% - var(--fold)) 0, 100% var(--fold), 100% 100%, 0 100%);
   }
-  .portrait img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;filter:grayscale(.15) contrast(1.02)}
+  .portrait img{display:block;position:absolute;filter:grayscale(.15) contrast(1.02)}
+  /* blurred fill so the zoomed-out photo sits in the frame without letterboxing */
+  .portrait img.pbg{inset:0;width:100%;height:100%;object-fit:cover;filter:blur(28px) grayscale(.3) brightness(.45);transform:scale(1.2)}
+  .portrait img.pfg{top:50%;left:50%;height:78%;width:auto;aspect-ratio:1/1;max-width:86%;object-fit:cover;transform:translate(-50%,-50%);box-shadow:0 18px 50px rgba(0,0,0,.45)}
   /* the folded corner, turned back over the image */
   .portrait::after{
     content:"";position:absolute;top:0;right:0;width:var(--fold);height:var(--fold);
@@ -144,14 +149,14 @@
   .rows{display:flex;flex-direction:column}
   .row{position:relative;border-bottom:1px solid var(--line);min-height:206px;display:flex;align-items:center}
   .rows .row:last-child{border-bottom:0}
-  .row button{all:unset;position:absolute;inset:0;cursor:pointer;display:block;perspective:1400px}
+  .row button{all:unset;position:relative;box-sizing:border-box;width:100%;align-self:stretch;cursor:pointer;display:block;perspective:1400px}
   .row button:focus-visible{outline:2px solid var(--coral);outline-offset:-4px}
-  .flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+  .flip{position:relative;display:grid;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
   .row button:hover .flip,.row button:focus-visible .flip,.row.is-open .flip{transform:rotateX(180deg)}
-  .face{position:absolute;inset:0;display:flex;align-items:center;padding:34px 96px 34px 44px;backface-visibility:hidden}
+  .face{grid-area:1/1;position:relative;display:flex;align-items:center;padding:34px 96px 34px 44px;backface-visibility:hidden}
   .face-back{transform:rotateX(180deg)}
   .face h3{margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.8vw,40px);line-height:1.06;letter-spacing:-.025em;color:var(--ink)}
-  .face-back p{margin:0;color:var(--coral);font-weight:300;font-size:15.5px;line-height:1.62;max-width:52ch}
+  .face-back p{margin:0;color:var(--coral);font-weight:300;font-size:15.5px;line-height:1.62;max-width:none}
   .row .arrow{position:absolute;right:44px;top:50%;transform:translateY(-50%);line-height:0;color:#d6ecef;transition:transform .4s ease,color .4s ease;pointer-events:none}
   .row .arrow svg{width:26px;height:26px;stroke:currentColor;stroke-width:2.4;fill:none;stroke-linecap:square;display:block}
   .row button:hover ~ .arrow,.row.is-open .arrow{transform:translateY(-50%) rotate(180deg);color:#ffa47e}
@@ -194,13 +199,12 @@
   <div class="menu">
     <a href="/about/">About</a>
     <a href="/content/">Contents</a>
-    <a href="/podcast/">Podcast</a>
-    <a href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Snapshots</a>
-    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+    <a href="/podcast/">Expert Views</a>
+    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">The Big Book of VC</a>
   </div>
   <div class="actions">
-    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
-    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
   </div>
 </nav></div>
 
@@ -218,12 +222,13 @@
 
 <section class="words">
   <figure class="portrait">
-    <img src="/assets/img/people/rohit-yadav.jpg" alt="Rohit Yadav" onerror="this.closest('.portrait').classList.add('noimg')">
+    <img class="pbg" src="/assets/img/people/rohit-yadav.jpg" alt="" aria-hidden="true">
+    <img class="pfg" src="/assets/img/people/rohit-yadav.jpg" alt="Rohit Yadav" onerror="this.closest('.portrait').classList.add('noimg')">
     <span class="pmono" aria-hidden="true">RY</span>
   </figure>
   <figure class="quote">
     <blockquote>Venture markets don't evolve in isolation. As the asset class rebounds from recent challenges, the coming years will be a defining moment, modifying the foundation of VC through structural shifts, technology driven disruptions, and new models of value creation. This report brings together new thought leadership ideas, industry insights, top investor voices, to force us to rethink what's next.</blockquote>
-    <cite><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Rohit Yadav, author</a></cite>
+    <cite><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink" target="_blank" rel="noopener">Rohit Yadav, author</a></cite>
   </figure>
 </section>
 
@@ -268,9 +273,9 @@
 
 <section class="split">
   <div>
-    <p class="eyebrow">[ Snapshots ]</p>
-    <h3>Check the snippets</h3>
-    <a class="btn" href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">View snapshots</a>
+    <p class="eyebrow">[ Expert Views ]</p>
+    <h3>Check out the expert views</h3>
+    <a class="btn" href="/podcast/">View expert views</a>
   </div>
   <div>
     <p class="eyebrow">[ Contents ]</p>
@@ -280,10 +285,10 @@
 </section>
 
 <footer>
-  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">The Big Book of VC</a>
   <div class="actions">
-    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
-    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
   </div>
 </footer>
 

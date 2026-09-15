@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Freedom Stack · Larsen Jensen, Harpoon Ventures · Rethinking Venture Capital</title>
 <meta name="description" content="Larsen Jensen of Harpoon Ventures on the freedom stack, defence tech and geopolitics in venture.">
@@ -110,14 +112,14 @@
 
  .row{position:relative;border-top:1px solid var(--line-soft);min-height:132px;display:flex;align-items:center}
  .row:first-of-type{border-top:0}
- .row button{all:unset;position:absolute;inset:0;cursor:pointer;display:block;perspective:1200px}
+ .row button{all:unset;position:relative;box-sizing:border-box;width:100%;align-self:stretch;cursor:pointer;display:block;perspective:1200px}
  .row button:focus-visible{outline:2px solid var(--coral);outline-offset:-4px}
- .flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+ .flip{position:relative;display:grid;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
  .row button:hover .flip,.row button:focus-visible .flip,.row.is-open .flip{transform:rotateX(180deg)}
- .face{position:absolute;inset:0;display:flex;align-items:center;padding:22px 72px 22px 0;backface-visibility:hidden}
+ .face{grid-area:1/1;position:relative;display:flex;align-items:center;padding:22px 72px 22px 0;backface-visibility:hidden}
  .face-back{transform:rotateX(180deg)}
  .face h3{font-weight:300;font-size:clamp(20px,2.2vw,30px);line-height:1.1;letter-spacing:-.03em}
- .face-back p{color:var(--coral);font-weight:300;font-size:15px;line-height:1.6;max-width:56ch}
+ .face-back p{color:var(--coral);font-weight:300;font-size:15px;line-height:1.6;max-width:none}
  .arrow{position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--muted);transition:transform .4s,color .4s;pointer-events:none}
  .row button:hover ~ .arrow,.row.is-open .arrow{transform:translateY(-50%) rotate(180deg);color:var(--coral)}
 
@@ -146,11 +148,11 @@
 
  .more-wrap{border-top:1px solid var(--line);padding:52px 0 76px}
  .more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:30px}
- .card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:26px;transition:border-color .25s,transform .25s}
+ .card{display:flex;flex-direction:column;height:100%;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:26px;transition:border-color .25s,transform .25s}
  .card:hover{border-color:rgba(248,138,99,.55);transform:translateY(-2px)}
  .card .chip{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:4px;background:rgba(248,138,99,.12);color:var(--coral);font-size:15px;margin-bottom:22px}
  .card h3{font-weight:300;font-size:19px;line-height:1.3;letter-spacing:-.02em}
- .card .when{margin-top:20px;font-size:12px;letter-spacing:.08em;color:var(--muted)}
+ .card .when{margin-top:auto;padding-top:20px;font-size:12px;letter-spacing:.08em;color:var(--muted)}
 
  footer{border-top:1px solid var(--line);padding:26px 0;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
  footer a:hover{color:var(--coral)}
@@ -287,13 +289,12 @@
   <div class="menu">
     <a href="/about/">About</a>
     <a href="/content/">Contents</a>
-    <a href="/podcast/">Podcast</a>
-    <a href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Snapshots</a>
-    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+    <a href="/podcast/">Expert Views</a>
+    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">The Big Book of VC</a>
   </div>
   <div class="actions">
-    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
-    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
   </div>
 </nav></div></div>
 
@@ -335,28 +336,28 @@
       <h4>SHARE</h4>
       <div class="share">
         <a href="#" id="copyLink" aria-label="Copy link"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg></a>
-        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fepisodes%2Fthe-freedom-stack.html" aria-label="Share on X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fepisodes%2Fthe-freedom-stack.html" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4"/></svg></a>
-        <a href="mailto:?body=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fepisodes%2Fthe-freedom-stack.html" aria-label="Share by email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fviews%2Fthe-freedom-stack.html" aria-label="Share on X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fviews%2Fthe-freedom-stack.html" aria-label="Share on LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4"/></svg></a>
+        <a href="mailto:?body=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fviews%2Fthe-freedom-stack.html" aria-label="Share by email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
       </div>
 
       <h4>GUEST</h4>
       <div class="who">
         <span class="av"><img class="avatar" src="/assets/img/people/larsen-jensen.jpg" alt="" onerror="this.closest('.av').classList.add('noimg')"><span class="mono" aria-hidden="true">LJ</span></span>
-        <div><p class="n"><a href="https://www.harpoon.vc/team/larsen-jensen?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Larsen Jensen ↗</a></p><p class="r">Founder and Managing GP, <a href="https://www.harpoon.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Harpoon Ventures ↗</a></p></div>
+        <div><p class="n"><a href="https://www.linkedin.com/in/larsen-jensen/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Larsen Jensen ↗</a></p><p class="r">Founder and Managing GP, <a href="https://www.harpoon.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Harpoon Ventures ↗</a></p></div>
       </div>
 
       <h4>HOST</h4>
       <div class="who">
         <span class="av"><img class="avatar" src="/assets/img/people/rohit-yadav.jpg" alt="" onerror="this.closest('.av').classList.add('noimg')"><span class="mono" aria-hidden="true">RY</span></span>
-        <div><p class="n"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Rohit Yadav</a></p><p class="r">Investments thought leader, Big Book of VC</p></div>
+        <div><p class="n"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Rohit Yadav ↗</a></p><p class="r">Investments thought leader, <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Big Book of VC ↗</a></p></div>
       </div>
 
       <hr>
 
       <h4>NEWSLETTER</h4>
       <p class="note">Don't miss the next insight drop on the Rethinking VC topic.</p>
-      <a class="subscribe" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe <span>→</span></a>
+      <a class="subscribe" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe <span>→</span></a>
     </aside>
 
     <main>
@@ -380,7 +381,7 @@
 
       <section class="panel prose">
         <div class="plabel"><span>ABOUT THE EPISODE</span><i></i></div>
-        <p>Rohit Yadav sits down with Larsen Jensen, former Navy SEAL, two-time Olympic medallist, and now Founding GP at Harpoon Ventures.</p>
+        <p>Rohit Yadav sits down with <a href="https://www.linkedin.com/in/larsen-jensen/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Larsen Jensen</a>, former Navy SEAL, two-time Olympic medallist, and now Founding GP at <a href="https://www.harpoon.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Harpoon Ventures</a>.</p>
         <p><b>The great awakening.</b> Silicon Valley is returning to its roots. It started with ARPANET, the space race, and Cold War tech. Then it moved on to SaaS and social media. Now it is back to building the hard stuff.</p>
         <p><b>The perfect storm.</b> Three forces are converging: founders leaving top tech companies to build hard tech, government budgets finally prioritising resilience, and private capital filling the void.</p>
         <p><b>Ukraine changed everything.</b> This isn't just another conflict, it's "Drone War One". The rules of warfare have been rewritten faster than doctrine can adapt.</p>
@@ -454,29 +455,29 @@
         <div class="mgroup">
           <h3>FIRM &amp; PROGRAMME</h3>
           <div class="mitem"><span class="mkind">FIRM</span>
-            <div><p class="mname"><a href="https://www.harpoon.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Harpoon Ventures ↗</a></p>
+            <div><p class="mname"><a href="https://www.harpoon.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Harpoon Ventures ↗</a></p>
               <p class="mdesc">First-check investor in the freedom stack: energy, rare earths, AI, cybersecurity, space and autonomy.</p></div></div>
           <div class="mitem"><span class="mkind">ACCELERATOR</span>
             <div><p class="mname">Black Flag</p>
               <p class="mdesc">A programme built for founders in these technology areas, addressing the shortage not of technical talent but of expertise in navigating the government customer.</p></div></div>
           <div class="mitem"><span class="mkind">PRIOR</span>
-            <div><p class="mname"><a href="https://a16z.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Andreessen Horowitz ↗</a>, <a href="https://lsvp.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Lightspeed ↗</a></p>
+            <div><p class="mname"><a href="https://a16z.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Andreessen Horowitz ↗</a>, <a href="https://lsvp.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Lightspeed ↗</a></p>
               <p class="mdesc">Where Larsen gained his venture experience before founding Harpoon.</p></div></div>
         </div>
 
         <div class="mgroup">
           <h3>PORTFOLIO</h3>
           <div class="mitem"><span class="mkind">AI</span>
-            <div><p class="mname"><a href="https://n8n.io/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">n8n ↗</a></p>
-              <p class="mdesc">Berlin-based, an AI-native orchestration layer for agentic AI; he points to <a href="https://zapier.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Zapier ↗</a> as the $4 billion market comparable.</p></div></div>
+            <div><p class="mname"><a href="https://n8n.io/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">n8n ↗</a></p>
+              <p class="mdesc">Berlin-based, an AI-native orchestration layer for agentic AI; he points to <a href="https://zapier.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Zapier ↗</a> as the $4 billion market comparable.</p></div></div>
           <div class="mitem"><span class="mkind">BIO</span>
-            <div><p class="mname"><a href="https://www.genesistherapeutics.ai/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Genesis Therapeutics ↗</a></p>
+            <div><p class="mname"><a href="https://www.genesistherapeutics.ai/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Genesis Therapeutics ↗</a></p>
               <p class="mdesc">AI for drug discovery.</p></div></div>
           <div class="mitem"><span class="mkind">CHEMICALS</span>
-            <div><p class="mname"><a href="https://solugen.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Solugen ↗</a></p>
+            <div><p class="mname"><a href="https://solugen.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Solugen ↗</a></p>
               <p class="mdesc">Synthetic biology in the chemical space in the United States.</p></div></div>
           <div class="mitem"><span class="mkind">SPACE</span>
-            <div><p class="mname"><a href="https://www.astranis.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Astranis ↗</a></p>
+            <div><p class="mname"><a href="https://www.astranis.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Astranis ↗</a></p>
               <p class="mdesc">Global connectivity from high orbits, being down-selected for prolific US government programmes.</p></div></div>
         </div>
 
@@ -486,23 +487,23 @@
             <div><p class="mname">ARPANET and the space race</p>
               <p class="mdesc">How Silicon Valley started: building innovative technology for US government programmes.</p></div></div>
           <div class="mitem"><span class="mkind">SCALE</span>
-            <div><p class="mname"><a href="https://www.crowdstrike.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">CrowdStrike ↗</a>, <a href="https://www.splunk.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Splunk ↗</a>, <a href="https://aws.amazon.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">AWS ↗</a></p>
+            <div><p class="mname"><a href="https://www.crowdstrike.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">CrowdStrike ↗</a>, <a href="https://www.splunk.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Splunk ↗</a>, <a href="https://aws.amazon.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">AWS ↗</a></p>
               <p class="mdesc">Companies whose public-sector business reached hundreds of millions in revenue; AWS got its start servicing the US intelligence community.</p></div></div>
           <div class="mitem"><span class="mkind">CYBER</span>
-            <div><p class="mname"><a href="https://www.wiz.io/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Wiz ↗</a></p>
+            <div><p class="mname"><a href="https://www.wiz.io/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Wiz ↗</a></p>
               <p class="mdesc">Cited as one of the most astronomical business outcomes ever, and a lagging indicator of the scale of the cyber problem.</p></div></div>
           <div class="mitem"><span class="mkind">CAPITAL</span>
-            <div><p class="mname"><a href="https://openai.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">OpenAI ↗</a></p>
+            <div><p class="mname"><a href="https://openai.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">OpenAI ↗</a></p>
               <p class="mdesc">His example of private risk capital doing what taxpayers would once have had to fund.</p></div></div>
         </div>
       </section>
 
       <div class="listen">
         <h4>SUBSCRIBE ON</h4>
-        <a class="btn" href="https://www.youtube.com/@theonepoint?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">YouTube</a>
-        <a class="btn" href="https://yadavrohit.substack.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Substack</a>
-        <a class="btn" href="https://open.spotify.com/show/19LhIXECFj9i91MFCCWuTR?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Spotify</a>
-        <a class="btn" href="https://podcasts.apple.com/us/podcast/the-one-point/id1644098589?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Apple Podcasts</a>
+        <a class="btn" href="https://www.youtube.com/@theonepoint?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">YouTube</a>
+        <a class="btn" href="https://yadavrohit.substack.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Substack</a>
+        <a class="btn" href="https://open.spotify.com/show/19LhIXECFj9i91MFCCWuTR?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Spotify</a>
+        <a class="btn" href="https://podcasts.apple.com/us/podcast/the-one-point/id1644098589?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Apple Podcasts</a>
       </div>
     </main>
   </div>
@@ -512,17 +513,17 @@
   <section class="more-wrap">
     <div class="plabel"><span>RELATED EPISODES</span><i></i></div>
     <div class="more">
-      <a class="card" href="https://www.rethink.bigbook.vc/blog/shifting-dynamics-of-venture-fund-management?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink"><span class="chip">↗</span><h3>Shifting Dynamics of Venture Fund Management</h3><p class="when">DANIEL KEIPER-KNORR · SPEEDINVEST</p></a>
-      <a class="card" href="https://www.rethink.bigbook.vc/blog/indexing-venture-capital?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink"><span class="chip">↗</span><h3>Indexing Venture Capital</h3><p class="when">ROB HODGKINSON · SIGNALRANK</p></a>
-      <a class="card" href="https://www.rethink.bigbook.vc/blog/insights-into-corporate-venture-capital?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink"><span class="chip">↗</span><h3>Insights into Corporate Venture Capital</h3><p class="when">NICOLAS SAUVAGE · TDK VENTURES</p></a>
+      <a class="card" href="/podcast/views/shifting-dynamics-of-venture-fund-management.html"><span class="chip">→</span><h3>Shifting Dynamics of Venture Fund Management</h3><p class="when">DANIEL KEIPER-KNORR · SPEEDINVEST</p></a>
+      <a class="card" href="/podcast/views/indexing-venture-capital.html"><span class="chip">→</span><h3>Indexing Venture Capital</h3><p class="when">ROB HODGKINSON · SIGNALRANK</p></a>
+      <a class="card" href="/podcast/views/insights-into-corporate-venture-capital.html"><span class="chip">→</span><h3>Insights into Corporate Venture Capital</h3><p class="when">NICOLAS SAUVAGE · TDK VENTURES</p></a>
     </div>
   </section>
 
   <footer>
-  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">The Big Book of VC</a>
   <div class="actions">
-    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
-    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
   </div>
 </footer>
 </div>

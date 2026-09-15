@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contents · Rethinking Venture Capital</title>
 <meta name="description" content="Check out the contents and discover key topics, contributors, and ideas to enhance your experience.">
@@ -69,19 +71,14 @@
   .pcard h3{font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.25}
   .plink{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--coral)}
   .plink svg{width:16px;height:16px;stroke:currentColor;stroke-width:2.2;fill:none;transition:transform .25s}
-  .pcard:hover .plink svg{transform:translateX(4px)}
+  .pcard:hover .plink svg{transform:translate(3px,-3px)}
 
-  /* closing band */
-  .band{background:#f5ab91;color:var(--coral-ink);padding:64px 40px;display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap}
-  .band h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.2vw,42px);line-height:1.1;letter-spacing:-.025em;max-width:18ch}
-  .band .btn{border-color:var(--coral-ink);color:var(--coral-ink)}
-  .band .btn:hover{background:var(--coral-ink);color:#f5ab91}
 
   footer{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:26px 40px;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
   footer a:hover{color:var(--coral)}
 
   @media (max-width:1000px){
-    nav,.hero,.srow,.past,.band,footer{padding-left:24px;padding-right:24px}
+    nav,.hero,.srow,.past,footer{padding-left:24px;padding-right:24px}
     .menu{display:none}
     .hero{grid-template-columns:1fr;gap:26px;padding-top:52px}
     .srow{grid-template-columns:1fr;gap:18px}
@@ -109,6 +106,14 @@
  .panel,.stats{box-shadow:0 1px 0 rgba(255,255,255,.05) inset}
  .cover{background:#123840 !important;box-shadow:0 1px 0 rgba(255,255,255,.06) inset}
  .quote{box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+  /* past reports on the light coral, dark text */
+  .past{background:#f5ab91;color:var(--coral-ink);border-top:0}
+  .past .eyebrow{color:rgba(22,11,5,.7)}
+  .past h2{color:var(--coral-ink)}
+  .pcard{background:rgba(255,255,255,.18);border-color:rgba(22,11,5,.28)}
+  .pcard:hover{background:rgba(255,255,255,.3);border-color:var(--coral-ink)}
+  .pcard h3{color:var(--coral-ink)}
+  .plink{color:var(--coral-ink)}
 </style>
 </head>
 <body>
@@ -125,13 +130,12 @@
   <div class="menu">
     <a href="/about/">About</a>
     <a href="/content/">Contents</a>
-    <a href="/podcast/">Podcast</a>
-    <a href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Snapshots</a>
-    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+    <a href="/podcast/">Expert Views</a>
+    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">The Big Book of VC</a>
   </div>
   <div class="actions">
-    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
-    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
   </div>
 </nav></div>
 
@@ -143,8 +147,8 @@
   <div>
     <p>A comprehensive, forward-looking strategic report that reframes how we view the venture asset class across its entire value chain.</p>
     <div class="cta">
-      <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Download full report</a>
-      <a class="btn" href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">View snapshots</a>
+      <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink" target="_blank" rel="noopener">Download full report</a>
+      <a class="btn" href="/podcast/">View expert views</a>
     </div>
   </div>
 </header>
@@ -256,7 +260,7 @@
         <li class="item">
           <span class="ikind">Interview</span>
           <h3><a class="ilink" href="/podcast/views/pe-vc-investing-insights.html">PE/VC Insights from Family Office Backed FoF <span class="iarrow">↗</span></a></h3>
-          <p>Snapshot of the interview with Joel Sandhu from Top Tier Access.</p>
+          <p>Snapshot of the interview with Joel Sandhu from Investors Capital.</p>
         </li>
         <li class="item">
           
@@ -381,35 +385,30 @@
   <p class="eyebrow">[ Resources ]</p>
   <h2>Past reports</h2>
   <div class="pgrid">
-      <a class="pcard" href="https://docsend.com/v/7vk3c/big-book-vc-q1-2025?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">
+      <a class="pcard" href="https://docsend.com/v/7vk3c/big-book-vc-q1-2025?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">
         <h3>The Big Book of VC, Q1 2025</h3>
-        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></span>
+        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
-      <a class="pcard" href="https://docsend.com/v/7vk3c/big-book-vc-2024?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">
+      <a class="pcard" href="https://docsend.com/v/7vk3c/big-book-vc-2024?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">
         <h3>The Big Book of VC, 2024 Annual</h3>
-        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></span>
+        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
-      <a class="pcard" href="https://docsend.com/v/7vk3c/macro-in-venture?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">
+      <a class="pcard" href="https://docsend.com/v/7vk3c/macro-in-venture?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">
         <h3>Macro in Venture</h3>
-        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></span>
+        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
-      <a class="pcard" href="https://docsend.com/v/7vk3c/big-book-vc-q3-24?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">
+      <a class="pcard" href="https://docsend.com/v/7vk3c/big-book-vc-q3-24?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">
         <h3>The Big Book of VC, Q3 2024</h3>
-        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></span>
+        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
   </div>
 </section>
 
-<section class="band">
-  <h2>Ready to decipher the future?</h2>
-  <a class="btn" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Download the report</a>
-</section>
-
 <footer>
-  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">The Big Book of VC</a>
   <div class="actions">
-    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
-    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
   </div>
 </footer>
 

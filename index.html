@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rethinking Venture Capital · The Big Book of VC</title>
 <meta name="description" content="A comprehensive, 360° review of the entire venture value chain. For LPs, GPs, allocators and founders.">
@@ -308,8 +310,10 @@
  .xrole{color:rgba(22,11,5,.88)}
  .xph{border-color:rgba(22,11,5,.45);filter:grayscale(.2)}
  .xface.noimg .xmono{border-color:rgba(22,11,5,.45);color:var(--coral-ink)}
- .xlink{color:var(--coral-ink);border-bottom:1px solid rgba(22,11,5,.35);padding-bottom:2px}
- .xlink:hover{border-bottom-color:var(--coral-ink)}
+ .xlink{color:var(--coral-ink)}
+ /* push the link to the foot of every card so they line up across the row */
+ .xrole{margin-bottom:18px}
+ .xlink,.xsoon{margin-top:auto;align-self:flex-start;border-bottom:0;padding-bottom:0}
  .xsoon{color:rgba(22,11,5,.62)}
  @media (max-width:1100px){ .xcard:nth-child(2n){border-right:0} }
 
@@ -334,13 +338,12 @@
   <div class="menu">
     <a href="/about/">About</a>
     <a href="/content/">Contents</a>
-    <a href="/podcast/">Podcast</a>
-    <a href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Snapshots</a>
-    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+    <a href="/podcast/">Expert Views</a>
+    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">The Big Book of VC</a>
   </div>
   <div class="actions">
-    <a class="btn btn-solid" id="download" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
-    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+    <a class="btn btn-solid" id="download" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
   </div>
 </nav></div>
 
@@ -482,7 +485,7 @@
 
   <div class="x-grid">
       <article class="xcard">
-        <span class="xface noimg"><span class="xmono" aria-hidden="true">AG</span></span>
+        <span class="xface"><img class="xph" src="/assets/img/people/aarti-gupta.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">AG</span></span>
         <h3>Aarti Gupta</h3>
         <p class="xrole">CIO, Family Office DM Gupta and Anikarth Ventures</p>
         <a class="xlink" href="/snapshots/thoughts-on-indian-family-offices.html">Read the snapshot <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
@@ -617,10 +620,10 @@
 </section>
 
 <footer>
-  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">The Big Book of VC</a>
   <div class="actions">
-    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
-    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
   </div>
 </footer>
 
