@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rethinking Venture Capital · The Big Book of VC</title>
+<meta name="description" content="A comprehensive, 360° review of the entire venture value chain. For LPs, GPs, allocators and founders.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#061417;
+    --line:rgba(190,230,235,.20);
+    --ink:#ffffff;
+    --muted:#93b6bb;
+    --coral:#f88a63;
+    --coral-ink:#160b05;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+
+  /* ---------- nav ---------- */
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:24px;padding:20px 40px;border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:500;letter-spacing:.14em;font-size:16px}
+  .brand svg{display:block}
+  .menu{display:flex;align-items:center;gap:30px;font-size:14px;color:#dff1f3}
+  .menu a{padding:4px 0;border-bottom:1px solid transparent}
+  .menu a:hover{border-bottom-color:var(--coral)}
+  .actions{display:flex;align-items:center;gap:10px}
+  .btn{
+    font:inherit;font-size:13.5px;border-radius:2px;padding:9px 15px;
+    border:1px solid var(--line);color:var(--ink);white-space:nowrap;display:inline-block;
+  }
+  .btn:hover{border-color:#8fc9d1}
+  .btn-solid{background:var(--coral);border-color:var(--coral);color:var(--coral-ink);font-weight:500}
+  .btn-solid:hover{background:#ffa580;border-color:#ffa580}
+
+  /* ---------- hero ---------- */
+  .hero{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+    border-bottom:1px solid var(--line);
+    min-height:calc(100vh - 70px);
+  }
+  .hero-copy{
+    padding:88px 40px 56px;border-right:1px solid var(--line);
+    display:flex;flex-direction:column;
+  }
+  h1{
+    font-weight:400;font-size:clamp(34px,4.4vw,62px);line-height:1.06;
+    letter-spacing:-.035em;margin:0;max-width:17ch;
+  }
+  .typed-line{display:block;min-height:1.06em}
+  .typed{color:var(--coral)}
+  .caret{
+    display:inline-block;width:2px;height:.9em;margin-left:3px;
+    background:var(--coral);vertical-align:-.08em;animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0}}
+  .lede{margin:30px 0 0;font-size:17px;line-height:1.62;color:#dff1f3;max-width:40ch;font-weight:300}
+  .hero-cta{display:flex;gap:12px;margin-top:auto;padding-top:64px;flex-wrap:wrap}
+
+  .art{position:relative;overflow:hidden;min-height:520px}
+  .art canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .art-note{
+    position:absolute;right:40px;bottom:34px;margin:0;font-size:13px;color:#a9ced4;
+    text-align:right;letter-spacing:.02em;line-height:1.5;
+  }
+
+  /* ---------- key features ---------- */
+  .features{
+    display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+    border-bottom:1px solid var(--line);
+  }
+  .features-left{
+    position:relative;border-right:1px solid var(--line);
+    padding:56px 40px;display:flex;flex-direction:column;min-height:640px;
+  }
+  .features-left .kicker{
+    margin:0;font-size:clamp(20px,2vw,30px);line-height:1.25;font-weight:300;
+    color:var(--coral);letter-spacing:-.02em;max-width:14ch;position:relative;z-index:1;
+  }
+  .features-left .art{flex:1;margin:0 -40px -56px;min-height:0}
+
+  .rows{display:flex;flex-direction:column}
+  .row{
+    position:relative;border-bottom:1px solid var(--line);
+    min-height:213px;display:flex;align-items:center;
+  }
+  .rows .row:last-child{border-bottom:0}
+  .row button{
+    all:unset;position:absolute;inset:0;cursor:pointer;
+    display:block;perspective:1400px;
+  }
+  .row button:focus-visible{outline:2px solid var(--coral);outline-offset:-4px}
+  .flip{
+    position:absolute;inset:0;transform-style:preserve-3d;
+    transition:transform .55s cubic-bezier(.2,.7,.2,1);
+  }
+  .row button:hover .flip,
+  .row button:focus-visible .flip,
+  .row.is-open .flip{transform:rotateX(180deg)}
+  .face{
+    position:absolute;inset:0;display:flex;align-items:center;
+    padding:34px 96px 34px 44px;backface-visibility:hidden;
+  }
+  .face-back{transform:rotateX(180deg)}
+  .face h3{
+    margin:0;font-weight:300;font-size:clamp(26px,3.1vw,48px);
+    line-height:1.05;letter-spacing:-.035em;color:var(--ink);
+  }
+  .face-back p{
+    margin:0;color:var(--coral);font-weight:300;font-size:16px;
+    line-height:1.62;max-width:46ch;
+  }
+  .arrow{
+    position:absolute;right:44px;top:50%;transform:translateY(-50%);
+    line-height:0;color:#d6ecef;transition:transform .4s ease,color .4s ease;pointer-events:none;
+  }
+  .arrow svg{width:26px;height:26px;stroke:currentColor;stroke-width:2.4;fill:none;stroke-linecap:square;display:block}
+  .row button:hover ~ .arrow,
+  .row.is-open .arrow{transform:translateY(-50%) rotate(180deg);color:#ffa47e}
+
+  /* ---------- value chain band ---------- */
+  .band{background:#f5ab91;color:var(--coral-ink)}
+  .band-inner{padding:48px 40px 52px}
+  .band h2{
+    font-weight:300;font-size:clamp(26px,3.1vw,44px);line-height:1.12;
+    letter-spacing:-.03em;margin:0;max-width:36ch;
+  }
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:32px;border-top:1px solid rgba(22,11,5,.35)}
+  .cell{padding:22px 28px 4px;border-right:1px solid rgba(22,11,5,.35)}
+  .cell:last-child{border-right:0}
+  .cell:first-child{padding-left:0}
+  .cell h3{margin:0 0 9px;font-size:13px;font-weight:500;letter-spacing:.04em}
+  .cell p{margin:0;font-size:15.5px;line-height:1.62;font-weight:400;max-width:46ch;color:rgba(22,11,5,.8)}
+
+  footer{
+    display:flex;justify-content:space-between;align-items:center;gap:20px;
+    flex-wrap:wrap;padding:26px 40px;font-size:13px;color:var(--muted);
+  }
+
+  @media (max-width:1000px){
+    .hero,.features{grid-template-columns:1fr}
+    .hero{min-height:0}
+    .hero-copy{border-right:0;padding:56px 24px 40px}
+    .art{min-height:420px}
+    .hero .art{border-top:1px solid var(--line)}
+    .features-left{border-right:0;border-bottom:1px solid var(--line);padding:44px 24px;min-height:0}
+    .features-left .art{margin:24px -24px -44px;min-height:340px}
+    .menu{display:none}
+    nav,.band-inner,footer{padding-left:24px;padding-right:24px}
+    .face{padding:28px 68px 28px 24px}
+    .arrow{right:24px}
+    .row{min-height:180px}
+    .grid{grid-template-columns:1fr}
+    .cell{border-right:0;border-bottom:1px solid rgba(22,11,5,.35);padding-left:0;padding-bottom:22px}
+    .cell:last-child{border-bottom:0}
+    .hero-cta{padding-top:40px}
+    .art-note{right:24px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .caret{animation:none}
+    .flip{transition:none}
+    .face{transition:opacity .2s linear}
+  }
+
+  /* ---------- venture's dissonance ---------- */
+  .diss{border-bottom:1px solid var(--line)}
+  .diss-top{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px;align-items:center;padding:52px 40px 32px}
+  .diss-top h2{font-weight:300;font-size:clamp(30px,4vw,54px);line-height:1.05;letter-spacing:-.035em;max-width:15ch}
+  .diss-top p{font-weight:300;font-size:16px;line-height:1.62;color:#dceaec;max-width:38ch;margin:0}
+  .diss-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+  .dcard{
+    all:unset;position:relative;box-sizing:border-box;display:flex;flex-direction:column;
+    min-height:420px;padding:34px 36px 32px;border-right:1px solid var(--line);cursor:pointer;
+    transition:background .35s ease;
+  }
+  .dcard:last-child{border-right:0}
+  .dcard:hover,.dcard.is-open{background:#0b2026}
+  .dcard:focus-visible{outline:2px solid var(--coral);outline-offset:-4px}
+  .dfig{flex:1;display:flex;align-items:center;justify-content:center}
+  .dfig svg{width:min(74%,240px);height:auto;overflow:visible}
+  .dfig svg .l{stroke:rgba(228,247,250,.95);fill:none;stroke-width:1.15}
+  .dfig svg .a{stroke:#ffa47e;fill:none;stroke-width:1.3}
+  .dbody{
+    max-height:0;opacity:0;overflow:hidden;color:#ffa47e;font-weight:300;
+    font-size:15.5px;line-height:1.6;max-width:52ch;
+    transition:max-height .5s cubic-bezier(.2,.7,.2,1),opacity .35s ease,margin .5s ease;
+  }
+  .dcard:hover .dbody,.dcard:focus-visible .dbody,.dcard.is-open .dbody{max-height:220px;opacity:1;margin-top:20px}
+  .dfoot{display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .dfoot h3{font-weight:300;font-size:clamp(22px,2.5vw,32px);line-height:1.1;letter-spacing:-.03em;max-width:11ch}
+  .dfoot .arrow{position:static;top:auto;right:auto;transform:none;display:inline-flex;align-items:center;color:#d6ecef;transition:transform .4s ease,color .4s ease}
+  .dfoot .arrow svg{width:26px;height:26px;stroke:currentColor;stroke-width:2.4;fill:none;stroke-linecap:square}
+  .dcard:hover .dfoot .arrow,.dcard.is-open .dfoot .arrow{transform:rotate(180deg);color:#ffa47e}
+  @media (max-width:900px){
+    .diss-top{grid-template-columns:1fr;gap:20px;padding:52px 24px 32px;align-items:start}
+    .diss-grid{grid-template-columns:1fr}
+    .dcard{min-height:0;border-right:0;border-bottom:1px solid var(--line);padding:32px 24px}
+    .dcard:last-child{border-bottom:0}
+    .dfig{padding:18px 0 26px}
+    .dfig svg{width:150px}
+  }
+  @media (prefers-reduced-motion:reduce){ .dbody,.dcard,.dfoot .arrow{transition:none} }
+
+ /* ---------- type system, matching the podcast pages ---------- */
+ :root{
+   --serif:'Fraunces',Georgia,'Times New Roman',serif;
+   --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+ }
+ body{font-family:var(--sans);font-size:16px;line-height:1.6}
+
+ /* serif for headlines */
+ h1,.band h2,.diss-top h2,.x-intro h2,.features-left .kicker,.face h3,.dfoot h3,.xcard h3{font-family:var(--serif)}
+ h1{font-weight:600;letter-spacing:-.028em;line-height:1.04;font-size:clamp(2.1rem,4.6vw,3.9rem)}
+ .band h2{font-weight:600;letter-spacing:-.025em;line-height:1.08}
+ .diss-top h2,.x-intro h2{font-weight:600;letter-spacing:-.025em;line-height:1.08;font-size:clamp(30px,4vw,54px);color:var(--coral);max-width:15ch}
+ .xcard h3{font-weight:400;letter-spacing:-.015em}
+ .features-left .kicker{font-weight:600;letter-spacing:-.025em;line-height:1.08;font-size:clamp(26px,3.1vw,44px);color:var(--coral);max-width:14ch}
+ .face h3,.dfoot h3{font-weight:600;letter-spacing:-.02em}
+ .cell h3{font-family:var(--mono);font-weight:400;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+
+ /* mono for labels, nav and buttons */
+ .brand,.menu,.btn,.art-note,.cell h3.kick,.dcard .arrow,.row .arrow,footer{
+   font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;font-size:.7rem;
+ }
+ .brand{font-size:.95rem;letter-spacing:.16em;font-weight:500}
+ .menu{font-size:.72rem;letter-spacing:.11em}
+ .art-note{letter-spacing:.11em;font-size:.68rem;line-height:1.7}
+
+ /* body copy in Inter */
+ .lede,.face-back p,.dbody,.diss-top p,.cell p{font-family:var(--sans);text-transform:none;letter-spacing:0}
+ .lede{font-weight:400;font-size:clamp(1rem,1.35vw,1.16rem);line-height:1.62}
+ .face-back p,.dbody,.diss-top p,.cell p{font-weight:400;line-height:1.62}
+
+ /* the typed word keeps the mono cadence so the caret lines up */
+ .typed{font-family:var(--mono);font-weight:400;letter-spacing:-.01em}
+
+  /* ---------- meet the experts ---------- */
+  .experts{border-bottom:1px solid var(--line)}
+  .x-intro{padding:52px 40px 30px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+  .x-intro h2{color:var(--coral)}
+  .x-intro p{margin:0;font-size:15.5px;line-height:1.62;max-width:42ch;font-weight:400}
+  .x-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+  .xcard{
+    box-sizing:border-box;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:32px 30px 30px;display:flex;flex-direction:column;transition:background .3s ease;
+  }
+  .xcard:nth-child(4n){border-right:0}
+  .xcard:hover{background:#0b2026}
+  .xface{display:block;margin-bottom:18px}
+  .xph{width:92px;height:92px;border-radius:50%;object-fit:cover;border:1px solid rgba(248,138,99,.55);filter:grayscale(.25);display:block}
+  .xface .xmono{display:none}
+  .xface.noimg .xmono{
+    display:flex;width:92px;height:92px;border-radius:50%;border:1px solid rgba(248,138,99,.55);
+    align-items:center;justify-content:center;color:var(--coral);font-size:19px;letter-spacing:.04em;
+  }
+  .xface.noimg .xph{display:none}
+  .xcard h3{font-size:21px;line-height:1.18;letter-spacing:-.02em;margin:0}
+  .xrole{margin-top:6px;font-size:14px;line-height:1.5;color:#9dc2c8;font-weight:400}
+  .xlink,.xsoon{margin-top:14px;display:inline-flex;align-items:center;gap:9px;font-size:13px;color:var(--coral)}
+  .xlink svg{width:17px;height:17px;stroke:currentColor;stroke-width:2.2;fill:none;transition:transform .25s ease}
+  .xlink:hover svg{transform:translateX(4px)}
+  .xsoon{color:#7ea3a9}
+  @media (max-width:1100px){ .x-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .xcard:nth-child(4n){border-right:1px solid var(--line)} .xcard:nth-child(2n){border-right:0} }
+  @media (max-width:640px){
+    .x-intro{grid-template-columns:1fr;gap:22px;padding:48px 24px 30px;align-items:start}
+    .x-grid{grid-template-columns:1fr}
+    .xcard{border-right:0;padding:30px 24px 26px}
+  }
+
+ /* ---------- standard footer bar ---------- */
+ footer{
+   display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+   border-top:1px solid var(--line);padding:22px 40px;
+ }
+ .footbrand{
+   font-family:var(--mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:#dff1f3;
+   border-bottom:1px solid transparent;
+ }
+ .footbrand:hover{border-bottom-color:var(--coral);color:var(--coral)}
+ footer .actions{display:flex;gap:10px;align-items:center}
+ @media (max-width:700px){ footer{padding:20px 24px} footer .actions{width:100%} }
+ .nav-outer{position:sticky;top:0;z-index:30;background:rgba(6,20,23,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+
+ /* meet the experts, in the lighter shade of the report coral */
+ .experts{background:#f5ab91;color:var(--coral-ink);border-bottom:0}
+ .x-intro h2{color:var(--coral-ink)}
+ .x-intro p{color:rgba(22,11,5,.8)}
+ .x-grid{border-top:1px solid rgba(22,11,5,.28)}
+ .xcard{border-right:1px solid rgba(22,11,5,.28);border-bottom:1px solid rgba(22,11,5,.28)}
+ .xcard:hover{background:rgba(22,11,5,.06)}
+ .xcard h3{color:var(--coral-ink)}
+ .xrole{color:rgba(22,11,5,.88)}
+ .xph{border-color:rgba(22,11,5,.45);filter:grayscale(.2)}
+ .xface.noimg .xmono{border-color:rgba(22,11,5,.45);color:var(--coral-ink)}
+ .xlink{color:var(--coral-ink);border-bottom:1px solid rgba(22,11,5,.35);padding-bottom:2px}
+ .xlink:hover{border-bottom-color:var(--coral-ink)}
+ .xsoon{color:rgba(22,11,5,.62)}
+ @media (max-width:1100px){ .xcard:nth-child(2n){border-right:0} }
+
+ /* separation pass: lift the panels and give the page a soft top light */
+ body{background-image:linear-gradient(180deg, rgba(190,230,235,.045), rgba(190,230,235,0) 620px);background-repeat:no-repeat}
+ .panel,.stats{box-shadow:0 1px 0 rgba(255,255,255,.05) inset}
+ .cover{background:#123840 !important;box-shadow:0 1px 0 rgba(255,255,255,.06) inset}
+ .quote{box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+</style>
+</head>
+<body>
+
+<div class="nav-outer"><nav>
+  <a class="brand" href="/">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <circle cx="10" cy="10" r="9" stroke="#f88a63" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="5" stroke="#a8dbe2" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="1.6" fill="#f88a63"/>
+    </svg>
+    RETHINK
+  </a>
+  <div class="menu">
+    <a href="/about/">About</a>
+    <a href="/content/">Contents</a>
+    <a href="/podcast/">Podcast</a>
+    <a href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Snapshots</a>
+    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  </div>
+  <div class="actions">
+    <a class="btn btn-solid" id="download" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+  </div>
+</nav></div>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>Rethinking venture capital for<span class="typed-line"><span class="typed" id="typed"></span><span class="caret" aria-hidden="true"></span></span></h1>
+    <p class="lede">Venture's dissonance phase is a call to rethink the entire value chain.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#features">Read the contents</a>
+      <a class="btn btn-solid" href="#download">Download the report</a>
+    </div>
+  </div>
+  <div class="art" data-art="hero">
+    <canvas aria-hidden="true"></canvas>
+    <p class="art-note">A strategic lens on<br>the venture value chain</p>
+  </div>
+</section>
+
+<section class="diss" id="dissonance">
+  <div class="diss-top">
+    <h2>Venture's dissonance</h2>
+    <p>Venture's dissonance phase is upon us. Three legs of the same asset class, none of them moving at the same speed.</p>
+  </div>
+
+  <div class="diss-grid">
+    <button type="button" class="dcard" aria-expanded="false">
+      <span class="dfig" aria-hidden="true">
+        <svg viewBox="0 0 240 200">
+          <path class="l" d="M120 18 30 182h180z"/>
+          <path class="l" d="M120 18 57 132h126z"/>
+          <path class="l" d="M120 18 75 95h90z"/>
+          <path class="a" d="M120 18v164M30 182h180"/>
+        </svg>
+      </span>
+      <span class="dfoot"><h3>Capital inflows</h3><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v15M5 13l7 7 7-7"/></svg></span></span>
+      <span class="dbody">The capital inflow leg is rooted in rigid, decade-long fund structures.</span>
+    </button>
+
+    <button type="button" class="dcard" aria-expanded="false">
+      <span class="dfig" aria-hidden="true">
+        <svg viewBox="0 0 240 200">
+          <circle class="l" cx="120" cy="100" r="26"/>
+          <g class="l">
+            <path d="M120 44V12M120 188v-32M64 100H24M216 100h-40M80 60 58 38M182 142l22 22M160 60l22-22M58 162l22-22"/>
+          </g>
+          <g class="a">
+            <path d="M148 52l16-16M92 148l-16 16"/>
+          </g>
+        </svg>
+      </span>
+      <span class="dfoot"><h3>Technology</h3><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v15M5 13l7 7 7-7"/></svg></span></span>
+      <span class="dbody">The technology leg, is evolving at warp speed (think AI), impossible to pin down.</span>
+    </button>
+
+    <button type="button" class="dcard" aria-expanded="false">
+      <span class="dfig" aria-hidden="true">
+        <svg viewBox="0 0 240 200">
+          <path class="l" d="M120 30 210 74l-90 44-90-44z"/>
+          <path class="l" d="M120 66 210 110l-90 44-90-44z"/>
+          <path class="a" d="M120 102 210 146l-90 44-90-44z"/>
+        </svg>
+      </span>
+      <span class="dfoot"><h3>Capital outflow</h3><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v15M5 13l7 7 7-7"/></svg></span></span>
+      <span class="dbody">The capital outflow leg, or the exit environment, is at the mercy of volatile, unpredictable macro forces.</span>
+    </button>
+  </div>
+</section>
+
+<section class="band" id="about">
+  <div class="band-inner">
+    <h2>One report for the whole venture value chain.</h2>
+    <div class="grid">
+      <div class="cell">
+        <h3>Why now</h3>
+        <p>It fills a strategic gap: a 360-degree view of venture, connecting themes usually analyzed in isolation into one authoritative perspective.</p>
+      </div>
+      <div class="cell">
+        <h3>What it covers</h3>
+        <p>Fundraising, structures, valuation, secondaries, ownership, exits, each traced end to end rather than in isolation.</p>
+      </div>
+      <div class="cell">
+        <h3>Who it is for</h3>
+        <p>Anyone connected to the venture ecosystem, with the focus on LPs: family offices, institutions and allocators on the capital input side.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="features-left">
+    <p class="kicker">Key features<br>of the report</p>
+    <div class="art" data-art="features"><canvas aria-hidden="true"></canvas></div>
+  </div>
+
+  <div class="rows">
+    <div class="row">
+      <button type="button" aria-expanded="false">
+        <span class="flip">
+          <span class="face"><h3>4-lens view</h3></span>
+          <span class="face face-back">
+            <p>Four vantage points on the same market, LP, GP, founder and allocator, so you can see where venture's role is actually changing rather than where it is only being argued about.</p>
+          </span>
+        </span>
+      </button>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v15M5 13l7 7 7-7"/></svg></span>
+    </div>
+
+    <div class="row">
+      <button type="button" aria-expanded="false">
+        <span class="flip">
+          <span class="face"><h3>Venture spread</h3></span>
+          <span class="face face-back">
+            <p>A modern allocation framework: what venture has to earn over public and private alternatives, and how to size the sleeve when distributions are slow and marks are contested.</p>
+          </span>
+        </span>
+      </button>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v15M5 13l7 7 7-7"/></svg></span>
+    </div>
+
+    <div class="row">
+      <button type="button" aria-expanded="false">
+        <span class="flip">
+          <span class="face"><h3>Venture 3.0</h3></span>
+          <span class="face face-back">
+            <p>The transition deconstructed: fund structures, ownership models, secondaries and exit paths rebuilt for a market that no longer clears the way the last cycle did.</p>
+          </span>
+        </span>
+      </button>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v15M5 13l7 7 7-7"/></svg></span>
+    </div>
+  </div>
+</section>
+
+<section class="experts" id="experts">
+  <div class="x-intro">
+    <h2>Meet the experts</h2>
+    <p>Featured conversations from leading voices across the U.S., Europe, and Asia on critical venture themes.</p>
+  </div>
+
+  <div class="x-grid">
+      <article class="xcard">
+        <span class="xface noimg"><span class="xmono" aria-hidden="true">AG</span></span>
+        <h3>Aarti Gupta</h3>
+        <p class="xrole">CIO, Family Office DM Gupta and Anikarth Ventures</p>
+        <a class="xlink" href="/snapshots/thoughts-on-indian-family-offices.html">Read the snapshot <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/albert-azout.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">AA</span></span>
+        <h3>Albert Azout</h3>
+        <p class="xrole">Managing Partner, Level Ventures</p>
+        <a class="xlink" href="/podcast/views/venture-reimagined-by-infrastructure.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/cali-chill.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">CC</span></span>
+        <h3>Caleb (Cali) Chill</h3>
+        <p class="xrole">CEO, OurCrowd</p>
+        <a class="xlink" href="/podcast/views/democratizing-the-venture-asset-class.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/christoph-junge.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">CJ</span></span>
+        <h3>Christoph Junge</h3>
+        <p class="xrole">Head of Fund Investments, EIFO</p>
+        <a class="xlink" href="/snapshots/thinking-about-alternatives-and-allocations.html">Read the snapshot <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/daniel-keiper-knorr.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">DK</span></span>
+        <h3>Daniel Keiper-Knorr</h3>
+        <p class="xrole">Founding Partner, Speedinvest</p>
+        <a class="xlink" href="/podcast/views/shifting-dynamics-of-venture-fund-management.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/david-clark.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">DC</span></span>
+        <h3>David Clark</h3>
+        <p class="xrole">Chief Investment Officer, VenCap</p>
+        <a class="xlink" href="/podcast/views/venture-fund-of-funds-established-managers.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/eric-woo.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">EW</span></span>
+        <h3>Eric Woo</h3>
+        <p class="xrole">Co-Founder and CEO, Revere</p>
+        <a class="xlink" href="/podcast/views/rise-of-tools-for-private-markets.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/frank-tanner.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">FT</span></span>
+        <h3>Frank Tanner</h3>
+        <p class="xrole">Director (Private Assets), Morgan Creek</p>
+        <a class="xlink" href="/podcast/views/private-markets-allocation.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/henry-palmer.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">HP</span></span>
+        <h3>Henry Palmer</h3>
+        <p class="xrole">Founder and Managing Partner, Lightridge</p>
+        <a class="xlink" href="/podcast/views/geopolitics-in-european-venture.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/jamie-rhode.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">JR</span></span>
+        <h3>Jamie Rhode</h3>
+        <p class="xrole">Partner, Screendoor</p>
+        <a class="xlink" href="/podcast/views/venture-fund-of-funds-emerging-managers.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/jared-carmel.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">JC</span></span>
+        <h3>Jared Carmel</h3>
+        <p class="xrole">Founder and Managing Partner, Manhattan Venture Partners</p>
+        <a class="xlink" href="/podcast/views/secondaries-in-venture.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/joel-sandhu.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">JS</span></span>
+        <h3>Joel Sandhu</h3>
+        <p class="xrole">Partner and Co-Founder, Investors Capital</p>
+        <a class="xlink" href="/podcast/views/pe-vc-investing-insights.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/john-rikhtegar.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">JR</span></span>
+        <h3>John Rikhtegar</h3>
+        <p class="xrole">Vice President, Northleaf Capital</p>
+        <a class="xlink" href="/podcast/views/the-hidden-math-of-venture.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/larsen-jensen.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">LJ</span></span>
+        <h3>Larsen Jensen</h3>
+        <p class="xrole">Founder and Managing GP, Harpoon Ventures</p>
+        <a class="xlink" href="/podcast/views/the-freedom-stack.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/michael-motschmann.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">MM</span></span>
+        <h3>Michael Motschmann</h3>
+        <p class="xrole">Managing Partner, MIG Capital</p>
+        <a class="xlink" href="/podcast/views/democratisation-of-venture-capital.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/michael-sidler.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">MS</span></span>
+        <h3>Michael Sidler</h3>
+        <p class="xrole">Co-founding Partner, Redalpine</p>
+        <a class="xlink" href="/podcast/views/europes-venture-moment.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/nicolas-sauvage.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">NS</span></span>
+        <h3>Nicolas Sauvage</h3>
+        <p class="xrole">President, TDK Ventures</p>
+        <a class="xlink" href="/podcast/views/insights-into-corporate-venture-capital.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/noah-lichtenstein.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">NL</span></span>
+        <h3>Noah Lichtenstein</h3>
+        <p class="xrole">Managing Partner, Crossover VC</p>
+        <a class="xlink" href="/podcast/views/operator-edge-in-the-new-vc-landscape.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/rando-rannus.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">RR</span></span>
+        <h3>Rando Rannus</h3>
+        <p class="xrole">Partner, Siena Secondary Fund</p>
+        <a class="xlink" href="/podcast/views/exploring-venture-secondaries-fund.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/rob-hodgkinson.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">RH</span></span>
+        <h3>Rob Hodgkinson</h3>
+        <p class="xrole">Managing Director, SignalRank</p>
+        <a class="xlink" href="/podcast/views/indexing-venture-capital.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/shwetank-verma.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">SV</span></span>
+        <h3>Shwetank Verma</h3>
+        <p class="xrole">Founding Partner, Leo Capital</p>
+        <a class="xlink" href="/podcast/views/global-indian-alpha.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="xcard">
+        <span class="xface"><img class="xph" src="/assets/img/people/sim-desai.jpg" alt="" onerror="this.closest('.xface').classList.add('noimg')"><span class="xmono" aria-hidden="true">SD</span></span>
+        <h3>Sim Desai</h3>
+        <p class="xrole">Founder and CEO, Hiive</p>
+        <a class="xlink" href="/podcast/views/exploring-secondaries-private-stock-insights.html">Watch the episode <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </article>
+  </div>
+</section>
+
+<footer>
+  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+  </div>
+</footer>
+
+<script>
+var REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- typing effect ---------- */
+(function(){
+  var words = ["LPs","VCs","founders"];
+  var el = document.getElementById("typed");
+  if(REDUCE){ el.textContent = words[0]; return; }
+  var w = 0, i = 0, deleting = false;
+  function tick(){
+    var word = words[w];
+    i = deleting ? i - 1 : i + 1;
+    el.textContent = word.slice(0, i);
+    var wait = deleting ? 55 : 105;
+    if(!deleting && i === word.length){ deleting = true; wait = 1900; }
+    else if(deleting && i === 0){ deleting = false; w = (w + 1) % words.length; wait = 320; }
+    setTimeout(tick, wait);
+  }
+  tick();
+})();
+
+/* ---------- tap to flip (touch / keyboard) ---------- */
+document.querySelectorAll(".row button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var row = btn.closest(".row");
+    var open = row.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+});
+
+
+document.querySelectorAll(".dcard").forEach(function(c){
+  c.addEventListener("click", function(){
+    var open = c.classList.toggle("is-open");
+    c.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+});
+
+
+
+/* ---------- animated wireframe figures ---------- */
+function wireframe(box, opts){
+  var cv = box.querySelector("canvas");
+  var ctx = cv.getContext("2d");
+  var W = 1, H = 1;
+
+  function resize(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var r = box.getBoundingClientRect();
+    var w = Math.max(1, Math.round(r.width)), h = Math.max(1, Math.round(r.height));
+    if(w === W && h === H && cv.width === Math.round(w * dpr)) return;
+    W = w; H = h;
+    cv.width = Math.round(W * dpr);
+    cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  if(window.ResizeObserver){ var ro=new ResizeObserver(function(){ requestAnimationFrame(resize); }); ro.observe(box); }
+  window.addEventListener("resize", resize);
+  window.addEventListener("load", resize);
+  resize();
+
+  var LAYERS = opts.layers, LOBES = opts.lobes;
+
+  function point(t, phase, R, k){
+    return [
+      R * (Math.cos(t) + k * Math.cos(LOBES * t + phase)),
+      R * (Math.sin(t) - k * Math.sin(LOBES * t + phase))
+    ];
+  }
+
+  function frame(ts){
+    var time = ((ts || 0) / 1000) + opts.seed;
+    ctx.clearRect(0, 0, W, H);
+    var cx = W / 2, cy = H / 2;
+    var k = opts.k + opts.kSwing * Math.sin(time * 0.35);
+    var R = (Math.min(W, H) * opts.fill) / (1 + k);
+    var spin = time * opts.spin;
+
+    ctx.lineWidth = 0.85;
+    for(var L = 0; L < LAYERS; L++){
+      var phase = (L / LAYERS) * Math.PI * 2 * opts.spread + time * 0.18;
+      var fade = 0.25 + 0.375 * (1 - Math.abs(L - LAYERS / 2) / (LAYERS / 2));
+      ctx.strokeStyle = "rgba(206,238,243," + fade.toFixed(3) + ")";
+      ctx.beginPath();
+      for(var s = 0; s <= 220; s++){
+        var t = (s / 220) * Math.PI * 2 + spin;
+        var p = point(t, phase, R, k);
+        if(s === 0) ctx.moveTo(cx + p[0], cy + p[1]);
+        else ctx.lineTo(cx + p[0], cy + p[1]);
+      }
+      ctx.closePath();
+      ctx.stroke();
+    }
+
+    for(var d = 0; d < opts.dots; d++){
+      var td = time * 0.22 + d * (Math.PI * 2 / opts.dots) + spin;
+      var pd = point(td, time * 0.18, R, k);
+      ctx.fillStyle = "#f88a63";
+      ctx.beginPath();
+      ctx.arc(cx + pd[0], cy + pd[1], 3.4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    if(!REDUCE) requestAnimationFrame(frame);
+  }
+
+  if(REDUCE){ frame(0); } else { requestAnimationFrame(frame); }
+}
+
+wireframe(document.querySelector('[data-art="hero"]'),
+  {layers:18, lobes:4, k:0.30, kSwing:0.055, fill:0.40, spin:0.06, spread:1, dots:4, seed:0});
+
+wireframe(document.querySelector('[data-art="features"]'),
+  {layers:16, lobes:3, k:0.34, kSwing:0.07, fill:0.36, spin:-0.05, spread:0.55, dots:3, seed:12});
+</script>
+</body>
+</html>

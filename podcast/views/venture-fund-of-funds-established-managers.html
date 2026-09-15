@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venture Fund-of-Funds: Established Managers · Rethinking Venture Capital</title>
+<meta name="description" content="Snapshot of the interview with David Clark from VenCap.">
+<meta property="og:title" content="Venture Fund-of-Funds: Established Managers">
+<meta property="og:description" content="Snapshot of the interview with David Clark from VenCap.">
+<meta property="og:image" content="/assets/img/people/david-clark.jpg">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+ :root{
+  --bg:#061417; --panel:#0c2228; --panel-2:#0f2a31;
+  --line:rgba(190,230,235,.20); --line-soft:rgba(190,230,235,.11);
+  --ink:#e9eefc; --body:#dceaec; --muted:#93b6bb;
+  --coral:#f88a63; --coral-ink:#160b05; --rail:290px;
+ }
+ *{box-sizing:border-box}
+ html,body{margin:0;padding:0}
+ body{background:var(--bg);color:var(--ink);font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;-webkit-font-smoothing:antialiased}
+ a{color:inherit;text-decoration:none}
+ :focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+ h1,h2,h3,h4,p,ul,figure,blockquote{margin:0}
+ ul{list-style:none;padding:0}
+ .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+
+ .nav-outer{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(6,20,23,.93);backdrop-filter:blur(8px)}
+ nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0}
+ .brand{display:flex;align-items:center;gap:10px;font-weight:500;letter-spacing:.14em;font-size:16px}
+ .menu{display:flex;gap:28px;font-size:14px;color:#dff1f3}
+ .menu a{padding:4px 0;border-bottom:1px solid transparent}
+ .menu a:hover{border-bottom-color:var(--coral)}
+ .actions{display:flex;gap:10px}
+ .btn{font:inherit;font-size:13px;border-radius:999px;padding:9px 18px;border:1px solid var(--line);color:var(--ink);white-space:nowrap;display:inline-block;transition:border-color .25s,background .25s,color .25s}
+ .btn:hover{border-color:#8fc9d1}
+ .btn-solid{background:var(--coral);border-color:var(--coral);color:var(--coral-ink);font-weight:500}
+ .btn-solid:hover{background:#ffa580;border-color:#ffa580}
+
+ .crumb{padding:26px 0 0;font-size:12.5px;letter-spacing:.08em;color:var(--muted)}
+ .crumb a:hover{color:var(--coral)}
+
+ .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.72fr);gap:64px;align-items:center;padding:58px 0 72px}
+ .eyebrow{font-size:12.5px;letter-spacing:.12em;color:var(--coral)}
+ h1{font-weight:300;font-size:clamp(32px,4.1vw,56px);line-height:1.05;letter-spacing:-.04em;margin-top:24px;max-width:17ch}
+ .dek{margin-top:26px;font-weight:300;font-size:17px;line-height:1.62;color:var(--body);max-width:47ch}
+ .meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:12.5px;letter-spacing:.08em;color:var(--muted)}
+  .meta a{border-bottom:1px solid rgba(248,138,99,.45)}
+  .meta a:hover{color:var(--coral)}
+
+ .cover{position:relative;aspect-ratio:4/3;width:100%;max-width:520px;margin-left:auto;border:1px solid rgba(22,11,5,.28);border-radius:6px;overflow:hidden;background:#f5ab91}
+ .coverart{position:absolute;inset:0;width:100%;height:100%;display:block}
+ .coverart{position:absolute;inset:0;width:100%;height:100%;display:block}
+ .cover canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+ .cover .portrait{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:46%;aspect-ratio:1;border-radius:50%;object-fit:cover;
+  border:1px solid rgba(248,138,99,.55);filter:grayscale(.35) contrast(1.03);
+ }
+ .cover .tag{position:absolute;left:20px;top:18px;font-size:12px;letter-spacing:.1em;color:rgba(22,11,5,.62)}
+
+ .body{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:56px;padding-bottom:88px;border-top:1px solid var(--line);padding-top:52px}
+ .rail{position:sticky;top:96px;align-self:start}
+ .rail h4{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:400;margin-bottom:18px}
+ .share{display:flex;gap:10px;margin-bottom:38px}
+ .share a{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s}
+ .share a:hover{border-color:var(--coral);background:rgba(248,138,99,.1)}
+ .share svg{width:15px;height:15px;stroke:var(--muted);fill:none;stroke-width:1.4}
+ .share a:hover svg{stroke:var(--coral)}
+ .who{display:flex;gap:14px;align-items:flex-start;margin-bottom:30px}
+ .avatar{flex:0 0 auto;width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid var(--coral);filter:grayscale(.3)}
+ .mono{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1px solid var(--coral);display:flex;align-items:center;justify-content:center;color:var(--coral);font-size:13px}
+ .who .n{font-size:15px}
+ .who .n a:hover{color:var(--coral)}
+ .who .r{margin-top:5px;font-size:13px;line-height:1.5;color:var(--muted);font-weight:300}
+ .rail hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+ .rail p.note{font-size:13.5px;line-height:1.6;color:var(--body);font-weight:300;margin-bottom:22px}
+
+ .panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:44px;margin-bottom:26px}
+ .plabel{display:flex;align-items:center;gap:20px;margin-bottom:32px}
+ .plabel span{font-size:12px;letter-spacing:.14em;color:var(--coral);white-space:nowrap}
+ .plabel i{flex:1;height:1px;background:var(--line);display:block}
+
+ .prose p{font-weight:300;font-size:16px;line-height:1.75;color:var(--body);max-width:70ch}
+ .prose p + p{margin-top:22px}
+ .prose a{color:var(--coral);border-bottom:1px solid rgba(248,138,99,.45)}
+ .covers-title{margin:36px 0 18px;font-size:15px;font-weight:400}
+ .covers li{display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--line-soft);font-weight:300;font-size:15px;line-height:1.6;color:var(--body)}
+ .covers li:first-child{border-top:0}
+ .covers li::before{content:"→";color:var(--coral);flex:0 0 auto}
+
+ .quote{border-left:2px solid var(--coral);background:var(--panel-2);border-radius:0 6px 6px 0;padding:44px 48px;margin-bottom:26px}
+ .quote blockquote{font-weight:300;font-size:clamp(20px,2.1vw,30px);line-height:1.32;letter-spacing:-.025em;max-width:32ch}
+ .quote cite{display:block;margin-top:22px;font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+
+ .player{position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:pointer;margin-bottom:26px;background:radial-gradient(110% 90% at 50% 50%, #13414c 0%, #081d22 72%)}
+ .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+ .player canvas{position:absolute;inset:0;width:100%;height:100%}
+ .player .pbtn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;transition:transform .3s ease}
+ .player:hover .pbtn{transform:translate(-50%,-50%) scale(1.07)}
+ .player .pnote{position:absolute;left:22px;bottom:18px;font-size:11.5px;letter-spacing:.08em;color:var(--muted)}
+
+ .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:6px;margin-bottom:26px;overflow:hidden}
+ .stat{padding:30px 24px;border-right:1px solid var(--line);background:var(--panel)}
+ .stat:last-child{border-right:0}
+ .stat b{display:block;font-weight:300;font-size:clamp(23px,2.3vw,33px);letter-spacing:-.035em;color:var(--coral)}
+ .stat span{display:block;margin-top:12px;font-size:13px;line-height:1.55;color:var(--muted);font-weight:300}
+
+ .row{position:relative;border-top:1px solid var(--line-soft);min-height:132px;display:flex;align-items:center}
+ .row:first-of-type{border-top:0}
+ .row button{all:unset;position:absolute;inset:0;cursor:pointer;display:block;perspective:1200px}
+ .row button:focus-visible{outline:2px solid var(--coral);outline-offset:-4px}
+ .flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+ .row button:hover .flip,.row button:focus-visible .flip,.row.is-open .flip{transform:rotateX(180deg)}
+ .face{position:absolute;inset:0;display:flex;align-items:center;padding:22px 72px 22px 0;backface-visibility:hidden}
+ .face-back{transform:rotateX(180deg)}
+ .face h3{font-weight:300;font-size:clamp(20px,2.2vw,30px);line-height:1.1;letter-spacing:-.03em}
+ .face-back p{color:var(--coral);font-weight:300;font-size:15px;line-height:1.6;max-width:56ch}
+ .arrow{position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--muted);transition:transform .4s,color .4s;pointer-events:none}
+ .row button:hover ~ .arrow,.row.is-open .arrow{transform:translateY(-50%) rotate(180deg);color:var(--coral)}
+
+ .chapters li{border-top:1px solid var(--line-soft)}
+ .chapters li:first-child{border-top:0}
+ .chapters button{all:unset;display:flex;gap:32px;align-items:baseline;width:100%;box-sizing:border-box;padding:15px 8px 15px 0;cursor:pointer;transition:padding-left .25s ease}
+ .chapters button:hover{padding-left:8px}
+ .chapters time{color:var(--coral);font-size:13px;flex:0 0 auto;font-variant-numeric:tabular-nums}
+ .chapters span{font-weight:300;font-size:15.5px;line-height:1.5;color:var(--body)}
+ .chapters button:hover span{color:var(--ink)}
+ .hint{margin-top:26px;font-size:12.5px;line-height:1.6;color:var(--muted);font-weight:300}
+
+ .mgroup + .mgroup{margin-top:36px;padding-top:32px;border-top:1px solid var(--line)}
+ .mgroup > h3{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:400;margin-bottom:22px}
+ .mitem{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:15px 0;border-top:1px solid var(--line-soft)}
+ .mgroup .mitem:first-of-type{border-top:0}
+ .mkind{font-size:11px;letter-spacing:.12em;color:var(--muted);padding-top:4px}
+ .mname{font-size:16px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+ .mname a{border-bottom:1px solid rgba(248,138,99,.45)}
+ .mname a:hover{color:var(--coral)}
+ .mname .t{font-size:12.5px;color:var(--coral);font-variant-numeric:tabular-nums}
+ .mdesc{margin-top:8px;font-size:14px;line-height:1.6;color:var(--muted);font-weight:300}
+
+ .listen{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:32px 0 8px}
+ .listen h4{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:400;margin-right:8px}
+
+ .more-wrap{border-top:1px solid var(--line);padding:52px 0 76px}
+ .more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:30px}
+ .card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:26px;transition:border-color .25s,transform .25s}
+ .card:hover{border-color:rgba(248,138,99,.55);transform:translateY(-2px)}
+ .card .chip{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:4px;background:rgba(248,138,99,.12);color:var(--coral);font-size:15px;margin-bottom:22px}
+ .card h3{font-weight:300;font-size:19px;line-height:1.3;letter-spacing:-.02em}
+ .card .when{margin-top:20px;font-size:12px;letter-spacing:.08em;color:var(--muted)}
+
+ footer{border-top:1px solid var(--line);padding:26px 0;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+ footer a:hover{color:var(--coral)}
+
+ @media (max-width:1180px){
+  .wrap{padding:0 28px}
+  .menu{gap:20px;font-size:13px}
+ }
+ @media (max-width:1024px){
+  .menu{display:none}
+  .wrap{padding:0 24px}
+  .body{grid-template-columns:1fr;gap:40px;padding-top:40px}
+  .rail{position:static}
+  .rail .who,.rail p.note{max-width:52ch}
+  .panel,.quote{padding:32px 26px}
+  .mitem{grid-template-columns:1fr;gap:6px}
+  .more{grid-template-columns:repeat(2,minmax(0,1fr))}
+ }
+ @media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:32px;padding:32px 0 48px}
+  .cover{aspect-ratio:16/9;max-width:none;margin:0}
+  h1{max-width:20ch}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2n){border-right:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .face{padding-right:52px}
+ }
+ @media (max-width:600px){
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:0}
+  .more{grid-template-columns:1fr}
+ }
+ @media (prefers-reduced-motion:reduce){ .flip,.card,.chapters button{transition:none} }
+
+ /* ---------- type system, matching the Energy Digest pages ---------- */
+ :root{
+   --serif:'Fraunces',Georgia,'Times New Roman',serif;
+   --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+ }
+ body{font-family:var(--sans);font-size:16px;line-height:1.6}
+
+ /* serif for anything that is a headline */
+ h1,.quote blockquote,.face h3,.covers-title,.card h3,.stat b,.who .n,.mname{
+   font-family:var(--serif);
+ }
+ h1{font-weight:600;letter-spacing:-.026em;line-height:1.03;font-size:clamp(2rem,4.4vw,3.6rem)}
+ .quote blockquote{font-weight:500;letter-spacing:-.018em;line-height:1.26;font-size:clamp(1.3rem,2.2vw,1.95rem)}
+ .face h3{font-weight:600;letter-spacing:-.02em;font-size:clamp(1.3rem,2.2vw,1.95rem)}
+ .card h3{font-weight:600;letter-spacing:-.015em;font-size:1.2rem;line-height:1.22}
+ .stat b{font-weight:600;letter-spacing:-.02em}
+ .covers-title{font-weight:600;font-size:1.12rem;letter-spacing:-.01em}
+ .who .n{font-weight:600;font-size:1.02rem}
+ .mname{font-weight:600;font-size:1.05rem;letter-spacing:-.01em}
+
+ /* mono for every label, tag, timestamp and button */
+ .brand,.eyebrow,.meta,.crumb,.btn,.rail h4,.mgroup h3,.mkind,.mname .t,
+ .chapters time,.plabel span,.tag,.ep-no,.pnote,.hint,.card .when,.card .chip,
+ .listen h4,.mono,footer,.art-note{
+   font-family:var(--mono);text-transform:uppercase;letter-spacing:.13em;font-size:.68rem;
+ }
+ .brand{font-size:.95rem;letter-spacing:.16em;font-weight:500}
+ .btn{font-size:.7rem;letter-spacing:.12em}
+ .mname .t,.chapters time{letter-spacing:.06em;font-size:.74rem;text-transform:none}
+ .mono{font-size:.72rem;letter-spacing:.04em}
+ .card .chip{font-size:.86rem;letter-spacing:.04em}
+ .meta{gap:10px 22px}
+ .hint,.pnote{text-transform:none;letter-spacing:.01em;font-size:.78rem;line-height:1.6}
+
+ /* body copy in Inter */
+ .dek,.prose p,.covers li,.mdesc,.who .r,.rail p.note,.chapters span,.stat span,.face-back p{
+   font-family:var(--sans);
+ }
+ .dek{font-weight:400;font-size:clamp(1rem,1.35vw,1.14rem);line-height:1.62}
+ .prose p{font-weight:400;font-size:1rem;line-height:1.72}
+ .covers li,.chapters span{font-weight:400;font-size:.97rem}
+ .face-back p{font-weight:400;font-size:.97rem;line-height:1.62}
+ .mdesc,.who .r,.stat span{font-weight:400;font-size:.88rem;line-height:1.55}
+ .rail p.note{font-weight:400;font-size:.88rem;line-height:1.6}
+
+ /* hanging arrow list, so bold lead-ins stay on the same line as their text */
+ .covers li{display:block;position:relative;padding:13px 0 13px 26px}
+ .covers li::before{content:"→";position:absolute;left:0;top:13px;color:var(--coral)}
+ .covers li b{font-weight:600;color:var(--ink)}
+ /* newsletter pill in the rail */
+ .subscribe{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--coral);
+   border-radius:999px;padding:10px 18px;color:var(--coral);background:transparent;
+   font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;
+   transition:background .18s,color .18s}
+ .subscribe:hover{background:var(--coral);color:var(--coral-ink)}
+ .subscribe span{transition:transform .18s}
+ .subscribe:hover span{transform:translateX(3px)}
+
+ /* ---------- standard footer bar ---------- */
+ footer{
+   display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+   border-top:1px solid var(--line);padding:22px 40px;
+ }
+ .footbrand{
+   font-family:var(--mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:#dff1f3;
+   border-bottom:1px solid transparent;
+ }
+ .footbrand:hover{border-bottom-color:var(--coral);color:var(--coral)}
+ footer .actions{display:flex;gap:10px;align-items:center}
+ @media (max-width:700px){ footer{padding:20px 24px} footer .actions{width:100%} }
+ .nav-outer{position:sticky;top:0;z-index:30}
+
+ /* separation pass: lift the panels and give the page a soft top light */
+ body{background-image:linear-gradient(180deg, rgba(190,230,235,.045), rgba(190,230,235,0) 620px);background-repeat:no-repeat}
+ .panel,.stats{box-shadow:0 1px 0 rgba(255,255,255,.05) inset}
+ .cover{background:#f5ab91 !important;box-shadow:none}
+ .quote{box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+
+ /* photo avatars with a monogram fallback */
+ .av{flex:0 0 auto;position:relative;display:block}
+ .av .avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid var(--coral);filter:grayscale(.2);display:block}
+ .av .mono{display:none}
+ .av.noimg .avatar{display:none}
+ .av.noimg .mono{display:flex}
+</style>
+</head>
+<body>
+
+<div class="nav-outer"><div class="wrap"><nav>
+  <a class="brand" href="/">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <circle cx="10" cy="10" r="9" stroke="#f88a63" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="5" stroke="#a8dbe2" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="1.6" fill="#f88a63"/>
+    </svg>
+    RETHINK
+  </a>
+  <div class="menu">
+    <a href="/about/">About</a>
+    <a href="/content/">Contents</a>
+    <a href="/podcast/">Podcast</a>
+    <a href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Snapshots</a>
+    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  </div>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+  </div>
+</nav></div></div>
+
+<div class="wrap">
+ <p class="crumb"><a href="/podcast/">← ALL EPISODES</a></p>
+
+ <header class="hero">
+  <div>
+   <p class="eyebrow">INTERVIEW SNAPSHOT · FULL INTERVIEW IN THE REPORT'S SECTION 6 · ALL THINGS FUNDS</p>
+   <h1>Venture Fund-of-Funds: Established Managers</h1>
+   <p class="dek">How do you consistently generate top-quartile performance in a power-law-driven asset class like venture capital?</p>
+   <p class="meta"><span>MAY 2025</span><span>51 MIN</span><span>GUEST · DAVID CLARK</span></p>
+  </div>
+  <div class="cover">
+   <svg class="coverart" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A fund of funds stack feeding the venture power law">
+     <defs><radialGradient id="g01" cx="24%" cy="22%" r="68%">
+       <stop offset="0%" stop-color="#ffffff" stop-opacity=".45"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+     </radialGradient></defs>
+     <rect width="640" height="480" fill="#f5ab91"/>
+     <rect width="640" height="480" fill="url(#g01)"/>
+     <g fill="none" stroke="rgba(22,11,5,.55)" stroke-width="1.5">
+       <rect x="64" y="132" width="190" height="72" rx="6"/>
+       <rect x="80" y="166" width="190" height="72" rx="6" opacity=".62"/>
+       <rect x="96" y="200" width="190" height="72" rx="6" opacity=".38"/>
+     </g>
+     <circle cx="96" cy="168" r="4.5" fill="#123840" opacity="1"/>
+     <circle cx="112" cy="202" r="4.5" fill="#123840" opacity="1"/>
+     <circle cx="128" cy="236" r="4.5" fill="#123840" opacity="1"/>
+     <path d="M254 168 C 320 168, 300 320, 314 388" fill="none" stroke="rgba(22,11,5,.55)" stroke-width="1.5" opacity=".6"/>
+     <path d="M270 202 C 350 212, 380 330, 402 388" fill="none" stroke="rgba(22,11,5,.55)" stroke-width="1.5" opacity=".4"/>
+     <rect x="300" y="100" width="26" height="300" rx="3" fill="#123840" opacity="1.00"/>
+     <rect x="336" y="230" width="26" height="170" rx="3" fill="rgba(22,11,5,.42)" opacity="0.69"/>
+     <rect x="372" y="280" width="26" height="120" rx="3" fill="rgba(22,11,5,.42)" opacity="0.63"/>
+     <rect x="408" y="310" width="26" height="90" rx="3" fill="rgba(22,11,5,.42)" opacity="0.57"/>
+     <rect x="444" y="327" width="26" height="73" rx="3" fill="rgba(22,11,5,.42)" opacity="0.51"/>
+     <rect x="480" y="340" width="26" height="60" rx="3" fill="rgba(22,11,5,.42)" opacity="0.45"/>
+     <rect x="516" y="351" width="26" height="49" rx="3" fill="rgba(22,11,5,.42)" opacity="0.39"/>
+     <rect x="552" y="358" width="26" height="42" rx="3" fill="rgba(22,11,5,.42)" opacity="0.33"/>
+     <rect x="588" y="364" width="26" height="36" rx="3" fill="rgba(22,11,5,.42)" opacity="0.27"/>
+     <line x1="292" y1="400" x2="620" y2="400" stroke="rgba(22,11,5,.55)" stroke-width="1.5"/>
+     <path d="M300 104 C 372 104, 372 372, 618 386" fill="none" stroke="#123840" stroke-width="1.8" stroke-dasharray="5 6"/>
+   </svg>
+   <span class="tag">EP 01</span>
+  </div>
+ </header>
+
+ <div class="body">
+  <aside class="rail">
+   <h4>SHARE</h4>
+   <div class="share">
+    <a href="#" id="copyLink" aria-label="Copy link"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg></a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fepisodes%2Fventure-fund-of-funds-established-managers.html" aria-label="Share on X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fepisodes%2Fventure-fund-of-funds-established-managers.html" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4"/></svg></a>
+    <a href="mailto:?subject=The%20average%20venture%20fund%20isn't%20worth%20owning&body=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fepisodes%2Fventure-fund-of-funds-established-managers.html" aria-label="Share by email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+   </div>
+
+   <h4>GUEST</h4>
+   <div class="who">
+    <img class="avatar" src="/assets/img/people/david-clark.jpg" alt="">
+    <div><p class="n"><a href="https://www.linkedin.com/in/davidclarkvencap/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">David Clark</a></p><p class="r">CIO, <a href="https://www.vencap.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">VenCap International</a></p></div>
+   </div>
+
+   <h4>HOST</h4>
+   <div class="who">
+    <span class="av"><img class="avatar" src="/assets/img/people/rohit-yadav.jpg" alt="" onerror="this.closest('.av').classList.add('noimg')"><span class="mono" aria-hidden="true">RY</span></span>
+    <div><p class="n"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Rohit Yadav</a></p><p class="r">Investments thought leader, Big Book of VC</p></div>
+   </div>
+
+   <hr>
+
+         <h4>NEWSLETTER</h4>
+      <p class="note">Don't miss the next insight drop on the Rethinking VC topic.</p>
+      <a class="subscribe" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe <span>→</span></a>
+    </aside>
+
+  <main>
+   <div class="quote">
+    <blockquote>Venture is not intuitive. The more common sense it sounds, the more likely it's wrong.</blockquote>
+    <cite>David Clark · on why venture is not intuitive</cite>
+   </div>
+
+   <div class="player" id="ytFacade" data-yt="foq73SLdrBs" role="button" tabindex="0" aria-label="Play the episode">
+    <canvas aria-hidden="true" data-art="player"></canvas>
+    <span class="pbtn" aria-hidden="true"><svg width="26" height="30" viewBox="0 0 26 30"><path d="M0 0l26 15L0 30V0z" fill="#1a0d07"/></svg></span>
+    <span class="pnote">PRESS PLAY TO LOAD THE VIDEO. NOTHING IS REQUESTED FROM YOUTUBE UNTIL YOU DO.</span>
+   </div>
+
+   <div class="stats">
+    <div class="stat"><b>$2.9B</b><span>Committed by VenCap to over 450 venture funds across the US, Europe, India and China</span></div>
+    <div class="stat"><b>1.7x / 9%</b><span>Median venture fund TVPI and IRR</span></div>
+    <div class="stat"><b>52%</b><span>Share of exit value generated by 1% of companies</span></div>
+    <div class="stat"><b>60%</b><span>Share of deals that do not return capital</span></div>
+   </div>
+
+   <section class="panel prose">
+    <div class="plabel"><span>ABOUT THE EPISODE</span><i></i></div>
+    <p>Rohit Yadav sits down with David Clark, CIO of <a href="https://www.vencap.com?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">VenCap</a>, one of the world's most respected fund-of-funds in VC, with $2.9B committed to over 450 venture funds across the US, Europe, India and China.</p>
+    <h3 class="covers-title">David breaks down:</h3>
+    <ul class="covers">
+     <li>Why VenCap focuses only on managers who back top 1% startups, and nothing else.</li>
+     <li>The myth of alpha in venture, and why capturing "beta" may be the smarter strategy.</li>
+     <li>How past performance is a predictor of future returns, if you know what to look for.</li>
+     <li>Why LPs pressing funds for liquidity too early can ruin multi-billion dollar outcomes.</li>
+     <li>How VenCap builds durable exposure across early, growth and secondaries without compromising quality.</li>
+     <li>The surprising truth about secondaries, and why VenCap prefers premiums over discounts.</li>
+    </ul>
+    <h3 class="covers-title">We also cover:</h3>
+    <ul class="covers">
+     <li>The real risks new LPs need to understand, especially around power laws and fund selection.</li>
+     <li>The rise and fall of the emerging manager wave, and whether it's here to stay.</li>
+     <li>Why VenCap doesn't chase narratives, geographies or trends, just repeat winners.</li>
+     <li>Institutional versus family office LPs, and what each is really optimizing for.</li>
+     <li>The underrated role of relationship alpha in securing the best VC allocations.</li>
+     <li>VenCap's take on secondary market evolution and what's next for venture liquidity.</li>
+    </ul>
+    <p style="margin-top:34px">Whether you're an LP, a FoF, a VC, or just obsessed with venture strategy, this is one of the most intellectually honest and data-rich breakdowns of the asset class you'll hear.</p>
+    <p style="margin-top:22px">Where to find David Clark: <a href="https://www.vencap.com?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">vencap.com</a></p>
+   </section>
+
+   <section class="panel">
+    <div class="plabel"><span>CHAPTERS</span><i></i></div>
+    <ul class="chapters">
+     <li><button type="button" data-t="0"><time>00:00</time><span>Introduction: the fund-of-funds view of the asset class</span></button></li>
+     <li><button type="button" data-t="103"><time>01:43</time><span>First principles: what is the venture programme actually for?</span></button></li>
+     <li><button type="button" data-t="133"><time>02:13</time><span>Median returns versus the upper-quartile bar</span></button></li>
+     <li><button type="button" data-t="216"><time>03:36</time><span>Why "smaller is better" is hard to execute as an LP</span></button></li>
+     <li><button type="button" data-t="268"><time>04:28</time><span>The screen: top 1% companies and fund-returning outcomes</span></button></li>
+     <li><button type="button" data-t="345"><time>05:45</time><span>From 30–40 names to five or ten realistic targets</span></button></li>
+     <li><button type="button" data-t="523"><time>08:43</time><span>Following managers into China and India</span></button></li>
+     <li><button type="button" data-t="617"><time>10:17</time><span>Stage: the one exposure VenCap actively manages</span></button></li>
+     <li><button type="button" data-t="696"><time>11:36</time><span>The 50/50 early-growth split, and never selling winners early</span></button></li>
+     <li><button type="button" data-t="789"><time>13:09</time><span>The DPI path: first distributions in year four, 1x by year eight or nine</span></button></li>
+     <li><button type="button" data-t="930"><time>15:30</time><span>Alpha, beta and the power law in venture</span></button></li>
+     <li><button type="button" data-t="1194"><time>19:54</time><span>What it means to index the seed market</span></button></li>
+     <li><button type="button" data-t="1370"><time>22:50</time><span>Capital shortage or founder shortage?</span></button></li>
+     <li><button type="button" data-t="1566"><time>26:06</time><span>Harder to start, easier to build, and the pushback</span></button></li>
+     <li><button type="button" data-t="1792"><time>29:52</time><span>Secondaries: VenCap began as a secondary firm in 1989</span></button></li>
+     <li><button type="button" data-t="1906"><time>31:46</time><span>Quality over discount, and buying at a premium to NAV</span></button></li>
+     <li><button type="button" data-t="1964"><time>32:44</time><span>Why the large secondary funds cannot always compete</span></button></li>
+     <li><button type="button" data-t="2246"><time>37:26</time><span>Where the secondary market goes over the cycle</span></button></li>
+     <li><button type="button" data-t="2335"><time>38:55</time><span>Explaining the risks to a first-time LP</span></button></li>
+     <li><button type="button" data-t="2550"><time>42:30</time><span>Don't be seduced by the narrative</span></button></li>
+     <li><button type="button" data-t="2690"><time>44:50</time><span>Ego, and staying out of the manager's way</span></button></li>
+     <li><button type="button" data-t="2757"><time>45:57</time><span>Family offices versus pension funds</span></button></li>
+     <li><button type="button" data-t="2945"><time>49:05</time><span>One brushstroke or many? The emerging manager question</span></button></li>
+     <li><button type="button" data-t="3133"><time>52:13</time><span>Concentration: ten managers, half the US LP dollars</span></button></li>
+     <li><button type="button" data-t="3215"><time>53:35</time><span>Where the opportunity set goes next</span></button></li>
+    </ul>
+    <p class="hint">Click a timestamp to jump the player to that point. Chapter times are taken from the transcript clock, check them against the published cut before going live.</p>
+   </section>
+
+   <section class="panel">
+    <div class="plabel"><span>MENTIONED</span><i></i></div>
+
+    <div class="mgroup">
+     <h3>FIRMS &amp; FUNDS</h3>
+     <div class="mitem"><span class="mkind">FUND OF FUNDS</span>
+      <div><p class="mname"><a href="https://www.vencap.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">VenCap International ↗</a><span class="t">00:01</span></p>
+       <p class="mdesc">$2.9bn committed to 450+ venture funds since 1989; started life as a secondary firm.</p></div></div>
+     <div class="mitem"><span class="mkind">COMPANY</span>
+      <div><p class="mname">Wiz<span class="t">06:15</span></p>
+       <p class="mdesc">The $32bn acquisition used as the reference case, and as an anomaly, at five years old.</p></div></div>
+     <div class="mitem"><span class="mkind">FIRM</span>
+      <div><p class="mname"><a href="https://www.insightpartners.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Insight Partners ↗</a><span class="t">06:15</span></p>
+       <p class="mdesc">Cited as a great return that still wasn't fund-returning against a $10bn fund.</p></div></div>
+     <div class="mitem"><span class="mkind">FIRM</span>
+      <div><p class="mname"><a href="https://group.softbank/en/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">SoftBank ↗</a>, <a href="https://www.tigerglobal.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Tiger Global ↗</a><span class="t">07:16</span></p>
+       <p class="mdesc">Named as too large to generate fund-returning outcomes from single positions.</p></div></div>
+     <div class="mitem"><span class="mkind">FIRM</span>
+      <div><p class="mname"><a href="https://www.sequoiacap.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Sequoia ↗</a>, <a href="https://www.indexventures.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Index Ventures ↗</a>, <a href="https://cyberstarts.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Cyberstarts ↗</a><span class="t">49:05</span></p>
+       <p class="mdesc">The seed investors in <a href="https://www.wiz.io/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Wiz ↗</a>, including two global platform firms.</p></div></div>
+     <div class="mitem"><span class="mkind">INSTITUTION</span>
+      <div><p class="mname"><a href="https://www.british-business-bank.co.uk/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">British Business Bank ↗</a>, <a href="https://www.eif.org/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">EIF ↗</a><span class="t">50:58</span></p>
+       <p class="mdesc">Named as government-sponsored organisations in the UK and Europe when discussing what different LPs are trying to achieve.</p></div></div>
+    </div>
+
+    <div class="mgroup">
+     <h3>PEOPLE</h3>
+     <div class="mitem"><span class="mkind">GUEST</span>
+      <div><p class="mname"><a href="https://www.linkedin.com/in/davidclarkvencap/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">David Clark ↗</a><span class="t">00:45</span></p>
+       <p class="mdesc">CIO, VenCap International.</p></div></div>
+     <div class="mitem"><span class="mkind">HOST</span>
+      <div><p class="mname"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Rohit Yadav ↗</a><span class="t">00:00</span></p>
+       <p class="mdesc">Investments thought leader, Big Book of VC.</p></div></div>
+     <div class="mitem"><span class="mkind">QUOTED</span>
+      <div><p class="mname">Chris Douvos<span class="t">24:19</span></p>
+       <p class="mdesc">Source of the framing that venture works best when capital is scarce and time is plentiful.</p></div></div>
+     <div class="mitem"><span class="mkind">REFERENCED</span>
+      <div><p class="mname">Jack Altman, Keith Rabois<span class="t">23:38</span></p>
+       <p class="mdesc">A podcast making the same point: the gating factor is founder quality, not capital.</p></div></div>
+    </div>
+
+    <div class="mgroup">
+     <h3>CONCEPTS &amp; DATA</h3>
+     <div class="mitem"><span class="mkind">CONCEPT</span>
+      <div><p class="mname">Fund-returning outcome<span class="t">04:28</span></p>
+       <p class="mdesc">90% of early-stage funds returning 3x net have at least one company that returns the whole fund.</p></div></div>
+     <div class="mitem"><span class="mkind">CONCEPT</span>
+      <div><p class="mname">Venture beta<span class="t">16:52</span></p>
+       <p class="mdesc">The aggregate industry return sits near the upper quartile, so beta is already a good result.</p></div></div>
+     <div class="mitem"><span class="mkind">CONCEPT</span>
+      <div><p class="mname">Indexing the seed market<span class="t">20:04</span></p>
+       <p class="mdesc">One family office backs managers with non-overlapping portfolios across the ~2,000 companies funded at seed over three years, for a 95% confidence level of the aggregate market return.</p></div></div>
+     <div class="mitem"><span class="mkind">DATA</span>
+      <div><p class="mname"><a href="https://carta.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Carta ↗</a><span class="t">25:15</span></p>
+       <p class="mdesc">Their fund performance data, the seed to Series A graduation rate, and the first-time funds that aren't going to raise second funds.</p></div></div>
+     <div class="mitem"><span class="mkind">SNAPSHOT</span>
+      <div><p class="mname"><a href="https://www.rethink.bigbook.vc/blog/venture-fund-of-funds-established-managers?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Venture Fund-of-Funds: Established Managers ↗</a><span class="t">, </span></p>
+       <p class="mdesc">The written snapshot of this interview on the Rethink site.</p></div></div>
+    </div>
+
+    <p class="hint">Timestamps jump the player. An arrow marks a name you can open.</p>
+   </section>
+
+   <div class="listen">
+    <h4>SUBSCRIBE ON</h4>
+    <a class="btn" href="https://www.youtube.com/@theonepoint?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">YouTube</a>
+    <a class="btn" href="https://yadavrohit.substack.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Substack</a>
+    <a class="btn" href="https://open.spotify.com/show/19LhIXECFj9i91MFCCWuTR?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Spotify</a>
+    <a class="btn" href="https://podcasts.apple.com/us/podcast/the-one-point/id1644098589?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Apple Podcasts</a>
+   </div>
+  </main>
+ </div>
+</div>
+
+<div class="wrap">
+ <section class="more-wrap">
+  <div class="plabel"><span>RELATED SNAPSHOTS</span><i></i></div>
+  <div class="more">
+   <a class="card" href="https://www.rethink.bigbook.vc/blog/indexing-venture?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink"><span class="chip">↗</span><h3>Indexing Venture</h3><p class="when">RETHINK SNAPSHOT</p></a>
+   <a class="card" href="https://www.rethink.bigbook.vc/blog/data-science-driven-vc-fof?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink"><span class="chip">↗</span><h3>Data Science Driven VC FoF</h3><p class="when">RETHINK SNAPSHOT</p></a>
+   <a class="card" href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink"><span class="chip">→</span><h3>All snapshots from the report</h3><p class="when">RETHINK</p></a>
+  </div>
+ </section>
+
+ <footer>
+  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+  </div>
+</footer>
+</div>
+
+<script>
+var REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+document.querySelectorAll(".row button").forEach(function(btn){
+ btn.addEventListener("click", function(){
+  var row = btn.closest(".row");
+  var open = row.classList.toggle("is-open");
+  btn.setAttribute("aria-expanded", open ? "true" : "false");
+ });
+});
+
+var copy = document.getElementById("copyLink");
+if(copy){
+ copy.addEventListener("click", function(e){
+  e.preventDefault();
+  if(navigator.clipboard) navigator.clipboard.writeText(window.location.href);
+ });
+}
+
+(function(){
+ var facade = document.getElementById("ytFacade");
+ var id = facade.getAttribute("data-yt");
+ function load(start){
+  var src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0&start=" + (start || 0);
+  var existing = facade.querySelector("iframe");
+  if(existing){ existing.src = src; return; }
+  var f = document.createElement("iframe");
+  f.src = src; f.title = "David Clark on the fund-of-funds view of venture";
+  f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
+  f.allowFullscreen = true;
+  facade.innerHTML = ""; facade.appendChild(f); facade.style.cursor = "default";
+ }
+ facade.addEventListener("click", function(){ load(0); });
+ facade.addEventListener("keydown", function(e){
+  if(e.key === "Enter" || e.key === " "){ e.preventDefault(); load(0); }
+ });
+ document.querySelectorAll(".chapters button").forEach(function(b){
+  b.addEventListener("click", function(){
+   load(parseInt(b.getAttribute("data-t"), 10) || 0);
+   facade.scrollIntoView({behavior: REDUCE ? "auto" : "smooth", block:"center"});
+  });
+ });
+})();
+
+function wireframe(box, opts){
+ var cv = box.tagName === "CANVAS" ? box : box.querySelector("canvas");
+ var host = box.tagName === "CANVAS" ? box.parentElement : box;
+ var ctx = cv.getContext("2d");
+ var W = 1, H = 1;
+ function resize(){
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var r = host.getBoundingClientRect();
+  W = Math.max(1, Math.round(r.width)); H = Math.max(1, Math.round(r.height));
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+ }
+ if(window.ResizeObserver){ var ro=new ResizeObserver(function(){ requestAnimationFrame(resize); }); ro.observe(host); }
+ window.addEventListener("resize", resize);
+ window.addEventListener("load", resize);
+ resize();
+ function point(t, phase, R, k){
+  return [ R * (Math.cos(t) + k * Math.cos(opts.lobes * t + phase)),
+       R * (Math.sin(t) - k * Math.sin(opts.lobes * t + phase)) ];
+ }
+ function frame(ts){
+  var time = ((ts || 0) / 1000) + opts.seed;
+  ctx.clearRect(0, 0, W, H);
+  var cx = W / 2, cy = H / 2;
+  var k = opts.k + opts.kSwing * Math.sin(time * 0.35);
+  var R = (Math.min(W, H) * opts.fill) / (1 + k);
+  var spin = time * opts.spin;
+  ctx.lineWidth = 0.7;
+  for(var L = 0; L < opts.layers; L++){
+   var phase = (L / opts.layers) * Math.PI * 2 * opts.spread + time * 0.18;
+   var fade = (0.10 + 0.16 * (1 - Math.abs(L - opts.layers / 2) / (opts.layers / 2))) * opts.alpha;
+   ctx.strokeStyle = "rgba(206,238,243," + fade.toFixed(3) + ")";
+   ctx.beginPath();
+   for(var s = 0; s <= 200; s++){
+    var t = (s / 200) * Math.PI * 2 + spin;
+    var p = point(t, phase, R, k);
+    if(s === 0) ctx.moveTo(cx + p[0], cy + p[1]); else ctx.lineTo(cx + p[0], cy + p[1]);
+   }
+   ctx.closePath(); ctx.stroke();
+  }
+  for(var d = 0; d < opts.dots; d++){
+   var td = time * 0.22 + d * (Math.PI * 2 / opts.dots) + spin;
+   var pd = point(td, time * 0.18, R, k);
+   ctx.fillStyle = "#f88a63";
+   ctx.beginPath(); ctx.arc(cx + pd[0], cy + pd[1], 3.2, 0, Math.PI * 2); ctx.fill();
+  }
+  if(!REDUCE) requestAnimationFrame(frame);
+ }
+ if(REDUCE){ frame(0); } else { requestAnimationFrame(frame); }
+}
+
+var playerArt = document.querySelector('[data-art="player"]');
+if(playerArt) wireframe(playerArt,
+ {layers:14, lobes:3, k:0.34, kSwing:0.06, fill:0.44, spin:-0.04, spread:0.6, dots:0, seed:20, alpha:0.55});
+</script>
+</body>
+</html>

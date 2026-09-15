@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · Rethinking Venture Capital</title>
+<meta name="description" content="What is this report about, who is it for, and how should readers go about making the best use of this strategic, insightful report.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#061417; --panel:#0c2228;
+    --line:rgba(190,230,235,.20); --line-soft:rgba(190,230,235,.11);
+    --ink:#ffffff; --body:#dceaec; --muted:#93b6bb;
+    --coral:#f88a63; --coral-ink:#160b05;
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+  h1,h2,h3,h4,p,ul,blockquote,figure{margin:0}
+  ul{list-style:none;padding:0}
+
+  /* nav */
+  .nav-outer{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(6,20,23,.93);backdrop-filter:blur(8px)}
+  nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 40px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:500;letter-spacing:.16em;font-size:.95rem;text-transform:uppercase}
+  .menu{display:flex;gap:26px;font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:#dff1f3}
+  .menu a{padding:4px 0;border-bottom:1px solid transparent}
+  .menu a:hover{border-bottom-color:var(--coral)}
+  .actions{display:flex;gap:10px;align-items:center}
+  .btn{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:10px 18px;border:1px solid var(--line);display:inline-block;white-space:nowrap;transition:border-color .25s,background .25s,color .25s}
+  .btn:hover{border-color:#8fc9d1}
+  .btn-solid{background:var(--coral);border-color:var(--coral);color:var(--coral-ink);font-weight:500}
+  .btn-solid:hover{background:#ffa580;border-color:#ffa580}
+  .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:56px;align-items:start;padding:72px 40px 56px;border-bottom:1px solid var(--line)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,7vw,5.6rem);line-height:.98;letter-spacing:-.03em;margin-top:22px}
+  .hero .sub{margin-top:16px;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .hero p.lede{font-weight:300;font-size:17px;line-height:1.62;color:var(--body);max-width:44ch}
+
+  /* words / quote */
+  .words{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:56px;padding:64px 40px;border-bottom:1px solid var(--line)}
+  .words h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.6vw,48px);line-height:1.06;letter-spacing:-.025em;color:var(--coral);max-width:12ch}
+  .words .say{margin-top:20px;font-weight:300;font-size:16px;line-height:1.62;color:var(--body);max-width:36ch}
+  .quote{border-left:2px solid var(--coral);background:var(--panel);border-radius:0 6px 6px 0;padding:40px 44px}
+  .quote blockquote{font-family:var(--serif);font-weight:500;font-size:clamp(19px,2vw,27px);line-height:1.32;letter-spacing:-.018em}
+  .quote cite{display:block;margin-top:24px;font-style:normal;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+
+
+
+
+
+  /* bands */
+  .split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid var(--line)}
+  .split > div{padding:56px 40px;display:flex;flex-direction:column;align-items:flex-start}
+  .split > div:first-child{border-right:1px solid var(--line)}
+  .split h3{font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.6vw,34px);line-height:1.12;letter-spacing:-.025em;max-width:16ch}
+  .split h3{margin-bottom:26px}
+  .split .btn{margin-top:auto}
+  .band{background:#f5ab91;color:var(--coral-ink);padding:64px 40px;display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap}
+  .band h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.2vw,42px);line-height:1.1;letter-spacing:-.025em;max-width:18ch}
+  .band .btn{border-color:var(--coral-ink);color:var(--coral-ink)}
+  .band .btn:hover{background:var(--coral-ink);color:#f5ab91}
+
+  footer{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:26px 40px;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  footer a:hover{color:var(--coral)}
+
+  @media (max-width:1000px){
+    nav,.hero,.words,.features-left,footer{padding-left:24px;padding-right:24px}
+    .menu{display:none}
+    .hero,.words{grid-template-columns:1fr;gap:26px}
+    .split{grid-template-columns:1fr}
+    .split > div{padding:40px 24px}
+    .split > div:first-child{border-right:0;border-bottom:1px solid var(--line)}
+    .quote{padding:30px 26px}
+  }
+
+ /* ---------- standard footer bar ---------- */
+ footer{
+   display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+   border-top:1px solid var(--line);padding:22px 40px;
+ }
+ .footbrand{
+   font-family:var(--mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:#dff1f3;
+   border-bottom:1px solid transparent;
+ }
+ .footbrand:hover{border-bottom-color:var(--coral);color:var(--coral)}
+ footer .actions{display:flex;gap:10px;align-items:center}
+ @media (max-width:700px){ footer{padding:20px 24px} footer .actions{width:100%} }
+ .nav-outer{position:sticky;top:0;z-index:30}
+
+  /* hero words block */
+  .words-head{font-family:var(--serif);font-weight:600;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-.028em;color:var(--coral);margin-top:12px;max-width:12ch}
+  .hero .lede{margin-top:20px}
+
+  /* portrait + quote row */
+  .words{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:56px;align-items:stretch;padding:64px 40px;border-bottom:1px solid var(--line)}
+  .portrait{
+    margin:0;position:relative;min-height:360px;background:var(--panel);
+    --fold:72px;
+    clip-path:polygon(0 0, calc(100% - var(--fold)) 0, 100% var(--fold), 100% 100%, 0 100%);
+  }
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;filter:grayscale(.15) contrast(1.02)}
+  /* the folded corner, turned back over the image */
+  .portrait::after{
+    content:"";position:absolute;top:0;right:0;width:var(--fold);height:var(--fold);
+    background:linear-gradient(225deg, rgba(248,138,99,.92) 0%, rgba(248,138,99,.55) 100%);
+    clip-path:polygon(0 0, 100% 100%, 0 100%);
+  }
+  /* hairline tracing the cut edge */
+  .portrait::before{
+    content:"";position:absolute;top:0;right:0;width:var(--fold);height:var(--fold);z-index:2;
+    background:linear-gradient(225deg, transparent calc(50% - 1px), rgba(255,255,255,.55) 50%, transparent calc(50% + 1px));
+  }
+  .portrait .pmono{display:none}
+  .portrait.noimg img{display:none}
+  .portrait.noimg .pmono{
+    display:flex;position:absolute;inset:0;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:1.4rem;letter-spacing:.1em;color:var(--coral);
+  }
+  .quote{display:flex;flex-direction:column;justify-content:center}
+  @media (max-width:1000px){
+    .words{grid-template-columns:1fr;gap:26px;padding:44px 24px}
+    .portrait{min-height:300px;--fold:56px}
+  }
+
+  /* behind the scenes, built like the home page key features block */
+  .features{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);border-bottom:1px solid var(--line)}
+  .features-left{position:relative;border-right:1px solid var(--line);padding:56px 40px;display:flex;flex-direction:column;min-height:620px}
+  .features-left .art{flex:1;margin:0 -40px -56px;min-height:0;position:relative;overflow:hidden}
+  .features-left .art canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .features-left .kicker{
+    margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.1vw,44px);
+    line-height:1.08;letter-spacing:-.025em;color:var(--coral);max-width:14ch;position:relative;z-index:1;
+  }
+  .rows{display:flex;flex-direction:column}
+  .row{position:relative;border-bottom:1px solid var(--line);min-height:206px;display:flex;align-items:center}
+  .rows .row:last-child{border-bottom:0}
+  .row button{all:unset;position:absolute;inset:0;cursor:pointer;display:block;perspective:1400px}
+  .row button:focus-visible{outline:2px solid var(--coral);outline-offset:-4px}
+  .flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+  .row button:hover .flip,.row button:focus-visible .flip,.row.is-open .flip{transform:rotateX(180deg)}
+  .face{position:absolute;inset:0;display:flex;align-items:center;padding:34px 96px 34px 44px;backface-visibility:hidden}
+  .face-back{transform:rotateX(180deg)}
+  .face h3{margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(24px,2.8vw,40px);line-height:1.06;letter-spacing:-.025em;color:var(--ink)}
+  .face-back p{margin:0;color:var(--coral);font-weight:300;font-size:15.5px;line-height:1.62;max-width:52ch}
+  .row .arrow{position:absolute;right:44px;top:50%;transform:translateY(-50%);line-height:0;color:#d6ecef;transition:transform .4s ease,color .4s ease;pointer-events:none}
+  .row .arrow svg{width:26px;height:26px;stroke:currentColor;stroke-width:2.4;fill:none;stroke-linecap:square;display:block}
+  .row button:hover ~ .arrow,.row.is-open .arrow{transform:translateY(-50%) rotate(180deg);color:#ffa47e}
+  @media (max-width:1000px){
+    .features{grid-template-columns:1fr}
+    .features-left{border-right:0;border-bottom:1px solid var(--line);padding:44px 24px;min-height:0}
+    .features-left .art{margin:24px -24px -44px;min-height:320px}
+    .face{padding:28px 68px 28px 24px}
+    .row .arrow{right:24px}
+    .row{min-height:180px}
+  }
+  @media (prefers-reduced-motion:reduce){ .flip{transition:none} }
+
+  /* snapshots / contents block, in a lighter shade of the report coral */
+  .split{background:#f5ab91;color:var(--coral-ink);border-bottom:0}
+  .split > div:first-child{border-right:1px solid rgba(22,11,5,.28)}
+  .split .eyebrow{color:rgba(22,11,5,.62)}
+  .split h3{color:var(--coral-ink)}
+  .split .btn{border-color:rgba(22,11,5,.45);color:var(--coral-ink)}
+  .split .btn:hover{background:var(--coral-ink);color:#f5ab91;border-color:var(--coral-ink)}
+
+ /* separation pass: lift the panels and give the page a soft top light */
+ body{background-image:linear-gradient(180deg, rgba(190,230,235,.045), rgba(190,230,235,0) 620px);background-repeat:no-repeat}
+ .panel,.stats{box-shadow:0 1px 0 rgba(255,255,255,.05) inset}
+ .cover{background:#123840 !important;box-shadow:0 1px 0 rgba(255,255,255,.06) inset}
+ .quote{box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+</style>
+</head>
+<body>
+
+<div class="nav-outer"><nav>
+  <a class="brand" href="/">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <circle cx="10" cy="10" r="9" stroke="#f88a63" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="5" stroke="#a8dbe2" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="1.6" fill="#f88a63"/>
+    </svg>
+    RETHINK
+  </a>
+  <div class="menu">
+    <a href="/about/">About</a>
+    <a href="/content/">Contents</a>
+    <a href="/podcast/">Podcast</a>
+    <a href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Snapshots</a>
+    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  </div>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+  </div>
+</nav></div>
+
+<header class="hero">
+  <div>
+    <p class="eyebrow">[ Why / Who / How ]</p>
+    <h1>About</h1>
+    <p class="sub">Behind the scenes</p>
+  </div>
+  <div>
+    <p class="eyebrow">[ Words ]</p>
+    <h2 class="words-head">We need to rethink now.</h2>
+  </div>
+</header>
+
+<section class="words">
+  <figure class="portrait">
+    <img src="/assets/img/people/rohit-yadav.jpg" alt="Rohit Yadav" onerror="this.closest('.portrait').classList.add('noimg')">
+    <span class="pmono" aria-hidden="true">RY</span>
+  </figure>
+  <figure class="quote">
+    <blockquote>Venture markets don't evolve in isolation. As the asset class rebounds from recent challenges, the coming years will be a defining moment, modifying the foundation of VC through structural shifts, technology driven disruptions, and new models of value creation. This report brings together new thought leadership ideas, industry insights, top investor voices, to force us to rethink what's next.</blockquote>
+    <cite><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Rohit Yadav, author</a></cite>
+  </figure>
+</section>
+
+<section class="features" id="scenes">
+  <div class="features-left">
+    <p class="kicker">Behind the scenes</p>
+    <div class="art" data-art="scenes"><canvas aria-hidden="true"></canvas></div>
+  </div>
+
+  <div class="rows">
+    <div class="row">
+      <button type="button" aria-expanded="false"><span class="flip">
+        <span class="face"><h3>Why this report?</h3></span>
+        <span class="face face-back">
+          <p>It fills a critical strategic gap: the most comprehensive 360-degree view of the venture asset class, covering the full spectrum of factors shaping the value chain. It connects themes too often analyzed in isolation, from LP capital flows to the evolution of the venture business, in one place.</p>
+        </span>
+      </span></button>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v15M5 13l7 7 7-7"/></svg></span>
+    </div>
+
+    <div class="row">
+      <button type="button" aria-expanded="false"><span class="flip">
+        <span class="face"><h3>Who should read it?</h3></span>
+        <span class="face face-back">
+          <p>Anyone connected to the venture ecosystem: LPs, VCs and GPs, FoFs, founders, ecosystem builders, or engaged observers. The primary focus is LPs, family offices, institutional investors and capital allocators, with special attention to the often-overlooked capital input side of venture.</p>
+        </span>
+      </span></button>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v15M5 13l7 7 7-7"/></svg></span>
+    </div>
+
+    <div class="row">
+      <button type="button" aria-expanded="false"><span class="flip">
+        <span class="face"><h3>How to read it?</h3></span>
+        <span class="face face-back">
+          <p>A strategic framework that moves beyond surface-level analysis to reveal key structural dynamics. Organized through a venture value chain lens, it begins with capital inputs (LPs), moves through venture investing mechanics, and concludes with outcomes and exits. Topics are strengthened with interview snapshots from 11 venture experts.</p>
+        </span>
+      </span></button>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v15M5 13l7 7 7-7"/></svg></span>
+    </div>
+  </div>
+</section>
+
+<section class="split">
+  <div>
+    <p class="eyebrow">[ Snapshots ]</p>
+    <h3>Check the snippets</h3>
+    <a class="btn" href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">View snapshots</a>
+  </div>
+  <div>
+    <p class="eyebrow">[ Contents ]</p>
+    <h3>See what is inside, section by section</h3>
+    <a class="btn" href="/content/">View contents</a>
+  </div>
+</section>
+
+<footer>
+  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+  </div>
+</footer>
+
+
+<script>
+var REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+document.querySelectorAll(".row button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var row = btn.closest(".row");
+    var open = row.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+});
+
+function wireframe(box, opts){
+  var cv = box.querySelector("canvas");
+  var ctx = cv.getContext("2d");
+  var W = 1, H = 1;
+  function resize(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var r = box.getBoundingClientRect();
+    var w = Math.max(1, Math.round(r.width)), h = Math.max(1, Math.round(r.height));
+    if(w === W && h === H && cv.width === Math.round(w * dpr)) return;
+    W = w; H = h;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  if(window.ResizeObserver){ var ro=new ResizeObserver(function(){ requestAnimationFrame(resize); }); ro.observe(box); }
+  window.addEventListener("resize", resize);
+  window.addEventListener("load", resize);
+  resize();
+  function point(t, phase, R, k){
+    return [ R * (Math.cos(t) + k * Math.cos(opts.lobes * t + phase)),
+             R * (Math.sin(t) - k * Math.sin(opts.lobes * t + phase)) ];
+  }
+  function frame(ts){
+    var time = ((ts || 0) / 1000) + opts.seed;
+    ctx.clearRect(0, 0, W, H);
+    var cx = W / 2, cy = H / 2;
+    var k = opts.k + opts.kSwing * Math.sin(time * 0.35);
+    var R = (Math.min(W, H) * opts.fill) / (1 + k);
+    var spin = time * opts.spin;
+    ctx.lineWidth = 0.85;
+    for(var L = 0; L < opts.layers; L++){
+      var phase = (L / opts.layers) * Math.PI * 2 * opts.spread + time * 0.18;
+      var fade = 0.25 + 0.375 * (1 - Math.abs(L - opts.layers / 2) / (opts.layers / 2));
+      ctx.strokeStyle = "rgba(206,238,243," + fade.toFixed(3) + ")";
+      ctx.beginPath();
+      for(var i = 0; i <= 200; i++){
+        var t = (i / 200) * Math.PI * 2 + spin;
+        var p = point(t, phase, R, k);
+        if(i === 0) ctx.moveTo(cx + p[0], cy + p[1]); else ctx.lineTo(cx + p[0], cy + p[1]);
+      }
+      ctx.closePath(); ctx.stroke();
+    }
+    for(var d = 0; d < opts.dots; d++){
+      var td = time * 0.22 + d * (Math.PI * 2 / opts.dots) + spin;
+      var pd = point(td, time * 0.18, R, k);
+      ctx.fillStyle = "#f88a63";
+      ctx.beginPath(); ctx.arc(cx + pd[0], cy + pd[1], 3.4, 0, Math.PI * 2); ctx.fill();
+    }
+    if(!REDUCE) requestAnimationFrame(frame);
+  }
+  if(REDUCE){ frame(0); } else { requestAnimationFrame(frame); }
+}
+wireframe(document.querySelector('[data-art="scenes"]'),
+  {layers:16, lobes:3, k:0.34, kSwing:0.07, fill:0.36, spin:-0.05, spread:0.55, dots:3, seed:12});
+</script>
+</body>
+</html>

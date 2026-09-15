@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thinking About Alternatives and Allocations · Rethinking Venture Capital</title>
+<meta name="description" content="Interview with Christoph Junge, Head of Fund Investments at EIFO.">
+<meta property="og:title" content="Thinking About Alternatives and Allocations">
+<meta property="og:description" content="Interview with Christoph Junge, Head of Fund Investments at EIFO.">
+
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+ :root{
+  --bg:#061417; --panel:#0c2228; --panel-2:#0f2a31;
+  --line:rgba(190,230,235,.20); --line-soft:rgba(190,230,235,.11);
+  --ink:#e9eefc; --body:#dceaec; --muted:#93b6bb;
+  --coral:#f88a63; --coral-ink:#160b05; --rail:290px;
+ }
+ *{box-sizing:border-box}
+ html,body{margin:0;padding:0}
+ body{background:var(--bg);color:var(--ink);font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;-webkit-font-smoothing:antialiased}
+ a{color:inherit;text-decoration:none}
+ :focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+ h1,h2,h3,h4,p,ul,figure,blockquote{margin:0}
+ ul{list-style:none;padding:0}
+ .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+
+ .nav-outer{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(6,20,23,.93);backdrop-filter:blur(8px)}
+ nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0}
+ .brand{display:flex;align-items:center;gap:10px;font-weight:500;letter-spacing:.14em;font-size:16px}
+ .menu{display:flex;gap:28px;font-size:14px;color:#dff1f3}
+ .menu a{padding:4px 0;border-bottom:1px solid transparent}
+ .menu a:hover{border-bottom-color:var(--coral)}
+ .actions{display:flex;gap:10px}
+ .btn{font:inherit;font-size:13px;border-radius:999px;padding:9px 18px;border:1px solid var(--line);color:var(--ink);white-space:nowrap;display:inline-block;transition:border-color .25s,background .25s,color .25s}
+ .btn:hover{border-color:#8fc9d1}
+ .btn-solid{background:var(--coral);border-color:var(--coral);color:var(--coral-ink);font-weight:500}
+ .btn-solid:hover{background:#ffa580;border-color:#ffa580}
+
+ .crumb{padding:26px 0 0;font-size:12.5px;letter-spacing:.08em;color:var(--muted)}
+ .crumb a:hover{color:var(--coral)}
+
+ .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.72fr);gap:64px;align-items:center;padding:58px 0 72px}
+ .eyebrow{font-size:12.5px;letter-spacing:.12em;color:var(--coral)}
+ h1{font-weight:300;font-size:clamp(32px,4.1vw,56px);line-height:1.05;letter-spacing:-.04em;margin-top:24px;max-width:17ch}
+ .dek{margin-top:26px;font-weight:300;font-size:17px;line-height:1.62;color:var(--body);max-width:47ch}
+ .meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:12.5px;letter-spacing:.08em;color:var(--muted)}
+  .meta a{border-bottom:1px solid rgba(248,138,99,.45)}
+  .meta a:hover{color:var(--coral)}
+
+ .cover{position:relative;aspect-ratio:4/3;width:100%;max-width:520px;margin-left:auto;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:radial-gradient(120% 90% at 50% 55%, #123840 0%, #081d22 72%)}
+ .cover canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+ .cover .portrait{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:46%;aspect-ratio:1;border-radius:50%;object-fit:cover;
+  border:1px solid rgba(248,138,99,.55);filter:grayscale(.35) contrast(1.03);
+ }
+ .cover .tag{position:absolute;left:20px;top:18px;font-size:12px;letter-spacing:.1em;color:var(--muted)}
+
+ .body{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:56px;padding-bottom:88px;border-top:1px solid var(--line);padding-top:52px}
+ .rail{position:sticky;top:96px;align-self:start}
+ .rail h4{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:400;margin-bottom:18px}
+ .share{display:flex;gap:10px;margin-bottom:38px}
+ .share a{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s}
+ .share a:hover{border-color:var(--coral);background:rgba(248,138,99,.1)}
+ .share svg{width:15px;height:15px;stroke:var(--muted);fill:none;stroke-width:1.4}
+ .share a:hover svg{stroke:var(--coral)}
+ .who{display:flex;gap:14px;align-items:flex-start;margin-bottom:30px}
+ .avatar{flex:0 0 auto;width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid var(--coral);filter:grayscale(.3)}
+ .mono{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1px solid var(--coral);display:flex;align-items:center;justify-content:center;color:var(--coral);font-size:13px}
+ .who .n{font-size:15px}
+ .who .n a:hover{color:var(--coral)}
+ .who .r{margin-top:5px;font-size:13px;line-height:1.5;color:var(--muted);font-weight:300}
+ .rail hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+ .rail p.note{font-size:13.5px;line-height:1.6;color:var(--body);font-weight:300;margin-bottom:22px}
+
+ .panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:44px;margin-bottom:26px}
+ .plabel{display:flex;align-items:center;gap:20px;margin-bottom:32px}
+ .plabel span{font-size:12px;letter-spacing:.14em;color:var(--coral);white-space:nowrap}
+ .plabel i{flex:1;height:1px;background:var(--line);display:block}
+
+ .prose p{font-weight:300;font-size:16px;line-height:1.75;color:var(--body);max-width:70ch}
+ .prose p + p{margin-top:22px}
+ .prose a{color:var(--coral);border-bottom:1px solid rgba(248,138,99,.45)}
+ .covers-title{margin:36px 0 18px;font-size:15px;font-weight:400}
+ .covers li{display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--line-soft);font-weight:300;font-size:15px;line-height:1.6;color:var(--body)}
+ .covers li:first-child{border-top:0}
+ .covers li::before{content:"→";color:var(--coral);flex:0 0 auto}
+
+ .quote{border-left:2px solid var(--coral);background:var(--panel-2);border-radius:0 6px 6px 0;padding:44px 48px;margin-bottom:26px}
+ .quote blockquote{font-weight:300;font-size:clamp(20px,2.1vw,30px);line-height:1.32;letter-spacing:-.025em;max-width:32ch}
+ .quote cite{display:block;margin-top:22px;font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+
+ .player{position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:pointer;margin-bottom:26px;background:radial-gradient(110% 90% at 50% 50%, #13414c 0%, #081d22 72%)}
+ .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+ .player canvas{position:absolute;inset:0;width:100%;height:100%}
+ .player .pbtn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;transition:transform .3s ease}
+ .player:hover .pbtn{transform:translate(-50%,-50%) scale(1.07)}
+ .player .pnote{position:absolute;left:22px;bottom:18px;font-size:11.5px;letter-spacing:.08em;color:var(--muted)}
+
+ .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:6px;margin-bottom:26px;overflow:hidden}
+ .stat{padding:30px 24px;border-right:1px solid var(--line);background:var(--panel)}
+ .stat:last-child{border-right:0}
+ .stat b{display:block;font-weight:300;font-size:clamp(23px,2.3vw,33px);letter-spacing:-.035em;color:var(--coral)}
+ .stat span{display:block;margin-top:12px;font-size:13px;line-height:1.55;color:var(--muted);font-weight:300}
+
+ .row{position:relative;border-top:1px solid var(--line-soft);min-height:132px;display:flex;align-items:center}
+ .row:first-of-type{border-top:0}
+ .row button{all:unset;position:absolute;inset:0;cursor:pointer;display:block;perspective:1200px}
+ .row button:focus-visible{outline:2px solid var(--coral);outline-offset:-4px}
+ .flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+ .row button:hover .flip,.row button:focus-visible .flip,.row.is-open .flip{transform:rotateX(180deg)}
+ .face{position:absolute;inset:0;display:flex;align-items:center;padding:22px 72px 22px 0;backface-visibility:hidden}
+ .face-back{transform:rotateX(180deg)}
+ .face h3{font-weight:300;font-size:clamp(20px,2.2vw,30px);line-height:1.1;letter-spacing:-.03em}
+ .face-back p{color:var(--coral);font-weight:300;font-size:15px;line-height:1.6;max-width:56ch}
+ .arrow{position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--muted);transition:transform .4s,color .4s;pointer-events:none}
+ .row button:hover ~ .arrow,.row.is-open .arrow{transform:translateY(-50%) rotate(180deg);color:var(--coral)}
+
+ .chapters li{border-top:1px solid var(--line-soft)}
+ .chapters li:first-child{border-top:0}
+ .chapters button{all:unset;display:flex;gap:32px;align-items:baseline;width:100%;box-sizing:border-box;padding:15px 8px 15px 0;cursor:pointer;transition:padding-left .25s ease}
+ .chapters button:hover{padding-left:8px}
+ .chapters time{color:var(--coral);font-size:13px;flex:0 0 auto;font-variant-numeric:tabular-nums}
+ .chapters span{font-weight:300;font-size:15.5px;line-height:1.5;color:var(--body)}
+ .chapters button:hover span{color:var(--ink)}
+ .hint{margin-top:26px;font-size:12.5px;line-height:1.6;color:var(--muted);font-weight:300}
+
+ .mgroup + .mgroup{margin-top:36px;padding-top:32px;border-top:1px solid var(--line)}
+ .mgroup > h3{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:400;margin-bottom:22px}
+ .mitem{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:15px 0;border-top:1px solid var(--line-soft)}
+ .mgroup .mitem:first-of-type{border-top:0}
+ .mkind{font-size:11px;letter-spacing:.12em;color:var(--muted);padding-top:4px}
+ .mname{font-size:16px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+ .mname a{border-bottom:1px solid rgba(248,138,99,.45)}
+ .mname a:hover{color:var(--coral)}
+ .mname .t{font-size:12.5px;color:var(--coral);font-variant-numeric:tabular-nums}
+ .mdesc{margin-top:8px;font-size:14px;line-height:1.6;color:var(--muted);font-weight:300}
+
+ .listen{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:32px 0 8px}
+ .listen h4{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:400;margin-right:8px}
+
+ .more-wrap{border-top:1px solid var(--line);padding:52px 0 76px}
+ .more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:30px}
+ .card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:26px;transition:border-color .25s,transform .25s}
+ .card:hover{border-color:rgba(248,138,99,.55);transform:translateY(-2px)}
+ .card .chip{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:4px;background:rgba(248,138,99,.12);color:var(--coral);font-size:15px;margin-bottom:22px}
+ .card h3{font-weight:300;font-size:19px;line-height:1.3;letter-spacing:-.02em}
+ .card .when{margin-top:20px;font-size:12px;letter-spacing:.08em;color:var(--muted)}
+
+ footer{border-top:1px solid var(--line);padding:26px 0;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+ footer a:hover{color:var(--coral)}
+
+ @media (max-width:1180px){
+  .wrap{padding:0 28px}
+  .menu{gap:20px;font-size:13px}
+ }
+ @media (max-width:1024px){
+  .menu{display:none}
+  .wrap{padding:0 24px}
+  .body{grid-template-columns:1fr;gap:40px;padding-top:40px}
+  .rail{position:static}
+  .rail .who,.rail p.note{max-width:52ch}
+  .panel,.quote{padding:32px 26px}
+  .mitem{grid-template-columns:1fr;gap:6px}
+  .more{grid-template-columns:repeat(2,minmax(0,1fr))}
+ }
+ @media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:32px;padding:32px 0 48px}
+  .cover{aspect-ratio:16/9;max-width:none;margin:0}
+  h1{max-width:20ch}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2n){border-right:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .face{padding-right:52px}
+ }
+ @media (max-width:600px){
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:0}
+  .more{grid-template-columns:1fr}
+ }
+ @media (prefers-reduced-motion:reduce){ .flip,.card,.chapters button{transition:none} }
+
+ /* ---------- type system, matching the Energy Digest pages ---------- */
+ :root{
+   --serif:'Fraunces',Georgia,'Times New Roman',serif;
+   --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+ }
+ body{font-family:var(--sans);font-size:16px;line-height:1.6}
+
+ /* serif for anything that is a headline */
+ h1,.quote blockquote,.face h3,.covers-title,.card h3,.stat b,.who .n,.mname{
+   font-family:var(--serif);
+ }
+ h1{font-weight:600;letter-spacing:-.026em;line-height:1.03;font-size:clamp(2rem,4.4vw,3.6rem)}
+ .quote blockquote{font-weight:500;letter-spacing:-.018em;line-height:1.26;font-size:clamp(1.3rem,2.2vw,1.95rem)}
+ .face h3{font-weight:600;letter-spacing:-.02em;font-size:clamp(1.3rem,2.2vw,1.95rem)}
+ .card h3{font-weight:600;letter-spacing:-.015em;font-size:1.2rem;line-height:1.22}
+ .stat b{font-weight:600;letter-spacing:-.02em}
+ .covers-title{font-weight:600;font-size:1.12rem;letter-spacing:-.01em}
+ .who .n{font-weight:600;font-size:1.02rem}
+ .mname{font-weight:600;font-size:1.05rem;letter-spacing:-.01em}
+
+ /* mono for every label, tag, timestamp and button */
+ .brand,.eyebrow,.meta,.crumb,.btn,.rail h4,.mgroup h3,.mkind,.mname .t,
+ .chapters time,.plabel span,.tag,.ep-no,.pnote,.hint,.card .when,.card .chip,
+ .listen h4,.mono,footer,.art-note{
+   font-family:var(--mono);text-transform:uppercase;letter-spacing:.13em;font-size:.68rem;
+ }
+ .brand{font-size:.95rem;letter-spacing:.16em;font-weight:500}
+ .btn{font-size:.7rem;letter-spacing:.12em}
+ .mname .t,.chapters time{letter-spacing:.06em;font-size:.74rem;text-transform:none}
+ .mono{font-size:.72rem;letter-spacing:.04em}
+ .card .chip{font-size:.86rem;letter-spacing:.04em}
+ .meta{gap:10px 22px}
+ .hint,.pnote{text-transform:none;letter-spacing:.01em;font-size:.78rem;line-height:1.6}
+
+ /* body copy in Inter */
+ .dek,.prose p,.covers li,.mdesc,.who .r,.rail p.note,.chapters span,.stat span,.face-back p{
+   font-family:var(--sans);
+ }
+ .dek{font-weight:400;font-size:clamp(1rem,1.35vw,1.14rem);line-height:1.62}
+ .prose p{font-weight:400;font-size:1rem;line-height:1.72}
+ .covers li,.chapters span{font-weight:400;font-size:.97rem}
+ .face-back p{font-weight:400;font-size:.97rem;line-height:1.62}
+ .mdesc,.who .r,.stat span{font-weight:400;font-size:.88rem;line-height:1.55}
+ .rail p.note{font-weight:400;font-size:.88rem;line-height:1.6}
+
+ /* hanging arrow list, so bold lead-ins stay on the same line as their text */
+ .covers li{display:block;position:relative;padding:13px 0 13px 26px}
+ .covers li::before{content:"→";position:absolute;left:0;top:13px;color:var(--coral)}
+ .covers li b{font-weight:600;color:var(--ink)}
+ /* newsletter pill in the rail */
+ .subscribe{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--coral);
+   border-radius:999px;padding:10px 18px;color:var(--coral);background:transparent;
+   font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;
+   transition:background .18s,color .18s}
+ .subscribe:hover{background:var(--coral);color:var(--coral-ink)}
+ .subscribe span{transition:transform .18s}
+ .subscribe:hover span{transform:translateX(3px)}
+
+ /* ---------- standard footer bar ---------- */
+ footer{
+   display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+   border-top:1px solid var(--line);padding:22px 40px;
+ }
+ .footbrand{
+   font-family:var(--mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:#dff1f3;
+   border-bottom:1px solid transparent;
+ }
+ .footbrand:hover{border-bottom-color:var(--coral);color:var(--coral)}
+ footer .actions{display:flex;gap:10px;align-items:center}
+ @media (max-width:700px){ footer{padding:20px 24px} footer .actions{width:100%} }
+ .nav-outer{position:sticky;top:0;z-index:30}
+
+ /* separation pass: lift the panels and give the page a soft top light */
+ body{background-image:linear-gradient(180deg, rgba(190,230,235,.045), rgba(190,230,235,0) 620px);background-repeat:no-repeat}
+ .panel,.stats{box-shadow:0 1px 0 rgba(255,255,255,.05) inset}
+ .cover{background:#123840 !important;box-shadow:0 1px 0 rgba(255,255,255,.06) inset}
+ .quote{box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+
+ /* photo avatars with a monogram fallback */
+ .av{flex:0 0 auto;position:relative;display:block}
+ .av .avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid var(--coral);filter:grayscale(.2);display:block}
+ .av .mono{display:none}
+ .av.noimg .avatar{display:none}
+ .av.noimg .mono{display:flex}
+
+ /* written contribution pages */
+ .qa .qline,.qa .aline{display:flex;gap:16px;align-items:flex-start}
+ .qa .aline{margin-top:18px}
+ .qa .answer{min-width:0}
+ .qa .mark{flex:0 0 auto;width:28px;height:28px;border-radius:50%;border:1px solid var(--coral);color:var(--coral);
+   display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.72rem;letter-spacing:.02em;margin-top:2px}
+ .qa .mark.a{border-color:rgba(190,230,235,.35);color:var(--body)}
+ .qa h3{font-family:var(--serif);font-weight:600;font-size:clamp(20px,2.3vw,28px);line-height:1.28;letter-spacing:-.02em;margin:0;max-width:34ch}
+ .qa p{font-weight:300;font-size:16px;line-height:1.72;color:var(--body);max-width:70ch}
+ .qa p + p{margin-top:18px}
+ .qa ul{margin:18px 0 0;padding:0;list-style:none}
+ .qa li{position:relative;padding:0 0 0 26px;margin-bottom:14px;font-weight:300;font-size:15.5px;line-height:1.66;color:var(--body);max-width:70ch}
+ .qa li::before{content:"";position:absolute;left:0;top:11px;width:12px;height:1px;background:var(--coral)}
+ .qa li b{font-weight:500;color:var(--ink)}
+ .qa blockquote{margin:22px 0 0;padding:18px 0 18px 22px;border-left:2px solid var(--coral);
+   font-family:var(--serif);font-weight:500;font-size:clamp(17px,1.9vw,22px);line-height:1.38;letter-spacing:-.015em;color:var(--ink);max-width:48ch}
+ .qa .block + .block{margin-top:34px;padding-top:30px;border-top:1px solid var(--line-soft)}
+ .cover img.portrait{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.2)}
+</style>
+</head>
+<body>
+
+<div class="nav-outer"><nav>
+  <a class="brand" href="/">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <circle cx="10" cy="10" r="9" stroke="#f88a63" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="5" stroke="#a8dbe2" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="1.6" fill="#f88a63"/>
+    </svg>
+    RETHINK
+  </a>
+  <div class="menu">
+    <a href="/about/">About</a>
+    <a href="/content/">Contents</a>
+    <a href="/podcast/">Podcast</a>
+    <a href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Snapshots</a>
+    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  </div>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Subscribe</a>
+  </div>
+</nav></div>
+
+<div class="wrap">
+  <p class="crumb"><a href="/podcast/">← ALL EPISODES</a></p>
+
+  <header class="hero">
+    <div>
+      <p class="eyebrow">INTERVIEW SNAPSHOT · WRITTEN CONTRIBUTION TO THE REPORT</p>
+      <h1>Thinking About Alternatives and Allocations</h1>
+      <p class="dek">Interview with Christoph Junge, Head of Fund Investments at EIFO.</p>
+      <p class="meta"><span>WRITTEN CONTRIBUTION</span><span>CHRISTOPH JUNGE</span><span>HEAD OF FUND INVESTMENTS, EIFO</span></p>
+    </div>
+    <div class="cover">
+      <img class="portrait" src="/assets/img/people/christoph-junge.jpg" alt="Christoph Junge">
+      <span class="tag">SNAPSHOT</span>
+    </div>
+  </header>
+
+  <div class="body">
+    <aside class="rail">
+      <h4>SHARE</h4>
+      <div class="share">
+        <a href="#" id="copyLink" aria-label="Copy link"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg></a>
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Frethink.bigbook.vc%2Fsnapshots%2Fthinking-about-alternatives-and-allocations.html" aria-label="Share on X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Frethink.bigbook.vc%2Fsnapshots%2Fthinking-about-alternatives-and-allocations.html" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4"/></svg></a>
+        <a href="mailto:?body=https%3A%2F%2Frethink.bigbook.vc%2Fsnapshots%2Fthinking-about-alternatives-and-allocations.html" aria-label="Share by email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+      </div>
+
+      <h4>CONTRIBUTOR</h4>
+      <div class="who">
+        <span class="av"><img class="avatar" src="/assets/img/people/christoph-junge.jpg" alt="" onerror="this.closest('.av').classList.add('noimg')"><span class="mono" aria-hidden="true">CJ</span></span>
+        <div><p class="n"><a href="https://www.linkedin.com/in/christophjunge/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Christoph Junge ↗</a></p><p class="r">Head of Fund Investments, <a href="https://www.eifo.dk/en?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">EIFO ↗</a></p></div>
+      </div>
+
+      <h4>INTERVIEWER</h4>
+      <div class="who">
+        <span class="av"><img class="avatar" src="/assets/img/people/rohit-yadav.jpg" alt="" onerror="this.closest('.av').classList.add('noimg')"><span class="mono" aria-hidden="true">RY</span></span>
+        <div><p class="n"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Rohit Yadav ↗</a></p><p class="r">Investments thought leader, <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Big Book of VC ↗</a></p></div>
+      </div>
+
+      <hr>
+
+      <h4>NEWSLETTER</h4>
+      <p class="note">Don't miss the next insight drop on the Rethinking VC topic.</p>
+      <a class="subscribe" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Subscribe <span>→</span></a>
+    </aside>
+
+    <main>
+      <section class="panel qa">
+        <div class="plabel"><span>INTERVIEW SNAPSHOT</span><i></i></div>
+        <div class="block">
+          <div class="qline"><span class="mark">Q</span><h3>What role do macro factors play in asset allocation and portfolio construction decisions?</h3></div>
+          <div class="aline"><span class="mark a">A</span><div class="answer">
+          <p>Macro factors such as interest rates, inflation, and GDP growth play a pivotal role in shaping Strategic Asset Allocation (SAA). Let's focus on interest rates as an example, given dramatic shift from negative territory to sharp increases. Interest rates can significantly affect alternative investments like Real Estate (RE), Private Equity (PE), Private Debt (PD), and Liquid Alts.</p>
+          <ul>
+            <li><b>Real Estate.</b> Higher interest rates increase borrowing costs, which, all else equal, can dampen RE investment activity and valuations. My research on Alternatives during crises has shown this is not always the case. There were plenty of times when rising rates did not lead to losses on RE investments. It's important to consider why rates are rising. Often it's due to high economic activity, and if NOI growth is strong enough, it can more than offset the impact of higher rates on valuations.</li>
+            <li><b>Private Equity.</b> Rising or elevated rates can challenge leveraged buyouts due to higher debt servicing costs. This favors GPs strong in operational improvements over those focused on financial engineering. That said, debt seems less important anyway. Average equity contribution in an LBO reached up to 50% in 2024, up from below 30% in the 90s. This naturally reduces impact of debt on return on equity.</li>
+            <li><b>Private Debt.</b> Most PD is floating rate and benefits from rising rates, until higher interest burden raises default rates. But recently, PD was more compelling than PE exactly because of rising interest rates.</li>
+            <li><b>Liquid Alts.</b> Many Liquid Alts strategies, like managed futures and ILS, now derive a sizeable part of their total return from yield on collateral, since rates are no longer zero or negative.</li>
+          </ul>
+          <blockquote>So putting it all together, the new interest rate regime has made some asset classes more attractive compared to others and this influences capital market assumptions used as input in SAA and hence directly SAA weights.</blockquote>
+          </div></div>
+        </div>
+        <div class="block">
+          <div class="qline"><span class="mark">Q</span><h3>What role do trends play in those decisions?</h3></div>
+          <div class="aline"><span class="mark a">A</span><div class="answer">
+          <blockquote>Given the very long-term nature of many private markets investments, it is crucial to think about trends or even mega-trends.</blockquote>
+          <p>Think, for example, of the increasing digitization of our world. This affects the return outlook of, for example, data center investments, an area I have been very keen on for the last several years.</p>
+          </div></div>
+        </div>
+        <div class="block">
+          <div class="qline"><span class="mark">Q</span><h3>Why are alternatives, mainly private markets, becoming critical in an investor portfolio?</h3></div>
+          <div class="aline"><span class="mark a">A</span><div class="answer">
+          <p>There are several reasons why Alternatives in general and Private Markets in particular are critical in a portfolio. And each asset class has its very own role to play.</p>
+          <ul>
+            <li><b>Private Equity</b> is all about higher expected returns. I do not see PE as a good diversifier since the same macro factors influence both listed and unlisted companies. But by going unlisted, investors can earn a complexity premium (I'm not a big believer in an illiquidity premium) and tap into a much larger pool of investments. Only approximately 10% of all companies worldwide with revenue above 100 million USD are listed, so by only investing in listed companies, one forgoes a large opportunity set. Of course, this says nothing about market cap. Market cap is the other way round, 90% listed, but each company is another alpha opportunity. So, I'd argue the number of companies is more relevant than market cap for most investors.</li>
+            <li><b>Real assets</b>, like infrastructure and timberland, are good diversifiers and can also hedge inflation, but the devil is in the detail with infrastructure. These investments should generally be less correlated to business cycle. Lumber is cyclical, of course, but a large part of the return from timberland comes from biological growth, which is not.</li>
+            <li><b>Private Credit</b> is also about higher expected returns, but even PC is still credit. It'll be interesting to see how PC performs during the next real crisis, as the asset class didn't really exist during the GFC and has grown tremendously in recent years. One area where PC was more resilient than public corporate bonds was during the hiking cycle, as PC is mostly floating rate and profited from rising rates, while Investment Grade and High-Yield bonds are typically fixed rate and suffered.</li>
+          </ul>
+          <p>And then there are Liquid Alts, like managed futures and CAT bonds. These are the true diversifiers in a portfolio. Managed futures have historically shown the ability to deliver crisis alpha, positive performance during times of crisis. CAT bonds are one of very few, if not the only, truly uncorrelated asset classes, as the payoff depends on the occurrence of natural catastrophes.</p>
+          <p>So, there is no universal answer to that question, as it depends on the asset class. But as eluded, there are many very good reasons to include Alternatives in an asset allocation.</p>
+          </div></div>
+        </div>
+        <div class="block">
+          <div class="qline"><span class="mark">Q</span><h3>How do investors decide which private markets to allocate to, how much, and when?</h3></div>
+          <div class="aline"><span class="mark a">A</span><div class="answer">
+          <p>Investors make decisions about Private Market allocations by considering several factors, but key factors are liquidity constraints, market opportunities, and knowledge and preferences.</p>
+          <blockquote>Once the long-term goals and risk level are defined, one needs to assess how much illiquidity the portfolio can carry.</blockquote>
+          <p>For example, Danish labor market pension funds can run a higher allocation to Private markets, as there is less uncertainty about customer flows compared to commercial pension providers.</p>
+          <p>Another key part of the SAA process is the current market opportunity. Two years ago, PC looked much more compelling than PE. Or, as mentioned earlier, the megatrends, they also shape market opportunities. Finally, knowledge and preferences matter. It's always easier for an organization to invest in known asset classes. But there can also be other preferences, such as past negative experiences with a particular asset class.</p>
+          </div></div>
+        </div>
+        <div class="block">
+          <div class="qline"><span class="mark">Q</span><h3>What is an institutional-grade approach to selecting managers in private markets?</h3></div>
+          <div class="aline"><span class="mark a">A</span><div class="answer">
+          <p>The most important part here is structure and a stringent process. Institutional investors get pitched constantly from all directions and all kinds of products. For me, it's important to have a clear strategy and follow it rigorously. This also makes it easier to reject pitches that don't match the strategy. Once a potential investment passes this first gate, the real due diligence begins.</p>
+          <blockquote>The goal of due diligence is to find out whether the presumably good track record is real and, very important, repeatable.</blockquote>
+          <p>The four P of the due diligence process, people, performance, philosophy, and process, are key. It might sound like a no-brainer, but it's crucial to conduct thorough due diligence on the track record not only at the fund level but also at the deal level. Research shows the deal partner is about four times more important than the organization. So, follow the deal partner instead of making re-ups at the same GP if the top deal partner has moved on. Interestingly, none of the typical human capital variables, age, gender, MBA, PE tenure, explain the cross-section of deal returns.</p>
+          <p>Given my preference for a structured process, I like using RfP platforms for searches to ensure that I cover large parts of the market and not only from my own network.</p>
+          </div></div>
+        </div>
+        <div class="block">
+          <div class="qline"><span class="mark">Q</span><h3>What are the biggest private market trends you see, and how will they shape the business?</h3></div>
+          <div class="aline"><span class="mark a">A</span><div class="answer">
+          <p>There are three major trends that I have witnessed: democratization of private markets, growth of private credit, and secondary market maturation.</p>
+          <blockquote>The democratization of Private Markets is very interesting and has been ongoing longer in the US, but with ELTIF 2.0, European regulation is catching up with the demand for Alternatives from private wealth channels. This could unlock billions in new capital flowing into Private Markets.</blockquote>
+          <p>The growth of PC has been underway for years but accelerated recently when public credit markets froze in 2022, with both base rates and spreads at attractive levels. Some are getting nervous about the massive inflow into this asset class, and I also get nervous when too much money chases deals. One must carefully watch risks around underwriting standards. On the other hand, this trend could make the financial system more stable due to more diverse funding sources. Historically, crises happened when banks lost money and retreated from lending. Now, with pension funds, insurance companies, and other capital pools taking over, the economy becomes less dependent on banks.</p>
+          <p>Finally, secondary markets are getting more mature. Players are raising billions to deploy into secondaries, increasing liquidity and making it easier for investors to rebalance. Part of this maturation is the rise of GP-led secondaries, or continuation vehicles. CVs can help in tough exit environments by offering liquidity to LPs who need it and maximizing returns for others. Conflicts of interest must be managed carefully. But overall, secondary market maturation should be a net positive, as better pricing transparency and efficiency may make Private Markets more attractive to a broader audience.</p>
+          </div></div>
+        </div>
+      </section>
+
+      <div class="listen">
+        <h4>SUBSCRIBE ON</h4>
+        <a class="btn" href="https://www.youtube.com/@theonepoint?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">YouTube</a>
+        <a class="btn" href="https://yadavrohit.substack.com/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Substack</a>
+        <a class="btn" href="https://open.spotify.com/show/19LhIXECFj9i91MFCCWuTR?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Spotify</a>
+        <a class="btn" href="https://podcasts.apple.com/us/podcast/the-one-point/id1644098589?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Apple Podcasts</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="more-wrap">
+    <div class="plabel"><span>RELATED</span><i></i></div>
+    <div class="more">
+      <a class="card" href="/snapshots/thoughts-on-indian-family-offices.html"><span class="chip">↗</span><h3>Thoughts on Indian Family Offices and Investing</h3><p class="when">AARTI GUPTA</p></a>
+      <a class="card" href="/podcast/views/venture-fund-of-funds-established-managers.html"><span class="chip">↗</span><h3>Venture Fund-of-Funds: Established Managers</h3><p class="when">DAVID CLARK · VENCAP</p></a>
+      <a class="card" href="/podcast/views/private-markets-allocation.html"><span class="chip">↗</span><h3>Private Markets Allocation: Investment Advisor Perspectives</h3><p class="when">FRANK TANNER · MORGAN CREEK</p></a>
+    </div>
+  </section>
+
+  <footer>
+    <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">The Big Book of VC</a>
+    <div class="actions">
+      <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Download the report</a>
+      <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Subscribe</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+var copy=document.getElementById("copyLink");
+if(copy){copy.addEventListener("click",function(e){e.preventDefault();if(navigator.clipboard)navigator.clipboard.writeText(window.location.href);});}
+</script>
+</body>
+</html>

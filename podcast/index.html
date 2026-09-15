@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Views &middot; Rethinking Venture Capital</title>
+<meta name="description" content="Conversations with the LPs, GPs, allocators and operators behind Rethinking Venture Capital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#061417; --panel:#0c2228; --line:rgba(190,230,235,.20); --line-soft:rgba(190,230,235,.11);
+    --ink:#fff; --body:#dceaec; --muted:#93b6bb; --coral:#f88a63; --coral-ink:#160b05; --salmon:#f5ab91;
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box} html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+       background-image:linear-gradient(180deg,rgba(190,230,235,.045),rgba(190,230,235,0) 620px);background-repeat:no-repeat}
+  a{color:inherit;text-decoration:none} h1,h2,h3,p{margin:0}
+  :focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+  .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+
+  .nav-outer{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:rgba(6,20,23,.94);backdrop-filter:blur(8px)}
+  nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:500;letter-spacing:.16em;font-size:.95rem;text-transform:uppercase}
+  .menu{display:flex;gap:26px;font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:#dff1f3}
+  .menu a{padding:4px 0;border-bottom:1px solid transparent}
+  .menu a:hover,.menu a[aria-current]{border-bottom-color:var(--coral)}
+  .actions{display:flex;gap:10px;align-items:center}
+  .btn{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:10px 18px;border:1px solid var(--line);white-space:nowrap;transition:border-color .25s,background .25s,color .25s}
+  .btn:hover{border-color:#8fc9d1}
+  .btn-solid{background:var(--coral);border-color:var(--coral);color:var(--coral-ink);font-weight:500}
+  .btn-solid:hover{background:#ffa580;border-color:#ffa580}
+
+  /* hero */
+  .hero{border-bottom:1px solid var(--line);padding:56px 0 48px}
+  .hero .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:56px;align-items:center}
+  .lab{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.04;letter-spacing:-.03em;margin-top:18px;max-width:18ch}
+  .hero .lede{margin-top:20px;font-size:16.5px;line-height:1.62;color:var(--body);max-width:46ch}
+
+  /* hero cascade: a diagonal trail, each tile arriving in turn */
+  .deck{position:relative;width:min(100%,460px);aspect-ratio:1/1;margin-left:auto}
+  .deck a{position:absolute;width:62%;aspect-ratio:4/3;border-radius:8px;overflow:hidden;
+          border:1px solid rgba(22,11,5,.3);background:var(--salmon);
+          box-shadow:0 2px 4px rgba(0,0,0,.25),0 22px 44px -24px rgba(0,0,0,.65);
+          opacity:0;transform:translate(-14px,18px) scale(.94);
+          transition:opacity .62s cubic-bezier(.2,.7,.3,1),transform .62s cubic-bezier(.2,.7,.3,1),box-shadow .28s}
+  .deck a img{width:100%;height:100%;object-fit:contain;display:block;background:var(--salmon)}
+  .deck a[data-i="0"]{left:0;     top:38%;   z-index:1}
+  .deck a[data-i="1"]{left:12.6%; top:25.3%; z-index:2}
+  .deck a[data-i="2"]{left:25.2%; top:12.6%; z-index:3}
+  .deck a[data-i="3"]{left:38%;   top:0;     z-index:4}
+  .deck a.in{transform:translate(0,0) scale(1)}
+  .deck a[data-i="0"].in{opacity:.62}
+  .deck a[data-i="1"].in{opacity:.76}
+  .deck a[data-i="2"].in{opacity:.88}
+  .deck a[data-i="3"].in{opacity:1}
+  .deck a:hover{opacity:1;z-index:5;box-shadow:0 3px 6px rgba(0,0,0,.3),0 30px 56px -22px rgba(0,0,0,.7)}
+  .deck a.in:hover{transform:translate(0,-5px) scale(1.02)}
+  .deck a:focus-visible{opacity:1;z-index:5}
+  .deck .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;font-family:var(--mono);font-size:.58rem;
+             letter-spacing:.12em;text-transform:uppercase;line-height:1.35;color:var(--coral-ink);
+             background:linear-gradient(to top,rgba(245,171,145,.95),rgba(245,171,145,0))}
+  @media (max-width:1000px){ .deck{margin:0} }
+
+  /* listing */
+  .pod-list{padding:44px 0 10px}
+  .head{margin-bottom:22px}
+  .mosaic{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:22px;margin-bottom:22px}
+  .mosaic[data-side="right"] .tall{order:2}
+  .mostack{display:grid;grid-template-rows:1fr 1fr;gap:22px;min-width:0}
+  .mo{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel);transition:border-color .25s,transform .25s;min-width:0}
+  .mo:hover{border-color:rgba(248,138,99,.55);transform:translateY(-2px)}
+  .mo.tall{flex-direction:column}
+  .mo.w1,.mo.w2{flex-direction:row;align-items:stretch}
+  .shot{position:relative;display:block;background:var(--salmon);flex:0 0 auto;aspect-ratio:4/3}
+  .mo.tall .shot{width:100%}
+  .mo.w1 .shot,.mo.w2 .shot{width:38%;min-width:150px;align-self:flex-start}
+  .shot img{display:block;width:100%;height:100%;object-fit:contain;background:var(--salmon)}
+  .dur{position:absolute;right:10px;bottom:10px;display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;
+       background:rgba(22,11,5,.82);color:#ffdccd;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase}
+  .dur svg{width:11px;height:11px;fill:currentColor}
+  .mo .body{display:flex;flex-direction:column;gap:9px;padding:22px 24px 20px;min-width:0}
+  .kick{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--salmon)}
+  .mo h3{font-family:var(--serif);font-weight:600;font-size:clamp(18px,1.9vw,25px);line-height:1.18;letter-spacing:-.02em}
+  .when{font-size:13.5px;color:var(--body)}
+  .when b{font-weight:500} .when em{font-style:normal;color:var(--muted);padding:0 4px}
+  .blurb{font-size:14.5px;line-height:1.6;color:var(--muted);font-weight:300}
+  .go{margin-top:auto;font-family:var(--mono);font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--coral);display:inline-flex;gap:8px;align-items:center}
+  .mo:hover .go i{transform:translateX(4px)}
+  .go i{font-style:normal;transition:transform .25s}
+
+  /* written contributions */
+  .written{border-top:1px solid var(--line);margin-top:26px;padding:40px 0 8px}
+  .wgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:20px}
+
+  footer{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding:22px 0;margin-top:44px}
+  .footbrand{font-family:var(--mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:#dff1f3;border-bottom:1px solid transparent}
+  .footbrand:hover{border-bottom-color:var(--coral);color:var(--coral)}
+
+  @media (max-width:1000px){
+    .wrap{padding:0 24px}
+    .menu{display:none}
+    .hero .grid{grid-template-columns:1fr;gap:30px}
+    .mosaic{grid-template-columns:1fr}
+    .mosaic[data-side="right"] .tall{order:0}
+    .wgrid{grid-template-columns:1fr}
+  }
+  @media (max-width:620px){
+    .mo.w1,.mo.w2{flex-direction:column}
+    .mo.w1 .shot,.mo.w2 .shot{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){ .deck a{opacity:1;transform:translate(0,0) scale(1);transition:none} }
+</style>
+</head>
+<body>
+
+<div class="nav-outer"><div class="wrap"><nav>
+  <a class="brand" href="/">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <circle cx="10" cy="10" r="9" stroke="#f88a63" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="5" stroke="#a8dbe2" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="1.6" fill="#f88a63"/>
+    </svg>
+    RETHINK
+  </a>
+  <div class="menu">
+    <a href="/about/">About</a>
+    <a href="/content/">Contents</a>
+    <a href="/podcast/" aria-current="page">Views</a>
+    <a href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Snapshots</a>
+    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">The Big Book of VC</a>
+  </div>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Subscribe</a>
+  </div>
+</nav></div></div>
+
+<header class="hero"><div class="wrap grid">
+  <div>
+    <p class="lab">Views</p>
+    <h1>Expert views</h1>
+    <p class="lede">LPs, GPs, allocators and operators on what is actually changing in how capital is raised, priced, deployed and returned, and what is only being argued about.</p>
+  </div>
+  <div><div class="deck" id="deck" aria-label="Recent conversations"></div></div>
+</div></header>
+
+<main class="wrap pod-list" id="views">
+  <h2 class="head lab">All conversations</h2>
+  <div class="epcards" id="epcards"></div>
+
+  <section class="written">
+    <h2 class="head lab">Written contributions</h2>
+    <div class="wgrid" id="written"></div>
+  </section>
+</main>
+
+<div class="wrap"><footer>
+  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">The Big Book of VC</a>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Subscribe</a>
+  </div>
+</footer></div>
+
+<script>
+/* ============================================================
+   VIEWS: the single source of truth for this page.
+
+   To publish a new conversation:
+     1. Copy podcast/views/_template.html to podcast/views/<slug>.html
+        and fill it in.
+     2. Save that page's cover drawing to assets/img/art/<slug>.svg.
+     3. Add an entry to the TOP of this array.
+     4. Cut the guest portrait to assets/img/people/<name>.jpg for the
+        episode page's own rail. It is not used on this listing.
+
+   slug      must match the filename without .html, and
+             assets/img/art/<slug>.svg must exist
+   deck      true puts the artwork in the hero cascade. Keep four.
+   ============================================================ */
+var VIEWS = [
+  {
+    "num": 20,
+    "slug": "the-hidden-math-of-venture",
+    "title": "The hidden math of venture: alignment, incentives, and the power law",
+    "name": "John Rikhtegar",
+    "firm": "RBCx",
+    "date": "October 2025",
+    "duration": "39 min",
+    "blurb": "How fund size, structure, and timing influence outcomes across both private and public markets.",
+    "deck": true
+  },
+  {
+    "num": 19,
+    "slug": "secondaries-in-venture",
+    "title": "Secondaries in venture",
+    "name": "Jared Carmel",
+    "firm": "Manhattan Venture Partners",
+    "date": "October 2025",
+    "duration": "42 min",
+    "blurb": "It starts in 2009, helping a Facebook employee cash out their stock options. Companies now stay private for twenty years, and the old playbook of waiting for the IPO no longer counts as liquidity."
+  },
+  {
+    "num": 18,
+    "slug": "europes-venture-moment",
+    "title": "Europe's venture moment",
+    "name": "Michael Sidler",
+    "firm": "Redalpine",
+    "date": "September 2025",
+    "duration": "47 min",
+    "blurb": "Public markets are at highs and private markets are still cheap, the IPO window is opening, and rates are heading down. For Michael Sidler, this is unlike anything he has seen in 20 years.",
+    "deck": true
+  },
+  {
+    "num": 17,
+    "slug": "global-indian-alpha",
+    "title": "Global Indian Alpha: how talent is reshaping venture capital",
+    "name": "Shwetank Verma",
+    "firm": "Leo Capital",
+    "date": "September 2025",
+    "duration": "36 min",
+    "blurb": "India not just as a market, but as a global source of talent and ideas: operational efficiency honed in Bangalore, scaled in Silicon Valley, and applied in London."
+  },
+  {
+    "num": 16,
+    "slug": "operator-edge-in-the-new-vc-landscape",
+    "title": "Operator edge in the new VC landscape",
+    "name": "Noah Lichtenstein",
+    "firm": "Crossover VC",
+    "date": "September 2025",
+    "duration": "44 min",
+    "blurb": "Capital is everywhere. Advantage comes from experience, and from whether founders genuinely want you on their cap table.",
+    "deck": true
+  },
+  {
+    "num": 15,
+    "slug": "geopolitics-in-european-venture",
+    "title": "Geopolitics in European venture",
+    "name": "Henry Palmer",
+    "firm": "Lightridge",
+    "date": "September 2025",
+    "duration": "39 min",
+    "blurb": "One of the most surprising turnaround stories right now isn't a brand. It's a region: Europe."
+  },
+  {
+    "num": 14,
+    "slug": "venture-reimagined-by-infrastructure",
+    "title": "Venture reimagined by infrastructure",
+    "name": "Albert Azout",
+    "firm": "Level VC",
+    "date": "August 2025",
+    "duration": "49 min",
+    "blurb": "For decades, venture capital's edge came from being in the room. If yesterday's advantage was network and knowledge arbitrage, today's may be something different: data arbitrage."
+  },
+  {
+    "num": 13,
+    "slug": "democratizing-the-venture-asset-class",
+    "title": "Democratizing the venture asset class",
+    "name": "Caleb (Cali) Chill",
+    "firm": "OurCrowd",
+    "date": "August 2025",
+    "duration": "48 min",
+    "blurb": "How platforms are opening access to world-class deals, and why the quality of that access matters as much as the access itself."
+  },
+  {
+    "num": 12,
+    "slug": "the-freedom-stack",
+    "title": "The Freedom Stack: geopolitics, defence tech and venture",
+    "name": "Larsen Jensen",
+    "firm": "Harpoon Ventures",
+    "date": "July 2025",
+    "duration": "43 min",
+    "blurb": "You may not care about geopolitics, but geopolitics cares about you.",
+    "deck": true
+  },
+  {
+    "num": 11,
+    "slug": "shifting-dynamics-of-venture-fund-management",
+    "title": "Shifting Dynamics of Venture Fund Management",
+    "name": "Daniel Keiper-Knorr",
+    "firm": "Speedinvest",
+    "date": "June 2025",
+    "duration": "55 min",
+    "blurb": "From €10M to €1.2B: what it takes to scale a VC firm, and what comes next. If you're Speedinvest, you don't just scale, you reinvent."
+  },
+  {
+    "num": 10,
+    "slug": "indexing-venture-capital",
+    "title": "Indexing Venture Capital",
+    "name": "Rob Hodgkinson",
+    "firm": "SignalRank",
+    "date": "June 2025",
+    "duration": "35 min",
+    "blurb": "Most VCs believe data will transform every industry, except their own. That contradiction sparked something radical."
+  },
+  {
+    "num": 9,
+    "slug": "insights-into-corporate-venture-capital",
+    "title": "Insights into Corporate Venture Capital",
+    "name": "Nicolas Sauvage",
+    "firm": "TDK Ventures",
+    "date": "May 2025",
+    "duration": "30 min",
+    "blurb": "What happens when a billion-dollar corporation starts thinking like a startup investor, and does it well?"
+  },
+  {
+    "num": 8,
+    "slug": "venture-fund-of-funds-emerging-managers",
+    "title": "Venture Fund-of-Funds: Emerging Managers",
+    "name": "Jamie Rhode",
+    "firm": "Screendoor",
+    "date": "May 2025",
+    "duration": "45 min",
+    "blurb": "In a world where thousands of new VC funds launched post-2021, how do you pick the winners, and what happens when the hype fades?"
+  },
+  {
+    "num": 7,
+    "slug": "exploring-venture-secondaries-fund",
+    "title": "Exploring Venture Secondaries Fund",
+    "name": "Rando Rannus",
+    "firm": "Siena Secondary Fund",
+    "date": "May 2025",
+    "duration": "29 min",
+    "blurb": "In venture capital, everyone talks about chasing the next rocket ship, but few talk about getting liquidity before the IPO. That's where secondaries come in."
+  },
+  {
+    "num": 6,
+    "slug": "private-markets-allocation",
+    "title": "Private Markets Allocation: Investment Advisor Perspectives",
+    "name": "Frank Tanner",
+    "firm": "Morgan Creek Capital Management",
+    "date": "May 2025",
+    "duration": "37 min",
+    "blurb": "What do UNC basketball, solo GPs, and 5 S's have in common?"
+  },
+  {
+    "num": 5,
+    "slug": "rise-of-tools-for-private-markets",
+    "title": "Rise of Tools for Private Markets",
+    "name": "Eric Woo",
+    "firm": "Revere",
+    "date": "May 2025",
+    "duration": "47 min",
+    "blurb": "What if the next Bloomberg Terminal isn't just for public markets, but for venture and private equity too?"
+  },
+  {
+    "num": 4,
+    "slug": "democratisation-of-venture-capital",
+    "title": "Democratisation of Venture Capital",
+    "name": "Michael Motschmann",
+    "firm": "MIG Capital",
+    "date": "May 2025",
+    "duration": "51 min",
+    "blurb": "What if the future of venture didn't belong to institutions, but to millions of retail people backing deeptech from their own portfolios?"
+  },
+  {
+    "num": 3,
+    "slug": "exploring-secondaries-private-stock-insights",
+    "title": "Exploring Secondaries: Private Stock Insights",
+    "name": "Sim Desai",
+    "firm": "Hiive",
+    "date": "May 2025",
+    "duration": "33 min",
+    "blurb": "What happens when you take the chaos of private market secondaries, and apply the rigor, scale, and transparency of a tech platform? You get Hiive."
+  },
+  {
+    "num": 2,
+    "slug": "pe-vc-investing-insights",
+    "title": "PE/VC Investing Insights from Family Office Backed Fund-of-Fund",
+    "name": "Joel Sandhu",
+    "firm": "TopTier Access",
+    "date": "May 2025",
+    "duration": "24 min",
+    "blurb": "What does it take to build a replicable, resilient, outperforming PE portfolio in today's uncertain market?"
+  },
+  {
+    "num": 1,
+    "slug": "venture-fund-of-funds-established-managers",
+    "title": "Venture Fund-of-Funds: Established Managers",
+    "name": "David Clark",
+    "firm": "VenCap International",
+    "date": "May 2025",
+    "duration": "51 min",
+    "blurb": "How do you consistently generate top-quartile performance in a power-law-driven asset class like venture capital?"
+  }
+];
+
+var WRITTEN = [
+  {
+    "slug": "thoughts-on-indian-family-offices",
+    "title": "Thoughts on Indian Family Offices and Investing",
+    "name": "Aarti Gupta",
+    "firm": "Family Office DM Gupta and Anikarth Ventures",
+    "blurb": "Indian family offices moved from silent spectators to active participants, and from passive wealth management to active wealth creation."
+  },
+  {
+    "slug": "thinking-about-alternatives-and-allocations",
+    "title": "Thinking About Alternatives and Allocations",
+    "name": "Christoph Junge",
+    "firm": "EIFO",
+    "blurb": "What macro factors do to each alternative asset class, and what an institutional grade manager selection process actually looks like."
+  }
+];
+
+(function(){
+  var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];});};
+  var pad=function(n){return (n<10?'0':'')+n;};
+  var MIC='<svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11z"/></svg>';
+
+  function card(ep, kind){
+    return '<a class="mo '+kind+'" href="/podcast/views/'+encodeURIComponent(ep.slug)+'.html">'+
+      '<span class="shot"><img src="/assets/img/art/'+esc(ep.slug)+'.svg" alt="" loading="lazy">'+
+        (ep.duration?'<span class="dur">'+MIC+esc(ep.duration)+'</span>':'')+
+      '</span>'+
+      '<span class="body">'+
+        '<span class="kick">'+esc(ep.date)+'</span>'+
+        '<h3>'+esc(ep.title)+'</h3>'+
+        '<span class="when"><b>'+esc(ep.name)+'</b><em>|</em>'+esc(ep.firm)+'</span>'+
+        (ep.blurb?'<span class="blurb">'+esc(ep.blurb)+'</span>':'')+
+        '<span class="go"><i>&rarr;</i> Watch</span>'+
+      '</span></a>';
+  }
+
+  var list=document.getElementById('epcards'), html='', side='left';
+  for(var i=0;i<VIEWS.length;i+=3){
+    var block=VIEWS.slice(i,i+3);
+    if(block.length===3){
+      html+='<div class="mosaic" data-side="'+side+'">'+card(block[0],'tall')+
+        '<div class="mostack">'+card(block[1],'w1')+card(block[2],'w2')+'</div></div>';
+      side=(side==='left')?'right':'left';
+    } else {
+      html+='<div class="mosaic" data-side="left" style="grid-template-columns:1fr"><div class="mostack">'+
+        block.map(function(e){return card(e,'w1');}).join('')+'</div></div>';
+    }
+  }
+  list.innerHTML=html;
+
+  document.getElementById('written').innerHTML = WRITTEN.map(function(w){
+    return '<a class="mo w1" href="/snapshots/'+encodeURIComponent(w.slug)+'.html">'+
+      '<span class="body">'+
+        '<span class="kick">Snapshot</span>'+
+        '<h3>'+esc(w.title)+'</h3>'+
+        '<span class="when"><b>'+esc(w.name)+'</b><em>|</em>'+esc(w.firm)+'</span>'+
+        '<span class="blurb">'+esc(w.blurb)+'</span>'+
+        '<span class="go"><i>&rarr;</i> Read</span>'+
+      '</span></a>';
+  }).join('');
+
+  /* hero cascade: four tiles that arrive one after another and stay put */
+  var picks=VIEWS.filter(function(e){return e.deck;}).slice(0,4);
+  var deck=document.getElementById('deck');
+  if(!picks.length||!deck){ if(deck) deck.style.display='none'; return; }
+  picks.slice().reverse().forEach(function(ep,i){
+    var a=document.createElement('a');
+    a.href='/podcast/views/'+encodeURIComponent(ep.slug)+'.html';
+    a.setAttribute('data-i', i);
+    a.innerHTML='<img src="/assets/img/art/'+esc(ep.slug)+'.svg" alt="'+esc(ep.title)+'">'+
+      '<span class="cap">'+esc(ep.date)+' &middot; '+esc(ep.name)+'</span>';
+    deck.appendChild(a);
+  });
+  var tiles=[].slice.call(deck.children);
+  function reveal(){ tiles.forEach(function(t,i){ setTimeout(function(){ t.classList.add('in'); }, 140+i*190); }); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){ if(en[0].isIntersecting){ reveal(); io.disconnect(); } },{threshold:.25});
+    io.observe(deck);
+  } else { reveal(); }
+})();
+</script>
+</body>
+</html>

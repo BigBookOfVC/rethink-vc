@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contents · Rethinking Venture Capital</title>
+<meta name="description" content="Check out the contents and discover key topics, contributors, and ideas to enhance your experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#061417; --panel:#0c2228;
+    --line:rgba(190,230,235,.20); --line-soft:rgba(190,230,235,.11);
+    --ink:#ffffff; --body:#dceaec; --muted:#93b6bb;
+    --coral:#f88a63; --coral-ink:#160b05;
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+  h1,h2,h3,p,ul{margin:0}
+  ul{list-style:none;padding:0}
+
+  /* nav */
+  .nav-outer{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(6,20,23,.93);backdrop-filter:blur(8px)}
+  nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 40px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:500;letter-spacing:.16em;font-size:.95rem;text-transform:uppercase}
+  .menu{display:flex;gap:26px;font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:#dff1f3}
+  .menu a{padding:4px 0;border-bottom:1px solid transparent}
+  .menu a:hover{border-bottom-color:var(--coral)}
+  .actions{display:flex;gap:10px;align-items:center}
+  .btn{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:10px 18px;border:1px solid var(--line);display:inline-block;white-space:nowrap;transition:border-color .25s,background .25s,color .25s}
+  .btn:hover{border-color:#8fc9d1}
+  .btn-solid{background:var(--coral);border-color:var(--coral);color:var(--coral-ink);font-weight:500}
+  .btn-solid:hover{background:#ffa580;border-color:#ffa580}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:56px;align-items:end;padding:72px 40px 56px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.4rem,6vw,5rem);line-height:1;letter-spacing:-.03em;margin-top:22px}
+  .hero p{font-weight:300;font-size:17px;line-height:1.62;color:var(--body);max-width:44ch}
+  .hero .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+
+  /* guide */
+  .guide{padding-top:8px}
+  .srow{display:grid;grid-template-columns:210px minmax(0,1fr);gap:40px;padding:38px 40px;border-top:1px solid var(--line)}
+  .slabel{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#f5ab91;position:sticky;top:96px;align-self:start}
+  .item{padding:22px 0;border-top:1px solid var(--line-soft)}
+  .sitems .item:first-child{border-top:0;padding-top:0}
+  .item h3{font-family:var(--serif);font-weight:400;font-size:clamp(19px,2vw,24px);line-height:1.22;letter-spacing:-.015em}
+  .item p{margin-top:10px;font-weight:300;font-size:15.5px;line-height:1.62;color:var(--body);max-width:78ch}
+  .ikind{display:inline-block;margin-bottom:10px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);border:1px solid rgba(248,138,99,.45);border-radius:999px;padding:3px 10px}
+  .ilink{border-bottom:1px solid rgba(248,138,99,.45)}
+  .ilink:hover{color:var(--coral)}
+  .iarrow{color:var(--coral);font-size:.8em}
+
+  /* past reports */
+  .past{border-top:1px solid var(--line);padding:64px 40px 72px}
+  .past .eyebrow{margin-bottom:14px}
+  .past h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.4vw,44px);letter-spacing:-.025em;color:var(--coral)}
+  .pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:36px}
+  .pcard{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;transition:border-color .25s,transform .25s}
+  .pcard:hover{border-color:rgba(248,138,99,.55);transform:translateY(-2px)}
+  .pcard h3{font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.25}
+  .plink{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--coral)}
+  .plink svg{width:16px;height:16px;stroke:currentColor;stroke-width:2.2;fill:none;transition:transform .25s}
+  .pcard:hover .plink svg{transform:translateX(4px)}
+
+  /* closing band */
+  .band{background:#f5ab91;color:var(--coral-ink);padding:64px 40px;display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap}
+  .band h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.2vw,42px);line-height:1.1;letter-spacing:-.025em;max-width:18ch}
+  .band .btn{border-color:var(--coral-ink);color:var(--coral-ink)}
+  .band .btn:hover{background:var(--coral-ink);color:#f5ab91}
+
+  footer{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:26px 40px;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  footer a:hover{color:var(--coral)}
+
+  @media (max-width:1000px){
+    nav,.hero,.srow,.past,.band,footer{padding-left:24px;padding-right:24px}
+    .menu{display:none}
+    .hero{grid-template-columns:1fr;gap:26px;padding-top:52px}
+    .srow{grid-template-columns:1fr;gap:18px}
+    .slabel{position:static}
+    .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:600px){ .pgrid{grid-template-columns:1fr} }
+
+ /* ---------- standard footer bar ---------- */
+ footer{
+   display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+   border-top:1px solid var(--line);padding:22px 40px;
+ }
+ .footbrand{
+   font-family:var(--mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:#dff1f3;
+   border-bottom:1px solid transparent;
+ }
+ .footbrand:hover{border-bottom-color:var(--coral);color:var(--coral)}
+ footer .actions{display:flex;gap:10px;align-items:center}
+ @media (max-width:700px){ footer{padding:20px 24px} footer .actions{width:100%} }
+ .nav-outer{position:sticky;top:0;z-index:30}
+
+ /* separation pass: lift the panels and give the page a soft top light */
+ body{background-image:linear-gradient(180deg, rgba(190,230,235,.045), rgba(190,230,235,0) 620px);background-repeat:no-repeat}
+ .panel,.stats{box-shadow:0 1px 0 rgba(255,255,255,.05) inset}
+ .cover{background:#123840 !important;box-shadow:0 1px 0 rgba(255,255,255,.06) inset}
+ .quote{box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+</style>
+</head>
+<body>
+
+<div class="nav-outer"><nav>
+  <a class="brand" href="/">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <circle cx="10" cy="10" r="9" stroke="#f88a63" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="5" stroke="#a8dbe2" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="1.6" fill="#f88a63"/>
+    </svg>
+    RETHINK
+  </a>
+  <div class="menu">
+    <a href="/about/">About</a>
+    <a href="/content/">Contents</a>
+    <a href="/podcast/">Podcast</a>
+    <a href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Snapshots</a>
+    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  </div>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+  </div>
+</nav></div>
+
+<header class="hero">
+  <div>
+    <p class="eyebrow">[ Contents ]</p>
+    <h1>The Blueprint</h1>
+  </div>
+  <div>
+    <p>A comprehensive, forward-looking strategic report that reframes how we view the venture asset class across its entire value chain.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Download full report</a>
+      <a class="btn" href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">View snapshots</a>
+    </div>
+  </div>
+</header>
+
+<section class="guide" id="guide">
+    <div class="srow">
+      <p class="slabel">Section 1</p>
+      <ul class="sitems">
+        <li class="item">
+          
+          <h3>About</h3>
+          <p>Background of the report.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Thanks to the Contributors</h3>
+          <p>Collaborate with people who make you wiser! This report stands stronger thanks to the invaluable insights of seasoned investment and venture experts.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Summary</h3>
+          <p>This report underlines venture not as a niche asset class, but as strategic infrastructure for the 21st century. It is also a call to rethink the entire venture value chain from the inside out, to better analyze, understand, and respond to the key transformational trends reshaping the ecosystem.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Takeaways for LP's &amp; GP's</h3>
+          <p>Key strategic takeaway's for LP's and GP's.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="srow">
+      <p class="slabel">Section 2</p>
+      <ul class="sitems">
+        <li class="item">
+          
+          <h3>4-Lens Framework for Venture</h3>
+          <p>Venture is often described in cold, financial terms: DPIs, returns, failure rates, multiples, and so on. But that framing barely scratches the surface. To truly understand the power and promise of venture, we need to examine it through a broader, richer lens, one that reflects the variety of motivations, outcomes, and meanings it can hold.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Venture Value Chain</h3>
+          <p>Like other asset classes, the venture industry operates through a circular capital flow. Understanding this cycle is key to grasping the nuances that link macroeconomic trends with the dynamics of the venture ecosystem.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Venture's Dissonance</h3>
+          <p>Venture's dissonance isn't inherently negative. Instead, it signals a pivotal moment in the evolution of venture, one that calls for a deep, inside-out rethinking of what the model truly means and where it's headed, across multiple dimensions.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="srow">
+      <p class="slabel">Section 3</p>
+      <ul class="sitems">
+        <li class="item">
+          
+          <h3>Macro Snapshot</h3>
+          <p>A more fragmented, volatile regime has emerged, defined not by cycles alone, but by structural shifts in policy, geopolitics, and global economic priorities. This divergence speaks to a deeper truth: macro forces now cut across all asset classes, with private markets no longer insulated from external shocks.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Interconnections</h3>
+          <p>Once a self-contained, high-growth niche, venture capital is now deeply entangled in these macro forces. A defining feature of this decade is the convergence of public and private markets.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Venture Scenarios</h3>
+          <p>I've outlined two scenarios, 'Weakness Scare' and 'Uptick Cycle.' These should not be viewed as binary outcomes, but rather as reference points within a spectrum. Investors are encouraged to weigh each scenario according to their own expectations and convictions about the future.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="srow">
+      <p class="slabel">Section 4</p>
+      <ul class="sitems">
+        <li class="item">
+          
+          <h3>Alternative Investments</h3>
+          <p>Understanding the growth of venture capital requires examining its place within the broader alternatives and private markets ecosystem. Venture is not an isolated asset class, it plays a pivotal role in the alternatives segment that has expanded from $4.8 trillion in the early 2000s to over $22 trillion today.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Wealth &amp; Alternatives</h3>
+          <p>The wealth management industry is undergoing a major shift due to demographic changes and innovation. Mass affluent investors, wealth transfer, and younger family office leaders are reshaping markets by demanding more access to private equity and venture capital. Inspired by institutional models, private wealth is fueling growth in alternatives, boosted by new products and fintech platforms.</p>
+        </li>
+        <li class="item">
+          <span class="ikind">Interview</span>
+          <h3><a class="ilink" href="/snapshots/thoughts-on-indian-family-offices.html">Thoughts on Indian Family Offices <span class="iarrow">↗</span></a></h3>
+          <p>Insights from Aarti Gupta (CIO, Family Office DM Gupta &amp; Anikarth Ventures).</p>
+        </li>
+      </ul>
+    </div>
+    <div class="srow">
+      <p class="slabel">Section 5</p>
+      <ul class="sitems">
+        <li class="item">
+          
+          <h3>Know Thyself</h3>
+          <p>In private and venture capital markets, enduring success stems from strategic self-awareness. Top-performing investors, whether institutional or individual, prioritize clarity over opportunism, grounding decisions in well-defined boundaries, authentic risk tolerance, and long-term objectives. They align strategies with their capabilities, liquidity needs, and portfolio goals, focusing on "fit" rather than trends.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Allocations</h3>
+          <p>Investors increasingly turn to private markets, especially venture capital, for innovation and asymmetric returns. This requires advanced techniques, blending economic exposures, regional knowledge, and unified public-private approaches. Successful allocators balance strategic discipline with tactical flexibility, using scenario planning, liquidity management, and qualitative insights to navigate complexity and build resilient, future-ready portfolios across the capital spectrum.</p>
+        </li>
+        <li class="item">
+          <span class="ikind">Interview</span>
+          <h3><a class="ilink" href="/snapshots/thinking-about-alternatives-and-allocations.html">Thinking About Alternatives and Allocations <span class="iarrow">↗</span></a></h3>
+          <p>Interview with Christoph Junge (former Head of Alternative Investments at Velliv).</p>
+        </li>
+        <li class="item">
+          <span class="ikind">Interview</span>
+          <h3><a class="ilink" href="/podcast/views/pe-vc-investing-insights.html">PE/VC Insights from Family Office Backed FoF <span class="iarrow">↗</span></a></h3>
+          <p>Snapshot of the interview with Joel Sandhu from Top Tier Access.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Venture Allocation</h3>
+          <p>Venture capital is no longer a monolithic asset class, yet many investors still treat it as such, leading to strategic missteps. To navigate its growing complexity, a structured approach is essential. Inspired by my real estate allocation model, the proposed Venture Spread framework breaks venture into three layers.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Three Tenets of Venture Investing</h3>
+          <p>Venture capital is a long-term, high-risk asset class best approached through structural thinking, not short-term tactics. Success relies on recognizing and aligning with megatrends, trends, and patterns that shape markets over decades. Unlike public markets, venture lacks real-time feedback and demands a strategic, future-oriented mindset. Timing the market is ineffective; instead, investors should embrace vintage year diversification to navigate cycles.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="srow">
+      <p class="slabel">Section 6</p>
+      <ul class="sitems">
+        <li class="item">
+          
+          <h3>All Things Fund-of-funds</h3>
+          <p>Startup investing can be approached indirectly through VC funds or venture fund-of-funds (FoFs), each offering distinct advantages. While FoFs often face criticism for double-layered fees, they provide critical benefits: curated access to top-tier managers, deep due diligence expertise, and insider knowledge of a semi-opaque ecosystem. These advantages can be particularly valuable for investors lacking internal VC capabilities.</p>
+        </li>
+        <li class="item">
+          <span class="ikind">Interview</span>
+          <h3><a class="ilink" href="/podcast/views/venture-fund-of-funds-established-managers.html">VC FoF Established Managers <span class="iarrow">↗</span></a></h3>
+          <p>Snapshot of the interview with David Clark from VenCap.</p>
+        </li>
+        <li class="item">
+          <span class="ikind">Interview</span>
+          <h3><a class="ilink" href="/podcast/views/venture-fund-of-funds-emerging-managers.html">VC FoF Emerging Managers <span class="iarrow">↗</span></a></h3>
+          <p>Snapshot of the interview with Jamie Rhode from Screendoor.</p>
+        </li>
+        <li class="item">
+          <span class="ikind">Interview</span>
+          <h3><a class="ilink" href="/podcast/views/private-markets-allocation.html">Private Markets Allocation: IA Perspectives <span class="iarrow">↗</span></a></h3>
+          <p>Snapshot of the interview with Frank Tanner from Morgan Creek Capital Management.</p>
+        </li>
+        <li class="item">
+          
+          <h3>Understanding Venture Funds</h3>
+          <p>Allocations to these fund or FoF vehicles must be evaluated within the broader context of an investor's overall venture strategy. Ultimately, the decision is highly dependent on the individual LP's objectives, risk appetite, and experience.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="srow">
+      <p class="slabel">Section 7</p>
+      <ul class="sitems">
+        <li class="item">
+          
+          <h3>All Things Startup Fundraising</h3>
+          <p>Global venture fundraising rebounded in early 2025, with funding volumes rising 54% YoY in Q1, signaling renewed investor confidence. The U.S. maintains leadership. India's recovery contrasts with China's ongoing investor retreat. AI remains the dominant fundraising theme, commanding premium valuations despite lower deal volume. Valuation recovery is top-heavy, favoring top-quartile startups, while broader deal activity remains subdued. Seed-stage capital is increasingly concentrated, and timelines to Series-A have lengthened. Meanwhile, over 40% of unicorns remain private for nine years or more, straining VC fund cycles.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="srow">
+      <p class="slabel">Section 8</p>
+      <ul class="sitems">
+        <li class="item">
+          
+          <h3>All Things M&amp;A's</h3>
+          <p>From 2017 to 2019, exits outpaced investment. Today, that dynamic has reversed. Although M&amp;A and secondaries are emerging as alternatives, structural hurdles remain. Q1 2025 saw glimmers of optimism, notably Google's acquisition of Wiz, but it's unclear if this signals a lasting trend.</p>
+        </li>
+        <li class="item">
+          
+          <h3>All Things IPO's</h3>
+          <p>The venture landscape is undergoing a profound shift, as macroeconomic headwinds expose the ecosystem's reliance on public market exits. Once a robust engine for value creation, IPOs have slowed dramatically, driving exit liquidity to decade lows and challenging the traditional venture playbook.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="srow">
+      <p class="slabel">Section 9</p>
+      <ul class="sitems">
+        <li class="item">
+          
+          <h3>All Things Secondaries</h3>
+          <p>Venture capital secondaries are rapidly transitioning from a niche, misunderstood corner of the market to a central pillar of the ecosystem. Once viewed as reactive tools for distressed sellers, secondaries now serve strategic purposes: offering liquidity, enabling portfolio rebalancing, and unlocking capital velocity. With growing investor demand, new platforms, and the rise of GP-led transactions, the market is expanding and evolving.</p>
+        </li>
+        <li class="item">
+          <span class="ikind">Interview</span>
+          <h3><a class="ilink" href="/podcast/views/exploring-venture-secondaries-fund.html">Exploring Venture Secondaries Fund <span class="iarrow">↗</span></a></h3>
+          <p>Snapshot of the interview with Rando Rannus from Siena Secondary Fund.</p>
+        </li>
+        <li class="item">
+          <span class="ikind">Interview</span>
+          <h3><a class="ilink" href="/podcast/views/exploring-secondaries-private-stock-insights.html">Secondaries: Private Stock Insights <span class="iarrow">↗</span></a></h3>
+          <p>Snapshot of the interview with Sim Desai from Hiive.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="srow">
+      <p class="slabel">Section 10</p>
+      <ul class="sitems">
+        <li class="item">
+          
+          <h3>Venture 3.0: What's Driving the Trend?</h3>
+          <p>Venture 3.0 marks a pivotal evolution in the industry. First, venture has moved beyond its roots as a niche or alternative play. Second, the landscape is transforming along two parallel paths: increasing institutional sophistication and broader accessibility.</p>
+        </li>
+        <li class="item">
+          
+          <h3>How Venture 3.0 is Playing Out Across the Value Chain</h3>
+          <p>Institutionalization isn't just about how funds invest, it permeates every facet of the venture ecosystem, from how firms operate internally to how they support their founders and manage investor relationships. Let's break down the key ways this Venture 3.0 transformation is taking shape.</p>
+        </li>
+        <li class="item">
+          <span class="ikind">Interview</span>
+          <h3><a class="ilink" href="/podcast/views/insights-into-corporate-venture-capital.html">Insights Into CVC <span class="iarrow">↗</span></a></h3>
+          <p>Snapshot of the interview with Nicolas Sauvage from TDK Ventures.</p>
+        </li>
+        <li class="item">
+          <span class="ikind">Interview</span>
+          <h3><a class="ilink" href="/podcast/views/democratisation-of-venture-capital.html">Democratisation <span class="iarrow">↗</span></a></h3>
+          <p>Snapshot of the interview with Michael Motschmann from MIG Capital.</p>
+        </li>
+        <li class="item">
+          <span class="ikind">Interview</span>
+          <h3><a class="ilink" href="/podcast/views/rise-of-tools-for-private-markets.html">Rise of Tools for Private Markets <span class="iarrow">↗</span></a></h3>
+          <p>Snapshot of the interview with Eric Woo from Revere.</p>
+        </li>
+      </ul>
+    </div>
+</section>
+
+<section class="past">
+  <p class="eyebrow">[ Resources ]</p>
+  <h2>Past reports</h2>
+  <div class="pgrid">
+      <a class="pcard" href="https://docsend.com/v/7vk3c/big-book-vc-q1-2025?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">
+        <h3>The Big Book of VC, Q1 2025</h3>
+        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="pcard" href="https://docsend.com/v/7vk3c/big-book-vc-2024?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">
+        <h3>The Big Book of VC, 2024 Annual</h3>
+        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="pcard" href="https://docsend.com/v/7vk3c/macro-in-venture?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">
+        <h3>Macro in Venture</h3>
+        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="pcard" href="https://docsend.com/v/7vk3c/big-book-vc-q3-24?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">
+        <h3>The Big Book of VC, Q3 2024</h3>
+        <span class="plink">View now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></span>
+      </a>
+  </div>
+</section>
+
+<section class="band">
+  <h2>Ready to decipher the future?</h2>
+  <a class="btn" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&amp;utm_medium=referral&amp;utm_campaign=rethink">Download the report</a>
+</section>
+
+<footer>
+  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+  </div>
+</footer>
+
+</body>
+</html>

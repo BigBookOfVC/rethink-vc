@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PE/VC Investing Insights from Family Office Backed Fund-of-Fund · Rethinking Venture Capital</title>
+<meta name="description" content="Snapshot of the interview with Joel Sandhu from Top Tier Access.">
+<meta property="og:title" content="PE/VC Investing Insights from Family Office Backed Fund-of-Fund">
+<meta property="og:description" content="Snapshot of the interview with Joel Sandhu from Top Tier Access.">
+<meta property="og:image" content="/assets/img/people/joel-sandhu.jpg">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+ :root{
+  --bg:#061417; --panel:#0c2228; --panel-2:#0f2a31;
+  --line:rgba(190,230,235,.20); --line-soft:rgba(190,230,235,.11);
+  --ink:#e9eefc; --body:#dceaec; --muted:#93b6bb;
+  --coral:#f88a63; --coral-ink:#160b05; --rail:290px;
+ }
+ *{box-sizing:border-box}
+ html,body{margin:0;padding:0}
+ body{background:var(--bg);color:var(--ink);font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;-webkit-font-smoothing:antialiased}
+ a{color:inherit;text-decoration:none}
+ :focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+ h1,h2,h3,h4,p,ul,figure,blockquote{margin:0}
+ ul{list-style:none;padding:0}
+ .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+
+ .nav-outer{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(6,20,23,.93);backdrop-filter:blur(8px)}
+ nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0}
+ .brand{display:flex;align-items:center;gap:10px;font-weight:500;letter-spacing:.14em;font-size:16px}
+ .menu{display:flex;gap:28px;font-size:14px;color:#dff1f3}
+ .menu a{padding:4px 0;border-bottom:1px solid transparent}
+ .menu a:hover{border-bottom-color:var(--coral)}
+ .actions{display:flex;gap:10px}
+ .btn{font:inherit;font-size:13px;border-radius:999px;padding:9px 18px;border:1px solid var(--line);color:var(--ink);white-space:nowrap;display:inline-block;transition:border-color .25s,background .25s,color .25s}
+ .btn:hover{border-color:#8fc9d1}
+ .btn-solid{background:var(--coral);border-color:var(--coral);color:var(--coral-ink);font-weight:500}
+ .btn-solid:hover{background:#ffa580;border-color:#ffa580}
+
+ .crumb{padding:26px 0 0;font-size:12.5px;letter-spacing:.08em;color:var(--muted)}
+ .crumb a:hover{color:var(--coral)}
+
+ .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.72fr);gap:64px;align-items:center;padding:58px 0 72px}
+ .eyebrow{font-size:12.5px;letter-spacing:.12em;color:var(--coral)}
+ h1{font-weight:300;font-size:clamp(32px,4.1vw,56px);line-height:1.05;letter-spacing:-.04em;margin-top:24px;max-width:17ch}
+ .dek{margin-top:26px;font-weight:300;font-size:17px;line-height:1.62;color:var(--body);max-width:47ch}
+ .meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:12.5px;letter-spacing:.08em;color:var(--muted)}
+  .meta a{border-bottom:1px solid rgba(248,138,99,.45)}
+  .meta a:hover{color:var(--coral)}
+
+ .cover{position:relative;aspect-ratio:4/3;width:100%;max-width:520px;margin-left:auto;border:1px solid rgba(22,11,5,.28);border-radius:6px;overflow:hidden;background:#f5ab91}
+ .coverart{position:absolute;inset:0;width:100%;height:100%;display:block}
+ .cover canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+ .cover .portrait{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:46%;aspect-ratio:1;border-radius:50%;object-fit:cover;
+  border:1px solid rgba(248,138,99,.55);filter:grayscale(.35) contrast(1.03);
+ }
+ .cover .tag{position:absolute;left:20px;top:18px;font-size:12px;letter-spacing:.1em;color:rgba(22,11,5,.62)}
+
+ .body{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:56px;padding-bottom:88px;border-top:1px solid var(--line);padding-top:52px}
+ .rail{position:sticky;top:96px;align-self:start}
+ .rail h4{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:400;margin-bottom:18px}
+ .share{display:flex;gap:10px;margin-bottom:38px}
+ .share a{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s}
+ .share a:hover{border-color:var(--coral);background:rgba(248,138,99,.1)}
+ .share svg{width:15px;height:15px;stroke:var(--muted);fill:none;stroke-width:1.4}
+ .share a:hover svg{stroke:var(--coral)}
+ .who{display:flex;gap:14px;align-items:flex-start;margin-bottom:30px}
+ .avatar{flex:0 0 auto;width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid var(--coral);filter:grayscale(.3)}
+ .mono{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1px solid var(--coral);display:flex;align-items:center;justify-content:center;color:var(--coral);font-size:13px}
+ .who .n{font-size:15px}
+ .who .n a:hover{color:var(--coral)}
+ .who .r{margin-top:5px;font-size:13px;line-height:1.5;color:var(--muted);font-weight:300}
+ .rail hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+ .rail p.note{font-size:13.5px;line-height:1.6;color:var(--body);font-weight:300;margin-bottom:22px}
+
+ .panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:44px;margin-bottom:26px}
+ .plabel{display:flex;align-items:center;gap:20px;margin-bottom:32px}
+ .plabel span{font-size:12px;letter-spacing:.14em;color:var(--coral);white-space:nowrap}
+ .plabel i{flex:1;height:1px;background:var(--line);display:block}
+
+ .prose p{font-weight:300;font-size:16px;line-height:1.75;color:var(--body);max-width:70ch}
+ .prose p + p{margin-top:22px}
+ .prose a{color:var(--coral);border-bottom:1px solid rgba(248,138,99,.45)}
+ .covers-title{margin:36px 0 18px;font-size:15px;font-weight:400}
+ .covers li{display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--line-soft);font-weight:300;font-size:15px;line-height:1.6;color:var(--body)}
+ .covers li:first-child{border-top:0}
+ .covers li::before{content:"→";color:var(--coral);flex:0 0 auto}
+
+ .quote{border-left:2px solid var(--coral);background:var(--panel-2);border-radius:0 6px 6px 0;padding:44px 48px;margin-bottom:26px}
+ .quote blockquote{font-weight:300;font-size:clamp(20px,2.1vw,30px);line-height:1.32;letter-spacing:-.025em;max-width:32ch}
+ .quote cite{display:block;margin-top:22px;font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+
+ .player{position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:pointer;margin-bottom:26px;background:radial-gradient(110% 90% at 50% 50%, #13414c 0%, #081d22 72%)}
+ .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+ .player canvas{position:absolute;inset:0;width:100%;height:100%}
+ .player .pbtn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;transition:transform .3s ease}
+ .player:hover .pbtn{transform:translate(-50%,-50%) scale(1.07)}
+ .player .pnote{position:absolute;left:22px;bottom:18px;font-size:11.5px;letter-spacing:.08em;color:var(--muted)}
+
+ .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:6px;margin-bottom:26px;overflow:hidden}
+ .stat{padding:30px 24px;border-right:1px solid var(--line);background:var(--panel)}
+ .stat:last-child{border-right:0}
+ .stat b{display:block;font-weight:300;font-size:clamp(23px,2.3vw,33px);letter-spacing:-.035em;color:var(--coral)}
+ .stat span{display:block;margin-top:12px;font-size:13px;line-height:1.55;color:var(--muted);font-weight:300}
+
+ .row{position:relative;border-top:1px solid var(--line-soft);min-height:132px;display:flex;align-items:center}
+ .row:first-of-type{border-top:0}
+ .row button{all:unset;position:absolute;inset:0;cursor:pointer;display:block;perspective:1200px}
+ .row button:focus-visible{outline:2px solid var(--coral);outline-offset:-4px}
+ .flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+ .row button:hover .flip,.row button:focus-visible .flip,.row.is-open .flip{transform:rotateX(180deg)}
+ .face{position:absolute;inset:0;display:flex;align-items:center;padding:22px 72px 22px 0;backface-visibility:hidden}
+ .face-back{transform:rotateX(180deg)}
+ .face h3{font-weight:300;font-size:clamp(20px,2.2vw,30px);line-height:1.1;letter-spacing:-.03em}
+ .face-back p{color:var(--coral);font-weight:300;font-size:15px;line-height:1.6;max-width:56ch}
+ .arrow{position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--muted);transition:transform .4s,color .4s;pointer-events:none}
+ .row button:hover ~ .arrow,.row.is-open .arrow{transform:translateY(-50%) rotate(180deg);color:var(--coral)}
+
+ .chapters li{border-top:1px solid var(--line-soft)}
+ .chapters li:first-child{border-top:0}
+ .chapters button{all:unset;display:flex;gap:32px;align-items:baseline;width:100%;box-sizing:border-box;padding:15px 8px 15px 0;cursor:pointer;transition:padding-left .25s ease}
+ .chapters button:hover{padding-left:8px}
+ .chapters time{color:var(--coral);font-size:13px;flex:0 0 auto;font-variant-numeric:tabular-nums}
+ .chapters span{font-weight:300;font-size:15.5px;line-height:1.5;color:var(--body)}
+ .chapters button:hover span{color:var(--ink)}
+ .hint{margin-top:26px;font-size:12.5px;line-height:1.6;color:var(--muted);font-weight:300}
+
+ .mgroup + .mgroup{margin-top:36px;padding-top:32px;border-top:1px solid var(--line)}
+ .mgroup > h3{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:400;margin-bottom:22px}
+ .mitem{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:15px 0;border-top:1px solid var(--line-soft)}
+ .mgroup .mitem:first-of-type{border-top:0}
+ .mkind{font-size:11px;letter-spacing:.12em;color:var(--muted);padding-top:4px}
+ .mname{font-size:16px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+ .mname a{border-bottom:1px solid rgba(248,138,99,.45)}
+ .mname a:hover{color:var(--coral)}
+ .mname .t{font-size:12.5px;color:var(--coral);font-variant-numeric:tabular-nums}
+ .mdesc{margin-top:8px;font-size:14px;line-height:1.6;color:var(--muted);font-weight:300}
+
+ .listen{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:32px 0 8px}
+ .listen h4{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:400;margin-right:8px}
+
+ .more-wrap{border-top:1px solid var(--line);padding:52px 0 76px}
+ .more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:30px}
+ .card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:26px;transition:border-color .25s,transform .25s}
+ .card:hover{border-color:rgba(248,138,99,.55);transform:translateY(-2px)}
+ .card .chip{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:4px;background:rgba(248,138,99,.12);color:var(--coral);font-size:15px;margin-bottom:22px}
+ .card h3{font-weight:300;font-size:19px;line-height:1.3;letter-spacing:-.02em}
+ .card .when{margin-top:20px;font-size:12px;letter-spacing:.08em;color:var(--muted)}
+
+ footer{border-top:1px solid var(--line);padding:26px 0;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+ footer a:hover{color:var(--coral)}
+
+ @media (max-width:1180px){
+  .wrap{padding:0 28px}
+  .menu{gap:20px;font-size:13px}
+ }
+ @media (max-width:1024px){
+  .menu{display:none}
+  .wrap{padding:0 24px}
+  .body{grid-template-columns:1fr;gap:40px;padding-top:40px}
+  .rail{position:static}
+  .rail .who,.rail p.note{max-width:52ch}
+  .panel,.quote{padding:32px 26px}
+  .mitem{grid-template-columns:1fr;gap:6px}
+  .more{grid-template-columns:repeat(2,minmax(0,1fr))}
+ }
+ @media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:32px;padding:32px 0 48px}
+  .cover{aspect-ratio:16/9;max-width:none;margin:0}
+  h1{max-width:20ch}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2n){border-right:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .face{padding-right:52px}
+ }
+ @media (max-width:600px){
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:0}
+  .more{grid-template-columns:1fr}
+ }
+ @media (prefers-reduced-motion:reduce){ .flip,.card,.chapters button{transition:none} }
+
+ /* ---------- type system, matching the Energy Digest pages ---------- */
+ :root{
+   --serif:'Fraunces',Georgia,'Times New Roman',serif;
+   --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+ }
+ body{font-family:var(--sans);font-size:16px;line-height:1.6}
+
+ /* serif for anything that is a headline */
+ h1,.quote blockquote,.face h3,.covers-title,.card h3,.stat b,.who .n,.mname{
+   font-family:var(--serif);
+ }
+ h1{font-weight:600;letter-spacing:-.026em;line-height:1.03;font-size:clamp(2rem,4.4vw,3.6rem)}
+ .quote blockquote{font-weight:500;letter-spacing:-.018em;line-height:1.26;font-size:clamp(1.3rem,2.2vw,1.95rem)}
+ .face h3{font-weight:600;letter-spacing:-.02em;font-size:clamp(1.3rem,2.2vw,1.95rem)}
+ .card h3{font-weight:600;letter-spacing:-.015em;font-size:1.2rem;line-height:1.22}
+ .stat b{font-weight:600;letter-spacing:-.02em}
+ .covers-title{font-weight:600;font-size:1.12rem;letter-spacing:-.01em}
+ .who .n{font-weight:600;font-size:1.02rem}
+ .mname{font-weight:600;font-size:1.05rem;letter-spacing:-.01em}
+
+ /* mono for every label, tag, timestamp and button */
+ .brand,.eyebrow,.meta,.crumb,.btn,.rail h4,.mgroup h3,.mkind,.mname .t,
+ .chapters time,.plabel span,.tag,.ep-no,.pnote,.hint,.card .when,.card .chip,
+ .listen h4,.mono,footer,.art-note{
+   font-family:var(--mono);text-transform:uppercase;letter-spacing:.13em;font-size:.68rem;
+ }
+ .brand{font-size:.95rem;letter-spacing:.16em;font-weight:500}
+ .btn{font-size:.7rem;letter-spacing:.12em}
+ .mname .t,.chapters time{letter-spacing:.06em;font-size:.74rem;text-transform:none}
+ .mono{font-size:.72rem;letter-spacing:.04em}
+ .card .chip{font-size:.86rem;letter-spacing:.04em}
+ .meta{gap:10px 22px}
+ .hint,.pnote{text-transform:none;letter-spacing:.01em;font-size:.78rem;line-height:1.6}
+
+ /* body copy in Inter */
+ .dek,.prose p,.covers li,.mdesc,.who .r,.rail p.note,.chapters span,.stat span,.face-back p{
+   font-family:var(--sans);
+ }
+ .dek{font-weight:400;font-size:clamp(1rem,1.35vw,1.14rem);line-height:1.62}
+ .prose p{font-weight:400;font-size:1rem;line-height:1.72}
+ .covers li,.chapters span{font-weight:400;font-size:.97rem}
+ .face-back p{font-weight:400;font-size:.97rem;line-height:1.62}
+ .mdesc,.who .r,.stat span{font-weight:400;font-size:.88rem;line-height:1.55}
+ .rail p.note{font-weight:400;font-size:.88rem;line-height:1.6}
+
+ /* hanging arrow list, so bold lead-ins stay on the same line as their text */
+ .covers li{display:block;position:relative;padding:13px 0 13px 26px}
+ .covers li::before{content:"→";position:absolute;left:0;top:13px;color:var(--coral)}
+ .covers li b{font-weight:600;color:var(--ink)}
+ /* newsletter pill in the rail */
+ .subscribe{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--coral);
+   border-radius:999px;padding:10px 18px;color:var(--coral);background:transparent;
+   font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;
+   transition:background .18s,color .18s}
+ .subscribe:hover{background:var(--coral);color:var(--coral-ink)}
+ .subscribe span{transition:transform .18s}
+ .subscribe:hover span{transform:translateX(3px)}
+
+ /* ---------- standard footer bar ---------- */
+ footer{
+   display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+   border-top:1px solid var(--line);padding:22px 40px;
+ }
+ .footbrand{
+   font-family:var(--mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:#dff1f3;
+   border-bottom:1px solid transparent;
+ }
+ .footbrand:hover{border-bottom-color:var(--coral);color:var(--coral)}
+ footer .actions{display:flex;gap:10px;align-items:center}
+ @media (max-width:700px){ footer{padding:20px 24px} footer .actions{width:100%} }
+ .nav-outer{position:sticky;top:0;z-index:30}
+
+ /* separation pass: lift the panels and give the page a soft top light */
+ body{background-image:linear-gradient(180deg, rgba(190,230,235,.045), rgba(190,230,235,0) 620px);background-repeat:no-repeat}
+ .panel,.stats{box-shadow:0 1px 0 rgba(255,255,255,.05) inset}
+ .cover{background:#f5ab91 !important;box-shadow:none}
+ .quote{box-shadow:0 1px 0 rgba(255,255,255,.04) inset}
+
+ /* photo avatars with a monogram fallback */
+ .av{flex:0 0 auto;position:relative;display:block}
+ .av .avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid var(--coral);filter:grayscale(.2);display:block}
+ .av .mono{display:none}
+ .av.noimg .avatar{display:none}
+ .av.noimg .mono{display:flex}
+</style>
+</head>
+<body>
+
+<div class="nav-outer"><div class="wrap"><nav>
+  <a class="brand" href="/">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <circle cx="10" cy="10" r="9" stroke="#f88a63" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="5" stroke="#a8dbe2" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="1.6" fill="#f88a63"/>
+    </svg>
+    RETHINK
+  </a>
+  <div class="menu">
+    <a href="/about/">About</a>
+    <a href="/content/">Contents</a>
+    <a href="/podcast/">Podcast</a>
+    <a href="https://www.rethink.bigbook.vc/snapshots?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Snapshots</a>
+    <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  </div>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+  </div>
+</nav></div></div>
+
+<div class="wrap">
+ <p class="crumb"><a href="/podcast/">← ALL EPISODES</a></p>
+
+ <header class="hero">
+  <div>
+   <p class="eyebrow">INTERVIEW SNAPSHOT · COVERED IN THE REPORT'S SECTION 5 · HOW TO VENTURE?</p>
+   <h1>PE/VC Investing Insights from Family Office Backed Fund-of-Fund</h1>
+   <p class="dek">What does it take to build a replicable, resilient, outperforming PE portfolio in today's uncertain market?</p>
+   <p class="meta"><span>MAY 2025</span><span>24 MIN</span><span>GUEST · JOEL SANDHU</span></p>
+  </div>
+  <div class="cover">
+   <svg class="coverart" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vintage diversified buyout exposure with an even MOIC distribution">
+     <defs><radialGradient id="g02" cx="24%" cy="22%" r="68%">
+       <stop offset="0%" stop-color="#ffffff" stop-opacity=".45"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+     </radialGradient></defs>
+     <rect width="640" height="480" fill="#f5ab91"/>
+     <rect width="640" height="480" fill="url(#g02)"/>
+     <g fill="none" stroke="rgba(22,11,5,.55)" stroke-width="1.5">
+       <rect x="70" y="120" width="230" height="46" rx="5"/><rect x="70" y="180" width="230" height="46" rx="5" opacity=".78"/>
+       <rect x="70" y="240" width="230" height="46" rx="5" opacity=".56"/><rect x="70" y="300" width="230" height="46" rx="5" opacity=".34"/>
+     </g>
+     <circle cx="96" cy="143" r="4" fill="#123840" opacity="1"/>
+     <circle cx="96" cy="203" r="4" fill="#123840" opacity="1"/>
+     <circle cx="96" cy="263" r="4" fill="#123840" opacity="1"/>
+     <circle cx="96" cy="323" r="4" fill="#123840" opacity="1"/>
+     <text x="70" y="384" font-family="IBM Plex Mono, monospace" font-size="17" fill="#123840" letter-spacing="3">VINTAGES</text>
+     <g stroke="rgba(22,11,5,.55)" stroke-width="1.5" fill="none"><path d="M330 250 H 600"/></g>
+     <rect x="346" y="190" width="22" height="60" rx="3" fill="rgba(22,11,5,.42)" opacity="0.75"/>
+     <rect x="376" y="184" width="22" height="66" rx="3" fill="rgba(22,11,5,.42)" opacity="0.69"/>
+     <rect x="406" y="188" width="22" height="62" rx="3" fill="rgba(22,11,5,.42)" opacity="0.63"/>
+     <rect x="436" y="180" width="22" height="70" rx="3" fill="rgba(22,11,5,.42)" opacity="0.57"/>
+     <rect x="466" y="186" width="22" height="64" rx="3" fill="rgba(22,11,5,.42)" opacity="0.51"/>
+     <rect x="496" y="182" width="22" height="68" rx="3" fill="rgba(22,11,5,.42)" opacity="0.45"/>
+     <rect x="526" y="190" width="22" height="60" rx="3" fill="rgba(22,11,5,.42)" opacity="0.39"/>
+     <path d="M346 196 H 590" stroke="#123840" stroke-width="1.8" stroke-dasharray="6 6" fill="none"/>
+     <circle cx="600" cy="196" r="5.5" fill="#123840"/>
+   </svg>
+   <span class="tag">SNAPSHOT</span>
+  </div>
+ </header>
+
+ <div class="body">
+  <aside class="rail">
+   <h4>SHARE</h4>
+   <div class="share">
+    <a href="#" id="copyLink" aria-label="Copy link"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg></a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fepisodes%2Fpe-vc-investing-insights.html" aria-label="Share on X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fepisodes%2Fpe-vc-investing-insights.html" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4"/></svg></a>
+    <a href="mailto:?body=https%3A%2F%2Frethink.bigbook.vc%2Fpodcast%2Fepisodes%2Fpe-vc-investing-insights.html" aria-label="Share by email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+   </div>
+
+   <h4>GUEST</h4>
+   <div class="who">
+    <img class="avatar" src="/assets/img/people/joel-sandhu.jpg" alt="">
+    <div><p class="n">Joel Sandhu</p><p class="r">Co-Founder &amp; Managing Partner, TopTier Access</p></div>
+   </div>
+
+   <h4>HOST</h4>
+   <div class="who">
+    <span class="av"><img class="avatar" src="/assets/img/people/rohit-yadav.jpg" alt="" onerror="this.closest('.av').classList.add('noimg')"><span class="mono" aria-hidden="true">RY</span></span>
+    <div><p class="n"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Rohit Yadav</a></p><p class="r">Investments thought leader, Big Book of VC</p></div>
+   </div>
+
+   <hr>
+
+         <h4>NEWSLETTER</h4>
+      <p class="note">Don't miss the next insight drop on the Rethinking VC topic.</p>
+      <a class="subscribe" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe <span>→</span></a>
+    </aside>
+
+  <main>
+   <div class="quote">
+    <blockquote>In buyouts, you have capped upside and unlimited downside. So you'd better be damn sure the strategy works again and again.</blockquote>
+    <cite>Joel Sandhu · on the risk profile of buyouts</cite>
+   </div>
+
+   <div class="player" id="ytFacade" data-yt="j_zvjdGTqgs" role="button" tabindex="0" aria-label="Play the episode">
+    <canvas aria-hidden="true" data-art="player"></canvas>
+    <span class="pbtn" aria-hidden="true"><svg width="26" height="30" viewBox="0 0 26 30"><path d="M0 0l26 15L0 30V0z" fill="#1a0d07"/></svg></span>
+    <span class="pnote">PRESS PLAY TO LOAD THE VIDEO. NOTHING IS REQUESTED FROM YOUTUBE UNTIL YOU DO.</span>
+   </div>
+
+   <div class="stats">
+    <div class="stat"><b>50 / 50</b><span>Typical US–Europe split; 70–30 US–Europe for some Middle Eastern clients</span></div>
+    <div class="stat"><b>30–35%</b><span>Technology allocation, with 15–25% healthcare and the rest in industrials, business services and consumer</span></div>
+    <div class="stat"><b>2x / 2.5x</b><span>Net performance filter, 2x for larger funds, 2.5x for smaller ones</span></div>
+    <div class="stat"><b>5</b><span>Managers per year, with a new fund every two years</span></div>
+   </div>
+
+   <section class="panel prose">
+    <div class="plabel"><span>ABOUT THE EPISODE</span><i></i></div>
+    <p>Rohit Yadav sits down with Joel Sandhu, Co-Founder &amp; Managing Partner at TopTier Access, a fund-of-funds manager backed by leading Belgian family offices. With a clear shift away from venture capital into disciplined, mid-market buyouts, Joel shares how his firm is designing a smarter, more durable playbook for private market exposure.</p>
+    <p>From frothy VC dreams to dependable buyout outcomes, this is an insider's guide to how LPs are thinking today.</p>
+    <h3 class="covers-title">You'll learn:</h3>
+    <ul class="covers">
+     <li>Why venture capital's risk-return tradeoff doesn't always make sense for family offices.</li>
+     <li>How TopTier Access structures vintage-diversified portfolios for optimal resilience.</li>
+     <li>Why the obsession with "replicability" defines their fund manager selection.</li>
+     <li>The mid-market gold rush, and why mega-cap buyout funds may be past their prime.</li>
+     <li>The real story behind co-investments, and why most fund-of-funds are chasing the wrong alpha.</li>
+     <li>How Joel screens for quality GPs using everything from MOIC distributions to C-suite interviews.</li>
+    </ul>
+    <h3 class="covers-title">We also unpack:</h3>
+    <ul class="covers">
+     <li>The shifting psychology of family offices across Europe and the Middle East.</li>
+     <li>Why most co-investment rights aren't worth the paper they're written on.</li>
+     <li>How returns, liquidity and tax efficiency are shaping next-gen private capital platforms.</li>
+     <li>The one word that defines Joel's fund diligence: replicability.</li>
+    </ul>
+    <p style="margin-top:34px">If you're navigating private markets, this episode is your masterclass in thinking long-term, acting programmatically, and managing risk with surgical precision.</p>
+   </section>
+
+   <section class="panel">
+    <div class="plabel"><span>IN HIS WORDS</span><i></i></div>
+    <div class="row">
+     <button type="button" aria-expanded="false"><span class="flip">
+      <span class="face"><h3>On building TopTier Access</h3></span>
+      <span class="face face-back"><p>"We saw a mismatch between how family offices were allocating to private markets and the solutions available to them…. We took a look at the industry and stripped away everything we didn't like, fiscally, fee-wise, and portfolio-wise, and built something that worked better."</p></span>
+     </span></button><span class="arrow" aria-hidden="true">↓</span>
+    </div>
+    <div class="row">
+     <button type="button" aria-expanded="false"><span class="flip">
+      <span class="face"><h3>On moving from venture to buyouts</h3></span>
+      <span class="face face-back"><p>"The access to the very top venture managers is very difficult to do consistently year after year…. Buyouts allow us to build a programmatic approach, five managers per year, new fund every two years…. Our goal is to create buyout allocation like wine vintages, diversified and consistent."</p></span>
+     </span></button><span class="arrow" aria-hidden="true">↓</span>
+    </div>
+    <div class="row">
+     <button type="button" aria-expanded="false"><span class="flip">
+      <span class="face"><h3>On diversification</h3></span>
+      <span class="face face-back"><p>"We don't take a bet on any one sector, we want a cross-section of where PE is active…. Diversification isn't just number of funds, it's about company types, sizes, and sectors…. LPs want private equity to beat public markets, otherwise why bother with the illiquidity?"</p></span>
+     </span></button><span class="arrow" aria-hidden="true">↓</span>
+    </div>
+    <div class="row">
+     <button type="button" aria-expanded="false"><span class="flip">
+      <span class="face"><h3>On co-investments</h3></span>
+      <span class="face face-back"><p>"Co-investments aren't part of our FoF, we view them as a separate strategy…. If I'm getting co-investment access when CalPERS and Mubadala are in the fund, I need to ask why…. We don't want to choose a manager just because they offer co-investments, it should be about performance."</p></span>
+     </span></button><span class="arrow" aria-hidden="true">↓</span>
+    </div>
+    <div class="row">
+     <button type="button" aria-expanded="false"><span class="flip">
+      <span class="face"><h3>On what he screens for</h3></span>
+      <span class="face face-back"><p>"Our key criterion when evaluating a fund is one word: replicability… We want to see a consistent MOIC distribution, not just a few 20x outliers…. If the people who generated past returns have left the firm, it's not the same product anymore."</p></span>
+     </span></button><span class="arrow" aria-hidden="true">↓</span>
+    </div>
+   </section>
+
+   <section class="panel">
+    <div class="plabel"><span>MENTIONED</span><i></i></div>
+
+    <div class="mgroup">
+     <h3>FIRMS &amp; INSTITUTIONS</h3>
+     <div class="mitem"><span class="mkind">FUND OF FUNDS</span>
+      <div><p class="mname"><a href="https://www.toptieraccess.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">TopTier Access ↗</a></p>
+       <p class="mdesc">Fund-of-funds manager backed by leading Belgian family offices.</p></div></div>
+     <div class="mitem"><span class="mkind">LARGE CAP</span>
+      <div><p class="mname"><a href="https://www.blackstone.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Blackstone ↗</a>, <a href="https://www.kkr.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">KKR ↗</a></p>
+       <p class="mdesc">The large-cap names family offices tend to pivot to for stability.</p></div></div>
+     <div class="mitem"><span class="mkind">LPs</span>
+      <div><p class="mname"><a href="https://www.calpers.ca.gov/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">CalPERS ↗</a>, <a href="https://www.mubadala.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Mubadala ↗</a>, <a href="https://www.adia.ae/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">ADIA ↗</a>, <a href="https://www.aramco.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Aramco ↗</a>, <a href="https://www.pggm.nl/en/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">PGGM ↗</a></p>
+       <p class="mdesc">Cited on co-investment information asymmetry, the LPs with teams of 500 lawyers writing the most watertight right-of-first-refusal side letters.</p></div></div>
+     <div class="mitem"><span class="mkind">PROGRAMMES</span>
+      <div><p class="mname"><a href="https://www.lgt.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">LGT ↗</a>, <a href="https://www.nb.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Neuberger Berman ↗</a></p>
+       <p class="mdesc">Named as the large programmes doing co-investment well, 900 fund positions and a $20bn a year programme.</p></div></div>
+    </div>
+
+    <div class="mgroup">
+     <h3>PEOPLE</h3>
+     <div class="mitem"><span class="mkind">GUEST</span>
+      <div><p class="mname">Joel Sandhu</p>
+       <p class="mdesc">Co-Founder &amp; Managing Partner, TopTier Access.</p></div></div>
+     <div class="mitem"><span class="mkind">HOST</span>
+      <div><p class="mname"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Rohit Yadav ↗</a></p>
+       <p class="mdesc">Investments thought leader, Big Book of VC.</p></div></div>
+    </div>
+
+    <div class="mgroup">
+     <h3>CONCEPTS &amp; METRICS</h3>
+     <div class="mitem"><span class="mkind">CRITERION</span>
+      <div><p class="mname">Replicability</p>
+       <p class="mdesc">The single word Joel uses for fund diligence, process, human capital and philosophy beyond one person.</p></div></div>
+     <div class="mitem"><span class="mkind">METRIC</span>
+      <div><p class="mname">Direct alpha, KS-PME</p>
+       <p class="mdesc">Used in underwriting; the baseline is beating the public index.</p></div></div>
+     <div class="mitem"><span class="mkind">METRIC</span>
+      <div><p class="mname">MOIC distribution</p>
+       <p class="mdesc">Evened out rather than a couple of 20x deals and a lot of zeros.</p></div></div>
+     <div class="mitem"><span class="mkind">SNAPSHOT</span>
+      <div><p class="mname"><a href="https://www.rethink.bigbook.vc/blog/pe-vc-investing-insights-from-family-office-backed-fund-of-fund?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">PE/VC Investing Insights from Family Office Backed Fund-of-Fund ↗</a></p>
+       <p class="mdesc">The full written snapshot of this interview on the Rethink site.</p></div></div>
+    </div>
+   </section>
+
+   <div class="listen">
+    <h4>SUBSCRIBE ON</h4>
+    <a class="btn" href="https://www.youtube.com/@theonepoint?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">YouTube</a>
+    <a class="btn" href="https://yadavrohit.substack.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Substack</a>
+    <a class="btn" href="https://open.spotify.com/show/19LhIXECFj9i91MFCCWuTR?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Spotify</a>
+    <a class="btn" href="https://podcasts.apple.com/us/podcast/the-one-point/id1644098589?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Apple Podcasts</a>
+   </div>
+  </main>
+ </div>
+</div>
+
+<div class="wrap">
+ <section class="more-wrap">
+  <div class="plabel"><span>RELATED SNAPSHOTS</span><i></i></div>
+  <div class="more">
+   <a class="card" href="https://www.rethink.bigbook.vc/blog/venture-fund-of-funds-established-managers?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink"><span class="chip">↗</span><h3>Venture Fund-of-Funds: Established Managers</h3><p class="when">DAVID CLARK · VENCAP</p></a>
+   <a class="card" href="https://www.rethink.bigbook.vc/blog/indexing-venture?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink"><span class="chip">↗</span><h3>Indexing Venture</h3><p class="when">RETHINK SNAPSHOT</p></a>
+   <a class="card" href="https://www.rethink.bigbook.vc/blog/data-science-driven-vc-fof?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink"><span class="chip">↗</span><h3>Data Science Driven VC FoF</h3><p class="when">RETHINK SNAPSHOT</p></a>
+  </div>
+ </section>
+
+ <footer>
+  <a class="footbrand" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">The Big Book of VC</a>
+  <div class="actions">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink">Subscribe</a>
+  </div>
+</footer>
+</div>
+
+<script>
+var REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+document.querySelectorAll(".row button").forEach(function(btn){
+ btn.addEventListener("click", function(){
+  var row = btn.closest(".row");
+  var open = row.classList.toggle("is-open");
+  btn.setAttribute("aria-expanded", open ? "true" : "false");
+ });
+});
+
+var copy = document.getElementById("copyLink");
+if(copy){
+ copy.addEventListener("click", function(e){
+  e.preventDefault();
+  if(navigator.clipboard) navigator.clipboard.writeText(window.location.href);
+ });
+}
+
+(function(){
+ var facade = document.getElementById("ytFacade");
+ var id = facade.getAttribute("data-yt");
+ function load(start){
+  var src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0&start=" + (start || 0);
+  var existing = facade.querySelector("iframe");
+  if(existing){ existing.src = src; return; }
+  var f = document.createElement("iframe");
+  f.src = src; f.title = "PE/VC Investing Insights from Family Office Backed Fund-of-Fund";
+  f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
+  f.allowFullscreen = true;
+  facade.innerHTML = ""; facade.appendChild(f); facade.style.cursor = "default";
+ }
+ facade.addEventListener("click", function(){ load(0); });
+ facade.addEventListener("keydown", function(e){
+  if(e.key === "Enter" || e.key === " "){ e.preventDefault(); load(0); }
+ });
+ document.querySelectorAll(".chapters button").forEach(function(b){
+  b.addEventListener("click", function(){
+   load(parseInt(b.getAttribute("data-t"), 10) || 0);
+   facade.scrollIntoView({behavior: REDUCE ? "auto" : "smooth", block:"center"});
+  });
+ });
+})();
+
+function wireframe(box, opts){
+ var cv = box.tagName === "CANVAS" ? box : box.querySelector("canvas");
+ var host = box.tagName === "CANVAS" ? box.parentElement : box;
+ var ctx = cv.getContext("2d");
+ var W = 1, H = 1;
+ function resize(){
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var r = host.getBoundingClientRect();
+  W = Math.max(1, Math.round(r.width)); H = Math.max(1, Math.round(r.height));
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+ }
+ if(window.ResizeObserver){ var ro=new ResizeObserver(function(){ requestAnimationFrame(resize); }); ro.observe(host); }
+ window.addEventListener("resize", resize);
+ window.addEventListener("load", resize);
+ resize();
+ function point(t, phase, R, k){
+  return [ R * (Math.cos(t) + k * Math.cos(opts.lobes * t + phase)),
+       R * (Math.sin(t) - k * Math.sin(opts.lobes * t + phase)) ];
+ }
+ function frame(ts){
+  var time = ((ts || 0) / 1000) + opts.seed;
+  ctx.clearRect(0, 0, W, H);
+  var cx = W / 2, cy = H / 2;
+  var k = opts.k + opts.kSwing * Math.sin(time * 0.35);
+  var R = (Math.min(W, H) * opts.fill) / (1 + k);
+  var spin = time * opts.spin;
+  ctx.lineWidth = 0.7;
+  for(var L = 0; L < opts.layers; L++){
+   var phase = (L / opts.layers) * Math.PI * 2 * opts.spread + time * 0.18;
+   var fade = (0.10 + 0.16 * (1 - Math.abs(L - opts.layers / 2) / (opts.layers / 2))) * opts.alpha;
+   ctx.strokeStyle = "rgba(206,238,243," + fade.toFixed(3) + ")";
+   ctx.beginPath();
+   for(var s = 0; s <= 200; s++){
+    var t = (s / 200) * Math.PI * 2 + spin;
+    var p = point(t, phase, R, k);
+    if(s === 0) ctx.moveTo(cx + p[0], cy + p[1]); else ctx.lineTo(cx + p[0], cy + p[1]);
+   }
+   ctx.closePath(); ctx.stroke();
+  }
+  for(var d = 0; d < opts.dots; d++){
+   var td = time * 0.22 + d * (Math.PI * 2 / opts.dots) + spin;
+   var pd = point(td, time * 0.18, R, k);
+   ctx.fillStyle = "#f88a63";
+   ctx.beginPath(); ctx.arc(cx + pd[0], cy + pd[1], 3.2, 0, Math.PI * 2); ctx.fill();
+  }
+  if(!REDUCE) requestAnimationFrame(frame);
+ }
+ if(REDUCE){ frame(0); } else { requestAnimationFrame(frame); }
+}
+
+wireframe(document.querySelector('[data-art="player"]'),
+ {layers:14, lobes:3, k:0.34, kSwing:0.06, fill:0.44, spin:-0.04, spread:0.6, dots:0, seed:20, alpha:0.55});
+</script>
+</body>
+</html>
