@@ -83,6 +83,18 @@
     .ic{width:40px;height:40px}
   }
 </style>
+<script>
+/* Old Webflow addresses (/blog/..., /snapshots) still circulate in posts and emails.
+   Send them to the matching page on the new site instead of showing a dead end. */
+(function(){
+  var views=["democratisation-of-venture-capital", "democratizing-the-venture-asset-class", "europes-venture-moment", "exploring-secondaries-private-stock-insights", "exploring-venture-secondaries-fund", "geopolitics-in-european-venture", "global-indian-alpha", "indexing-venture-capital", "insights-into-corporate-venture-capital", "operator-edge-in-the-new-vc-landscape", "pe-vc-investing-insights", "private-markets-allocation", "rise-of-tools-for-private-markets", "secondaries-in-venture", "shifting-dynamics-of-venture-fund-management", "the-freedom-stack", "the-hidden-math-of-venture", "venture-fund-of-funds-emerging-managers", "venture-fund-of-funds-established-managers", "venture-reimagined-by-infrastructure"];
+  var alias={"indexing-venture": "indexing-venture-capital", "pe-vc-investing-insights-from-family-office-backed-fund-of-fund": "pe-vc-investing-insights", "private-markets-allocation-investment-advisor-perspectives": "private-markets-allocation", "data-science-driven-vc-fof": "venture-reimagined-by-infrastructure"};
+  var p=location.pathname.replace(/\/+$/,'').toLowerCase(), m=p.match(/^\/(?:blog|podcast\/episodes|episodes)\/([a-z0-9-]+?)(?:\.html)?$/), to=null;
+  if(m){ var s=alias[m[1]]||m[1]; if(views.indexOf(s)>-1) to='/podcast/views/'+s+'.html'; }
+  else if(p==='/snapshots'||p==='/blog'||p==='/podcast/episodes') to='/podcast/';
+  if(to) location.replace(to+location.search+location.hash);
+})();
+</script>
 </head>
 <body>
 

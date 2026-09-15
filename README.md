@@ -8,7 +8,7 @@ Read in 50+ countries and downloaded by LPs of all shapes and sizes: sovereign
 entities, institutional investors like pension funds, banks, wealth managers,
 family offices, fund-of-funds, and angel investors.
 
-[rethink.bigbook.vc](https://www.rethink.bigbook.vc)
+[rethink.bigbook.vc](https://rethink.bigbook.vc)
 
 ## The Report
 
