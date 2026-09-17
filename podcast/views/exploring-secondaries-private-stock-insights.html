@@ -274,6 +274,53 @@
  .av.noimg .avatar{display:none}
  .av.noimg .mono{display:flex}
 </style>
+<style id="site-nav">
+/* Shared top bar. Loaded after each page's own styles so every page gets the
+   exact same nav as the home page, plus the mobile menu. */
+.nav-outer{position:sticky;top:0;z-index:50;background:rgba(6,20,23,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid rgba(190,230,235,.2)}
+.nav-outer>.wrap{max-width:none!important;width:auto!important;margin:0!important;padding:0!important}
+.nav-outer nav{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;margin:0!important;padding:20px 40px!important;min-height:0!important;border:0!important;max-width:none!important}
+.nav-outer .brand{display:flex!important;align-items:center!important;gap:10px!important;color:#fff!important;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace!important;font-size:15.2px!important;font-weight:500!important;letter-spacing:.16em!important;text-transform:uppercase!important;line-height:1.5!important;white-space:nowrap}
+.nav-outer .brand svg{display:block;flex:none}
+.nav-outer .menu{display:flex!important;align-items:center!important;gap:30px!important;color:#dff1f3!important;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace!important;font-size:11.52px!important;font-weight:400!important;letter-spacing:.11em!important;text-transform:uppercase!important;line-height:1.6!important}
+.nav-outer .menu a{padding:4px 0!important;border:0!important;border-bottom:1px solid transparent!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important;text-decoration:none!important;white-space:nowrap}
+.nav-outer .menu a:hover,.nav-outer .menu a[aria-current="page"]{border-bottom-color:#f88a63!important}
+.nav-outer .actions{display:flex!important;align-items:center!important;gap:10px!important}
+.nav-outer .btn,.mnav .btn{display:inline-block!important;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace!important;font-size:11.2px!important;letter-spacing:.12em!important;text-transform:uppercase!important;line-height:1.6!important;border-radius:2px!important;padding:9px 15px!important;border:1px solid rgba(190,230,235,.2)!important;background:transparent!important;color:#fff!important;font-weight:400!important;white-space:nowrap;text-decoration:none!important}
+.nav-outer .btn:hover,.mnav .btn:hover{border-color:#8fc9d1!important}
+.nav-outer .btn-solid,.mnav .btn-solid{background:#f88a63!important;border-color:#f88a63!important;color:#160b05!important;font-weight:500!important}
+.nav-outer .btn-solid:hover,.mnav .btn-solid:hover{background:#ffa580!important;border-color:#ffa580!important}
+
+/* three-line button, hidden on wide screens */
+.burger{display:none;flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(190,230,235,.28);background:transparent;color:#fff;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.burger span{display:block;width:16px;height:1.5px;background:currentColor;border-radius:1px;transition:transform .2s,opacity .2s}
+.burger:hover{border-color:#8fc9d1}
+.nav-open .burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.nav-open .burger span:nth-child(2){opacity:0}
+.nav-open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+
+.mnav{display:none;border-top:1px solid rgba(190,230,235,.11);padding:8px 24px 24px}
+.mnav[hidden]{display:none!important}
+.mnav a.ml{display:block;padding:14px 0;border-bottom:1px solid rgba(190,230,235,.11);color:#dff1f3;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.11em;text-transform:uppercase;text-decoration:none}
+.mnav a.ml:hover{color:#f88a63}
+.mnav .mact{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+
+@media (max-width:900px){
+  .nav-outer nav{padding:14px 24px!important}
+  .nav-outer .menu{display:none!important}
+  .nav-outer .actions .btn:not(.btn-solid){display:none!important}
+  .burger{display:inline-flex}
+  .nav-open .mnav:not([hidden]){display:block}
+}
+@media (max-width:520px){
+  .nav-outer .actions{display:none!important}
+}
+@media (min-width:901px){ .mnav{display:none!important} }
+
+/* small, thin outbound arrow after linked names */
+.xa{display:inline-block;width:.62em;height:.62em;margin-left:.22em;vertical-align:.12em;opacity:.55;fill:none;stroke:currentColor;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+a:hover .xa{opacity:.9}
+</style>
 </head>
 <body>
 
@@ -296,7 +343,19 @@
     <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
     <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
   </div>
-</nav></div></div>
+
+  <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+</nav>
+<div class="mnav" id="mnav" hidden>
+  <a class="ml" href="/about/">About</a>
+  <a class="ml" href="/content/">Contents</a>
+  <a class="ml" href="/podcast/">Expert Views</a>
+  <a class="ml" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">The Big Book of VC</a>
+  <div class="mact">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
+  </div>
+</div></div></div>
 
 <div class="wrap">
  <p class="crumb"><a href="/podcast/">← ALL EPISODES</a></p>
@@ -343,13 +402,13 @@
    <h4>GUEST</h4>
    <div class="who">
     <img class="avatar" src="/assets/img/people/sim-desai.jpg" alt="">
-    <div><p class="n"><a href="https://www.linkedin.com/in/sim-desai-a357aa11/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Sim Desai ↗</a></p><p class="r">Founder &amp; CEO, <a href="https://www.hiive.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Hiive ↗</a></p></div>
+    <div><p class="n"><a href="https://www.linkedin.com/in/sim-desai-a357aa11/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Sim Desai<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p><p class="r">Founder &amp; CEO, <a href="https://www.hiive.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Hiive<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p></div>
    </div>
 
    <h4>HOST</h4>
    <div class="who">
     <span class="av"><img class="avatar" src="/assets/img/people/rohit-yadav.jpg" alt="" onerror="this.closest('.av').classList.add('noimg')"><span class="mono" aria-hidden="true">RY</span></span>
-    <div><p class="n"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Rohit Yadav ↗</a></p><p class="r">Investments thought leader, <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Big Book of VC ↗</a></p></div>
+    <div><p class="n"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Rohit Yadav<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p><p class="r">Investments thought leader, <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Big Book of VC<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p></div>
    </div>
 
    <hr>
@@ -440,13 +499,13 @@
     <div class="mgroup">
      <h3>COMPANIES &amp; PLATFORMS</h3>
      <div class="mitem"><span class="mkind">PLATFORM</span>
-      <div><p class="mname"><a href="https://www.hiive.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Hiive ↗</a></p>
+      <div><p class="mname"><a href="https://www.hiive.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Hiive<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p>
        <p class="mdesc">Liquidity management platform for private companies and their shareholders.</p></div></div>
      <div class="mitem"><span class="mkind">COMPANIES</span>
       <div><p class="mname">Facebook, Twitter</p>
        <p class="mdesc">Where actively traded private securities first took off, around 2013.</p></div></div>
      <div class="mitem"><span class="mkind">COMPANY</span>
-      <div><p class="mname"><a href="https://www.uber.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Uber ↗</a></p>
+      <div><p class="mname"><a href="https://www.uber.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Uber<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p>
        <p class="mdesc">Used as the example of a private company whose shares could benefit from central price quoting.</p></div></div>
     </div>
 
@@ -456,7 +515,7 @@
       <div><p class="mname">Sim Desai</p>
        <p class="mdesc">Founder &amp; CEO, Hiive. Was active in LP secondaries for many years, where he started in the secondary market.</p></div></div>
      <div class="mitem"><span class="mkind">HOST</span>
-      <div><p class="mname"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Rohit Yadav ↗</a></p>
+      <div><p class="mname"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Rohit Yadav<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p>
        <p class="mdesc">Investments thought leader, Big Book of VC.</p></div></div>
     </div>
 
@@ -472,7 +531,7 @@
       <div><p class="mname">RIA conversions</p>
        <p class="mdesc">VC funds can invest up to 20% of their portfolio in secondaries; some large VCs have started converting into RIAs and becoming more active as a result.</p></div></div>
      <div class="mitem"><span class="mkind">REPORT</span>
-      <div><p class="mname"><a href="https://www.hiive.com/market-reports/2025-annual-state-of-the-private-market?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">2025 State of the Private Market ↗</a></p>
+      <div><p class="mname"><a href="https://www.hiive.com/market-reports/2025-annual-state-of-the-private-market?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">2025 State of the Private Market<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p>
        <p class="mdesc">Hiive's report on marketplace dynamics shifting in favour of sellers.</p></div></div>
      <div class="mitem"><span class="mkind">SNAPSHOT</span>
       <div><p class="mname"><a href="/podcast/views/exploring-secondaries-private-stock-insights.html">Exploring Secondaries: Private Stock Insights →</a></p>
@@ -607,6 +666,21 @@ function wireframe(box, opts){
 
 wireframe(document.querySelector('[data-art="player"]'),
  {layers:14, lobes:3, k:0.34, kSwing:0.06, fill:0.44, spin:-0.04, spread:0.6, dots:0, seed:20, alpha:0.55});
+</script>
+<script>
+/* Mobile menu: the three-line button opens and closes the top bar links. */
+(function(){
+  var outer=document.querySelector('.nav-outer'); if(!outer) return;
+  var btn=outer.querySelector('.burger'), panel=document.getElementById('mnav'); if(!btn||!panel) return;
+  function set(open){
+    outer.classList.toggle('nav-open',open); panel.hidden=!open;
+    btn.setAttribute('aria-expanded',String(open)); btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  }
+  btn.addEventListener('click',function(){ set(panel.hidden); });
+  panel.addEventListener('click',function(e){ if(e.target.closest('a')) set(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!panel.hidden){ set(false); btn.focus(); } });
+  window.addEventListener('resize',function(){ if(window.innerWidth>900&&!panel.hidden) set(false); });
+})();
 </script>
 </body>
 </html>

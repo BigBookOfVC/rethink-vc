@@ -115,6 +115,53 @@
   .pcard h3{color:var(--coral-ink)}
   .plink{color:var(--coral-ink)}
 </style>
+<style id="site-nav">
+/* Shared top bar. Loaded after each page's own styles so every page gets the
+   exact same nav as the home page, plus the mobile menu. */
+.nav-outer{position:sticky;top:0;z-index:50;background:rgba(6,20,23,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid rgba(190,230,235,.2)}
+.nav-outer>.wrap{max-width:none!important;width:auto!important;margin:0!important;padding:0!important}
+.nav-outer nav{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;margin:0!important;padding:20px 40px!important;min-height:0!important;border:0!important;max-width:none!important}
+.nav-outer .brand{display:flex!important;align-items:center!important;gap:10px!important;color:#fff!important;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace!important;font-size:15.2px!important;font-weight:500!important;letter-spacing:.16em!important;text-transform:uppercase!important;line-height:1.5!important;white-space:nowrap}
+.nav-outer .brand svg{display:block;flex:none}
+.nav-outer .menu{display:flex!important;align-items:center!important;gap:30px!important;color:#dff1f3!important;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace!important;font-size:11.52px!important;font-weight:400!important;letter-spacing:.11em!important;text-transform:uppercase!important;line-height:1.6!important}
+.nav-outer .menu a{padding:4px 0!important;border:0!important;border-bottom:1px solid transparent!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important;text-decoration:none!important;white-space:nowrap}
+.nav-outer .menu a:hover,.nav-outer .menu a[aria-current="page"]{border-bottom-color:#f88a63!important}
+.nav-outer .actions{display:flex!important;align-items:center!important;gap:10px!important}
+.nav-outer .btn,.mnav .btn{display:inline-block!important;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace!important;font-size:11.2px!important;letter-spacing:.12em!important;text-transform:uppercase!important;line-height:1.6!important;border-radius:2px!important;padding:9px 15px!important;border:1px solid rgba(190,230,235,.2)!important;background:transparent!important;color:#fff!important;font-weight:400!important;white-space:nowrap;text-decoration:none!important}
+.nav-outer .btn:hover,.mnav .btn:hover{border-color:#8fc9d1!important}
+.nav-outer .btn-solid,.mnav .btn-solid{background:#f88a63!important;border-color:#f88a63!important;color:#160b05!important;font-weight:500!important}
+.nav-outer .btn-solid:hover,.mnav .btn-solid:hover{background:#ffa580!important;border-color:#ffa580!important}
+
+/* three-line button, hidden on wide screens */
+.burger{display:none;flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(190,230,235,.28);background:transparent;color:#fff;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.burger span{display:block;width:16px;height:1.5px;background:currentColor;border-radius:1px;transition:transform .2s,opacity .2s}
+.burger:hover{border-color:#8fc9d1}
+.nav-open .burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.nav-open .burger span:nth-child(2){opacity:0}
+.nav-open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+
+.mnav{display:none;border-top:1px solid rgba(190,230,235,.11);padding:8px 24px 24px}
+.mnav[hidden]{display:none!important}
+.mnav a.ml{display:block;padding:14px 0;border-bottom:1px solid rgba(190,230,235,.11);color:#dff1f3;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.11em;text-transform:uppercase;text-decoration:none}
+.mnav a.ml:hover{color:#f88a63}
+.mnav .mact{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+
+@media (max-width:900px){
+  .nav-outer nav{padding:14px 24px!important}
+  .nav-outer .menu{display:none!important}
+  .nav-outer .actions .btn:not(.btn-solid){display:none!important}
+  .burger{display:inline-flex}
+  .nav-open .mnav:not([hidden]){display:block}
+}
+@media (max-width:520px){
+  .nav-outer .actions{display:none!important}
+}
+@media (min-width:901px){ .mnav{display:none!important} }
+
+/* small, thin outbound arrow after linked names */
+.xa{display:inline-block;width:.62em;height:.62em;margin-left:.22em;vertical-align:.12em;opacity:.55;fill:none;stroke:currentColor;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+a:hover .xa{opacity:.9}
+</style>
 </head>
 <body>
 
@@ -137,7 +184,19 @@
     <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
     <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
   </div>
-</nav></div>
+
+  <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+</nav>
+<div class="mnav" id="mnav" hidden>
+  <a class="ml" href="/about/">About</a>
+  <a class="ml" href="/content/">Contents</a>
+  <a class="ml" href="/podcast/">Expert Views</a>
+  <a class="ml" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">The Big Book of VC</a>
+  <div class="mact">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
+  </div>
+</div></div>
 
 <header class="hero">
   <div>
@@ -234,7 +293,7 @@
         </li>
         <li class="item">
           <span class="ikind">Interview</span>
-          <h3><a class="ilink" href="/snapshots/thoughts-on-indian-family-offices.html">Thoughts on Indian Family Offices <span class="iarrow">↗</span></a></h3>
+          <h3><a class="ilink" href="/snapshots/thoughts-on-indian-family-offices.html">Thoughts on Indian Family Offices <span class="iarrow">→</span></a></h3>
           <p>Insights from Aarti Gupta (CIO, Family Office DM Gupta &amp; Anikarth Ventures).</p>
         </li>
       </ul>
@@ -254,12 +313,12 @@
         </li>
         <li class="item">
           <span class="ikind">Interview</span>
-          <h3><a class="ilink" href="/snapshots/thinking-about-alternatives-and-allocations.html">Thinking About Alternatives and Allocations <span class="iarrow">↗</span></a></h3>
+          <h3><a class="ilink" href="/snapshots/thinking-about-alternatives-and-allocations.html">Thinking About Alternatives and Allocations <span class="iarrow">→</span></a></h3>
           <p>Interview with Christoph Junge (former Head of Alternative Investments at Velliv).</p>
         </li>
         <li class="item">
           <span class="ikind">Interview</span>
-          <h3><a class="ilink" href="/podcast/views/pe-vc-investing-insights.html">PE/VC Insights from Family Office Backed FoF <span class="iarrow">↗</span></a></h3>
+          <h3><a class="ilink" href="/podcast/views/pe-vc-investing-insights.html">PE/VC Insights from Family Office Backed FoF <span class="iarrow">→</span></a></h3>
           <p>Snapshot of the interview with Joel Sandhu from Investors Capital.</p>
         </li>
         <li class="item">
@@ -284,17 +343,17 @@
         </li>
         <li class="item">
           <span class="ikind">Interview</span>
-          <h3><a class="ilink" href="/podcast/views/venture-fund-of-funds-established-managers.html">VC FoF Established Managers <span class="iarrow">↗</span></a></h3>
+          <h3><a class="ilink" href="/podcast/views/venture-fund-of-funds-established-managers.html">VC FoF Established Managers <span class="iarrow">→</span></a></h3>
           <p>Snapshot of the interview with David Clark from VenCap.</p>
         </li>
         <li class="item">
           <span class="ikind">Interview</span>
-          <h3><a class="ilink" href="/podcast/views/venture-fund-of-funds-emerging-managers.html">VC FoF Emerging Managers <span class="iarrow">↗</span></a></h3>
+          <h3><a class="ilink" href="/podcast/views/venture-fund-of-funds-emerging-managers.html">VC FoF Emerging Managers <span class="iarrow">→</span></a></h3>
           <p>Snapshot of the interview with Jamie Rhode from Screendoor.</p>
         </li>
         <li class="item">
           <span class="ikind">Interview</span>
-          <h3><a class="ilink" href="/podcast/views/private-markets-allocation.html">Private Markets Allocation: IA Perspectives <span class="iarrow">↗</span></a></h3>
+          <h3><a class="ilink" href="/podcast/views/private-markets-allocation.html">Private Markets Allocation: IA Perspectives <span class="iarrow">→</span></a></h3>
           <p>Snapshot of the interview with Frank Tanner from Morgan Creek Capital Management.</p>
         </li>
         <li class="item">
@@ -339,12 +398,12 @@
         </li>
         <li class="item">
           <span class="ikind">Interview</span>
-          <h3><a class="ilink" href="/podcast/views/exploring-venture-secondaries-fund.html">Exploring Venture Secondaries Fund <span class="iarrow">↗</span></a></h3>
+          <h3><a class="ilink" href="/podcast/views/exploring-venture-secondaries-fund.html">Exploring Venture Secondaries Fund <span class="iarrow">→</span></a></h3>
           <p>Snapshot of the interview with Rando Rannus from Siena Secondary Fund.</p>
         </li>
         <li class="item">
           <span class="ikind">Interview</span>
-          <h3><a class="ilink" href="/podcast/views/exploring-secondaries-private-stock-insights.html">Secondaries: Private Stock Insights <span class="iarrow">↗</span></a></h3>
+          <h3><a class="ilink" href="/podcast/views/exploring-secondaries-private-stock-insights.html">Secondaries: Private Stock Insights <span class="iarrow">→</span></a></h3>
           <p>Snapshot of the interview with Sim Desai from Hiive.</p>
         </li>
       </ul>
@@ -364,17 +423,17 @@
         </li>
         <li class="item">
           <span class="ikind">Interview</span>
-          <h3><a class="ilink" href="/podcast/views/insights-into-corporate-venture-capital.html">Insights Into CVC <span class="iarrow">↗</span></a></h3>
+          <h3><a class="ilink" href="/podcast/views/insights-into-corporate-venture-capital.html">Insights Into CVC <span class="iarrow">→</span></a></h3>
           <p>Snapshot of the interview with Nicolas Sauvage from TDK Ventures.</p>
         </li>
         <li class="item">
           <span class="ikind">Interview</span>
-          <h3><a class="ilink" href="/podcast/views/democratisation-of-venture-capital.html">Democratisation <span class="iarrow">↗</span></a></h3>
+          <h3><a class="ilink" href="/podcast/views/democratisation-of-venture-capital.html">Democratisation <span class="iarrow">→</span></a></h3>
           <p>Snapshot of the interview with Michael Motschmann from MIG Capital.</p>
         </li>
         <li class="item">
           <span class="ikind">Interview</span>
-          <h3><a class="ilink" href="/podcast/views/rise-of-tools-for-private-markets.html">Rise of Tools for Private Markets <span class="iarrow">↗</span></a></h3>
+          <h3><a class="ilink" href="/podcast/views/rise-of-tools-for-private-markets.html">Rise of Tools for Private Markets <span class="iarrow">→</span></a></h3>
           <p>Snapshot of the interview with Eric Woo from Revere.</p>
         </li>
       </ul>
@@ -412,5 +471,20 @@
   </div>
 </footer>
 
+<script>
+/* Mobile menu: the three-line button opens and closes the top bar links. */
+(function(){
+  var outer=document.querySelector('.nav-outer'); if(!outer) return;
+  var btn=outer.querySelector('.burger'), panel=document.getElementById('mnav'); if(!btn||!panel) return;
+  function set(open){
+    outer.classList.toggle('nav-open',open); panel.hidden=!open;
+    btn.setAttribute('aria-expanded',String(open)); btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  }
+  btn.addEventListener('click',function(){ set(panel.hidden); });
+  panel.addEventListener('click',function(e){ if(e.target.closest('a')) set(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!panel.hidden){ set(false); btn.focus(); } });
+  window.addEventListener('resize',function(){ if(window.innerWidth>900&&!panel.hidden) set(false); });
+})();
+</script>
 </body>
 </html>

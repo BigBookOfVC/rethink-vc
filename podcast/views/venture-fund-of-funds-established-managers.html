@@ -275,6 +275,53 @@
  .av.noimg .avatar{display:none}
  .av.noimg .mono{display:flex}
 </style>
+<style id="site-nav">
+/* Shared top bar. Loaded after each page's own styles so every page gets the
+   exact same nav as the home page, plus the mobile menu. */
+.nav-outer{position:sticky;top:0;z-index:50;background:rgba(6,20,23,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid rgba(190,230,235,.2)}
+.nav-outer>.wrap{max-width:none!important;width:auto!important;margin:0!important;padding:0!important}
+.nav-outer nav{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;margin:0!important;padding:20px 40px!important;min-height:0!important;border:0!important;max-width:none!important}
+.nav-outer .brand{display:flex!important;align-items:center!important;gap:10px!important;color:#fff!important;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace!important;font-size:15.2px!important;font-weight:500!important;letter-spacing:.16em!important;text-transform:uppercase!important;line-height:1.5!important;white-space:nowrap}
+.nav-outer .brand svg{display:block;flex:none}
+.nav-outer .menu{display:flex!important;align-items:center!important;gap:30px!important;color:#dff1f3!important;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace!important;font-size:11.52px!important;font-weight:400!important;letter-spacing:.11em!important;text-transform:uppercase!important;line-height:1.6!important}
+.nav-outer .menu a{padding:4px 0!important;border:0!important;border-bottom:1px solid transparent!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important;text-decoration:none!important;white-space:nowrap}
+.nav-outer .menu a:hover,.nav-outer .menu a[aria-current="page"]{border-bottom-color:#f88a63!important}
+.nav-outer .actions{display:flex!important;align-items:center!important;gap:10px!important}
+.nav-outer .btn,.mnav .btn{display:inline-block!important;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace!important;font-size:11.2px!important;letter-spacing:.12em!important;text-transform:uppercase!important;line-height:1.6!important;border-radius:2px!important;padding:9px 15px!important;border:1px solid rgba(190,230,235,.2)!important;background:transparent!important;color:#fff!important;font-weight:400!important;white-space:nowrap;text-decoration:none!important}
+.nav-outer .btn:hover,.mnav .btn:hover{border-color:#8fc9d1!important}
+.nav-outer .btn-solid,.mnav .btn-solid{background:#f88a63!important;border-color:#f88a63!important;color:#160b05!important;font-weight:500!important}
+.nav-outer .btn-solid:hover,.mnav .btn-solid:hover{background:#ffa580!important;border-color:#ffa580!important}
+
+/* three-line button, hidden on wide screens */
+.burger{display:none;flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(190,230,235,.28);background:transparent;color:#fff;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.burger span{display:block;width:16px;height:1.5px;background:currentColor;border-radius:1px;transition:transform .2s,opacity .2s}
+.burger:hover{border-color:#8fc9d1}
+.nav-open .burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.nav-open .burger span:nth-child(2){opacity:0}
+.nav-open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+
+.mnav{display:none;border-top:1px solid rgba(190,230,235,.11);padding:8px 24px 24px}
+.mnav[hidden]{display:none!important}
+.mnav a.ml{display:block;padding:14px 0;border-bottom:1px solid rgba(190,230,235,.11);color:#dff1f3;font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.11em;text-transform:uppercase;text-decoration:none}
+.mnav a.ml:hover{color:#f88a63}
+.mnav .mact{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+
+@media (max-width:900px){
+  .nav-outer nav{padding:14px 24px!important}
+  .nav-outer .menu{display:none!important}
+  .nav-outer .actions .btn:not(.btn-solid){display:none!important}
+  .burger{display:inline-flex}
+  .nav-open .mnav:not([hidden]){display:block}
+}
+@media (max-width:520px){
+  .nav-outer .actions{display:none!important}
+}
+@media (min-width:901px){ .mnav{display:none!important} }
+
+/* small, thin outbound arrow after linked names */
+.xa{display:inline-block;width:.62em;height:.62em;margin-left:.22em;vertical-align:.12em;opacity:.55;fill:none;stroke:currentColor;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+a:hover .xa{opacity:.9}
+</style>
 </head>
 <body>
 
@@ -297,7 +344,19 @@
     <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
     <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
   </div>
-</nav></div></div>
+
+  <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+</nav>
+<div class="mnav" id="mnav" hidden>
+  <a class="ml" href="/about/">About</a>
+  <a class="ml" href="/content/">Contents</a>
+  <a class="ml" href="/podcast/">Expert Views</a>
+  <a class="ml" href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">The Big Book of VC</a>
+  <div class="mact">
+    <a class="btn btn-solid" href="https://docsend.com/v/7vk3c/rethink?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Download the report</a>
+    <a class="btn" href="https://yadavrohit.substack.com/subscribe/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Subscribe</a>
+  </div>
+</div></div></div>
 
 <div class="wrap">
  <p class="crumb"><a href="/podcast/">← ALL EPISODES</a></p>
@@ -355,13 +414,13 @@
    <h4>GUEST</h4>
    <div class="who">
     <img class="avatar" src="/assets/img/people/david-clark.jpg" alt="">
-    <div><p class="n"><a href="https://www.linkedin.com/in/david-clark-6678b6b/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">David Clark ↗</a></p><p class="r">CIO, <a href="https://www.vencap.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">VenCap International ↗</a></p></div>
+    <div><p class="n"><a href="https://www.linkedin.com/in/david-clark-6678b6b/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">David Clark<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p><p class="r">CIO, <a href="https://www.vencap.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">VenCap International<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p></div>
    </div>
 
    <h4>HOST</h4>
    <div class="who">
     <span class="av"><img class="avatar" src="/assets/img/people/rohit-yadav.jpg" alt="" onerror="this.closest('.av').classList.add('noimg')"><span class="mono" aria-hidden="true">RY</span></span>
-    <div><p class="n"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Rohit Yadav ↗</a></p><p class="r">Investments thought leader, <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Big Book of VC ↗</a></p></div>
+    <div><p class="n"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Rohit Yadav<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p><p class="r">Investments thought leader, <a href="https://www.bigbook.vc/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Big Book of VC<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a></p></div>
    </div>
 
    <hr>
@@ -453,32 +512,32 @@
     <div class="mgroup">
      <h3>FIRMS &amp; FUNDS</h3>
      <div class="mitem"><span class="mkind">FUND OF FUNDS</span>
-      <div><p class="mname"><a href="https://www.vencap.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">VenCap International ↗</a><span class="t">00:01</span></p>
+      <div><p class="mname"><a href="https://www.vencap.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">VenCap International<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a><span class="t">00:01</span></p>
        <p class="mdesc">$2.9bn committed to 450+ venture funds since 1989; started life as a secondary firm.</p></div></div>
      <div class="mitem"><span class="mkind">COMPANY</span>
       <div><p class="mname">Wiz<span class="t">06:15</span></p>
        <p class="mdesc">The $32bn acquisition used as the reference case, and as an anomaly, at five years old.</p></div></div>
      <div class="mitem"><span class="mkind">FIRM</span>
-      <div><p class="mname"><a href="https://www.insightpartners.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Insight Partners ↗</a><span class="t">06:15</span></p>
+      <div><p class="mname"><a href="https://www.insightpartners.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Insight Partners<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a><span class="t">06:15</span></p>
        <p class="mdesc">Cited as a great return that still wasn't fund-returning against a $10bn fund.</p></div></div>
      <div class="mitem"><span class="mkind">FIRM</span>
-      <div><p class="mname"><a href="https://group.softbank/en/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">SoftBank ↗</a>, <a href="https://www.tigerglobal.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Tiger Global ↗</a><span class="t">07:16</span></p>
+      <div><p class="mname"><a href="https://group.softbank/en/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">SoftBank<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a>, <a href="https://www.tigerglobal.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Tiger Global<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a><span class="t">07:16</span></p>
        <p class="mdesc">Named as too large to generate fund-returning outcomes from single positions.</p></div></div>
      <div class="mitem"><span class="mkind">FIRM</span>
-      <div><p class="mname"><a href="https://www.sequoiacap.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Sequoia ↗</a>, <a href="https://www.indexventures.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Index Ventures ↗</a>, <a href="https://cyberstarts.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Cyberstarts ↗</a><span class="t">49:05</span></p>
-       <p class="mdesc">The seed investors in <a href="https://www.wiz.io/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Wiz ↗</a>, including two global platform firms.</p></div></div>
+      <div><p class="mname"><a href="https://www.sequoiacap.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Sequoia<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a>, <a href="https://www.indexventures.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Index Ventures<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a>, <a href="https://cyberstarts.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Cyberstarts<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a><span class="t">49:05</span></p>
+       <p class="mdesc">The seed investors in <a href="https://www.wiz.io/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Wiz<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a>, including two global platform firms.</p></div></div>
      <div class="mitem"><span class="mkind">INSTITUTION</span>
-      <div><p class="mname"><a href="https://www.british-business-bank.co.uk/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">British Business Bank ↗</a>, <a href="https://www.eif.org/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">EIF ↗</a><span class="t">50:58</span></p>
+      <div><p class="mname"><a href="https://www.british-business-bank.co.uk/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">British Business Bank<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a>, <a href="https://www.eif.org/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">EIF<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a><span class="t">50:58</span></p>
        <p class="mdesc">Named as government-sponsored organisations in the UK and Europe when discussing what different LPs are trying to achieve.</p></div></div>
     </div>
 
     <div class="mgroup">
      <h3>PEOPLE</h3>
      <div class="mitem"><span class="mkind">GUEST</span>
-      <div><p class="mname"><a href="https://www.linkedin.com/in/david-clark-6678b6b/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">David Clark ↗</a><span class="t">00:45</span></p>
+      <div><p class="mname"><a href="https://www.linkedin.com/in/david-clark-6678b6b/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">David Clark<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a><span class="t">00:45</span></p>
        <p class="mdesc">CIO, VenCap International.</p></div></div>
      <div class="mitem"><span class="mkind">HOST</span>
-      <div><p class="mname"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Rohit Yadav ↗</a><span class="t">00:00</span></p>
+      <div><p class="mname"><a href="https://www.linkedin.com/in/rohityadav23/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Rohit Yadav<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a><span class="t">00:00</span></p>
        <p class="mdesc">Investments thought leader, Big Book of VC.</p></div></div>
      <div class="mitem"><span class="mkind">QUOTED</span>
       <div><p class="mname">Chris Douvos<span class="t">24:19</span></p>
@@ -500,7 +559,7 @@
       <div><p class="mname">Indexing the seed market<span class="t">20:04</span></p>
        <p class="mdesc">One family office backs managers with non-overlapping portfolios across the ~2,000 companies funded at seed over three years, for a 95% confidence level of the aggregate market return.</p></div></div>
      <div class="mitem"><span class="mkind">DATA</span>
-      <div><p class="mname"><a href="https://carta.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Carta ↗</a><span class="t">25:15</span></p>
+      <div><p class="mname"><a href="https://carta.com/?utm_source=bigbook.vc&utm_medium=referral&utm_campaign=rethink" target="_blank" rel="noopener">Carta<svg class="xa" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8L8 2M3.5 2H8v4.5"/></svg></a><span class="t">25:15</span></p>
        <p class="mdesc">Their fund performance data, the seed to Series A graduation rate, and the first-time funds that aren't going to raise second funds.</p></div></div>
      <div class="mitem"><span class="mkind">SNAPSHOT</span>
       <div><p class="mname"><a href="/podcast/views/venture-fund-of-funds-established-managers.html">Venture Fund-of-Funds: Established Managers →</a><span class="t">, </span></p>
@@ -638,6 +697,21 @@ function wireframe(box, opts){
 var playerArt = document.querySelector('[data-art="player"]');
 if(playerArt) wireframe(playerArt,
  {layers:14, lobes:3, k:0.34, kSwing:0.06, fill:0.44, spin:-0.04, spread:0.6, dots:0, seed:20, alpha:0.55});
+</script>
+<script>
+/* Mobile menu: the three-line button opens and closes the top bar links. */
+(function(){
+  var outer=document.querySelector('.nav-outer'); if(!outer) return;
+  var btn=outer.querySelector('.burger'), panel=document.getElementById('mnav'); if(!btn||!panel) return;
+  function set(open){
+    outer.classList.toggle('nav-open',open); panel.hidden=!open;
+    btn.setAttribute('aria-expanded',String(open)); btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  }
+  btn.addEventListener('click',function(){ set(panel.hidden); });
+  panel.addEventListener('click',function(e){ if(e.target.closest('a')) set(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!panel.hidden){ set(false); btn.focus(); } });
+  window.addEventListener('resize',function(){ if(window.innerWidth>900&&!panel.hidden) set(false); });
+})();
 </script>
 </body>
 </html>
